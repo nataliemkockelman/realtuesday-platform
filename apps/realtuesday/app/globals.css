@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: theme('colors.navy');
+    color: theme('colors.cream');
+    font-family: theme('fontFamily.body');
+    font-feature-settings: 'cv11', 'ss01', 'ss03'; /* Inter humanist alts */
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: theme('colors.copper');
+    color: theme('colors.navy');
+  }
+
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+@layer utilities {
+  /* Mono eyebrow — small, all-caps, wide letterspacing */
+  .eyebrow-mono {
+    font-family: theme('fontFamily.mono');
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: theme('colors.bright-copper');
+  }
+
+  /* Copper hairline rule used under hero + section titles */
+  .rule-copper {
+    display: block;
+    height: 2px;
+    width: 40px;
+    background-color: theme('colors.copper');
+  }
+}

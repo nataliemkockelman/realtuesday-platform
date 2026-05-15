@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: theme('colors.navy');
+    color: theme('colors.cream');
+    font-family: theme('fontFamily.body');
+    font-feature-settings: 'cv11', 'ss01', 'ss03'; /* Inter humanist alts */
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: theme('colors.coral');
+    color: theme('colors.cream');
+  }
+
+  /* Render images crisp on the navy background */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+@layer utilities {
+  /* Mono eyebrow — small, all-caps, wide letterspacing label */
+  .eyebrow-mono {
+    font-family: theme('fontFamily.mono');
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: theme('colors.coral-light');
+  }
+
+  /* Coral hairline rule used under hero titles */
+  .rule-coral {
+    display: block;
+    height: 2px;
+    width: 40px;
+    background-color: theme('colors.coral');
+  }
+}

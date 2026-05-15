@@ -1,0 +1,27 @@
+{
+  "name": "realtuesday-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Monorepo for themotherload.co, realtuesday.co, and the admin dashboard.",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:motherload": "turbo run dev --filter=themotherload",
+    "dev:realtuesday": "turbo run dev --filter=realtuesday",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,css}\"",
+    "fonts:install": "node scripts/install-fonts.mjs"
+  },
+  "devDependencies": {
+    "prettier": "3.3.3",
+    "prettier-plugin-tailwindcss": "0.6.8",
+    "turbo": "2.1.3",
+    "typescript": "5.5.4"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.9"
+}
