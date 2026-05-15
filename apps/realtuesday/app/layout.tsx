@@ -3,7 +3,9 @@ import { fontVariables } from './fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://realtuesday.co'),
+  // Canonical site URL. Used to absolutize relative OG image paths so
+  // social previews resolve correctly when posted off-site.
+  metadataBase: new URL('https://arealtuesday.com'),
   title: {
     default: 'real Tuesday — a studio making things worth your Tuesday',
     template: '%s · real Tuesday',

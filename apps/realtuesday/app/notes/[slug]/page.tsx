@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getNote, getAllNoteSlugs } from '@/lib/notes';
 import { FoilText } from '@/components/foil-text';
+import { SiteNav } from '@/components/site-nav';
+import { SiteFooter } from '@/components/site-footer';
 
 /**
  * /notes/[slug] — single post.
@@ -51,28 +53,23 @@ export default async function NotePage({ params }: { params: { slug: string } })
 
   return (
     <main className="min-h-screen">
-      <nav className="px-6 pt-12 pb-4 sm:px-8">
-        <div className="mx-auto flex max-w-content items-center justify-between">
-          <Link
-            href="/"
-            aria-label="real Tuesday — home"
-            className="relative flex h-8 w-8 items-center justify-center rounded bg-cream text-navy"
-          >
-            <span className="font-display text-base font-extrabold leading-none tracking-[-0.05em]">
-              rT
-            </span>
-            <span className="absolute bottom-[5px] left-[5px] h-[1.5px] w-[6px] bg-copper" />
-          </Link>
+      <SiteNav />
+
+      {/* Inline "← all notes" link above the article header so single-post
+          visitors have a clear path back to the index. Sits below the
+          top nav for a tighter back-to-context move. */}
+      <div className="px-6 pt-2 sm:px-8">
+        <div className="mx-auto max-w-content">
           <Link
             href="/notes"
-            className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-bright-copper no-underline"
+            className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-bright-copper no-underline transition-opacity hover:opacity-70"
           >
             ← all notes
           </Link>
         </div>
-      </nav>
+      </div>
 
-      <article className="px-6 pt-8 pb-7 sm:px-8 sm:pt-12">
+      <article className="px-6 pt-6 pb-7 sm:px-8 sm:pt-8">
         <div className="mx-auto max-w-[680px]">
           <header className="mb-7">
             <div className="mb-7 flex items-center justify-between">
@@ -119,20 +116,7 @@ export default async function NotePage({ params }: { params: { slug: string } })
         </div>
       </article>
 
-      <footer className="mt-7 px-6 pt-7 pb-7 sm:px-8">
-        <div className="mx-auto flex max-w-content items-end justify-between border-t border-soft-gold/15 pt-7">
-          <div className="font-serif text-[11px] italic leading-[1.5] text-bright-copper">
-            <em>real Tuesday</em>
-            <br />
-            est · sioux falls
-          </div>
-          <div className="text-right font-mono text-[8px] uppercase tracking-mono-label text-soft-gold">
-            © 2026
-            <br />
-            Sioux Falls, SD
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

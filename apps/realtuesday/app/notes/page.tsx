@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllNotes } from '@/lib/notes';
 import { FoilText } from '@/components/foil-text';
+import { SiteNav } from '@/components/site-nav';
+import { SiteFooter } from '@/components/site-footer';
 
 /**
  * /notes — index of all newsletter posts.
@@ -24,26 +26,7 @@ export default async function NotesIndexPage() {
 
   return (
     <main className="min-h-screen">
-      <nav className="px-6 pt-12 pb-4 sm:px-8">
-        <div className="mx-auto flex max-w-content items-center justify-between">
-          <Link
-            href="/"
-            aria-label="real Tuesday — home"
-            className="relative flex h-8 w-8 items-center justify-center rounded bg-cream text-navy"
-          >
-            <span className="font-display text-base font-extrabold leading-none tracking-[-0.05em]">
-              rT
-            </span>
-            <span className="absolute bottom-[5px] left-[5px] h-[1.5px] w-[6px] bg-copper" />
-          </Link>
-          <Link
-            href="/"
-            className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-bright-copper no-underline"
-          >
-            ← back
-          </Link>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="px-6 pt-8 pb-9 sm:px-8 sm:pt-12">
         <div className="mx-auto max-w-content">
@@ -109,20 +92,7 @@ export default async function NotesIndexPage() {
         </div>
       </section>
 
-      <footer className="mt-7 px-6 pt-7 pb-7 sm:px-8">
-        <div className="mx-auto flex max-w-content items-end justify-between border-t border-soft-gold/15 pt-7">
-          <div className="font-serif text-[11px] italic leading-[1.5] text-bright-copper">
-            <em>real Tuesday</em>
-            <br />
-            est · sioux falls
-          </div>
-          <div className="text-right font-mono text-[8px] uppercase tracking-mono-label text-soft-gold">
-            © 2026
-            <br />
-            Sioux Falls, SD
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

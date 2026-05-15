@@ -1,4 +1,6 @@
 import { FoilText } from '@/components/foil-text';
+import { SiteNav } from '@/components/site-nav';
+import { SiteFooter } from '@/components/site-footer';
 
 /**
  * Home page — matches realtuesday-site-mockup.html structure.
@@ -24,7 +26,7 @@ export default function HomePage() {
       <Hero />
       <Portfolio />
       <NewsletterBlock />
-      <Footer />
+      <SiteFooter />
     </main>
   );
 }
@@ -32,31 +34,6 @@ export default function HomePage() {
 /* -------------------------------------------------------------------------- */
 /*  Nav                                                                       */
 /* -------------------------------------------------------------------------- */
-
-function SiteNav() {
-  return (
-    <nav className="px-6 pt-12 pb-4 sm:px-8">
-      <div className="mx-auto flex max-w-content items-center justify-between">
-        {/* rT submark — cream square with the copper hairline under it */}
-        <a
-          href="/"
-          aria-label="real Tuesday — home"
-          className="relative flex h-8 w-8 items-center justify-center rounded bg-cream text-navy"
-        >
-          <span className="font-display text-base font-extrabold leading-none tracking-[-0.05em]">
-            rT
-          </span>
-          <span className="absolute bottom-[5px] left-[5px] h-[1.5px] w-[6px] bg-copper" />
-        </a>
-        {/* 2-bar menu glyph. No menu functionality yet — site is 3 pages. */}
-        <div className="flex flex-col gap-1" aria-hidden>
-          <span className="h-[1.5px] w-[22px] bg-cream" />
-          <span className="h-[1.5px] w-[22px] bg-cream" />
-        </div>
-      </div>
-    </nav>
-  );
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Hero                                                                      */
@@ -333,21 +310,5 @@ function NewsletterForm() {
 /*  Footer                                                                    */
 /* -------------------------------------------------------------------------- */
 
-function Footer() {
-  return (
-    <footer className="mt-7 px-6 pt-7 pb-7 sm:px-8">
-      <div className="mx-auto flex max-w-content items-end justify-between border-t border-soft-gold/15 pt-7">
-        <div className="font-serif text-[11px] italic leading-[1.5] text-bright-copper">
-          <em>real Tuesday</em>
-          <br />
-          est · sioux falls
-        </div>
-        <div className="text-right font-mono text-[8px] uppercase tracking-mono-label text-soft-gold">
-          © 2026
-          <br />
-          Sioux Falls, SD
-        </div>
-      </div>
-    </footer>
-  );
-}
+/* Footer moved to components/site-footer.tsx so /about, /contact, /notes
+   all share the same lockup. */
