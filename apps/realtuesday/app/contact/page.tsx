@@ -46,8 +46,21 @@ export default function ContactPage() {
 
           <span className="rule-copper mt-3 mb-[22px]" />
 
-          <p className="mb-12 max-w-prose font-serif italic text-lg leading-[1.45] text-soft-gold sm:text-xl">
+          <p className="mb-6 max-w-prose font-serif italic text-lg leading-[1.45] text-soft-gold sm:text-xl">
             Press, collabs, working with us, or just saying hi. Real responses, no auto-replies.
+          </p>
+
+          {/* Direct-email fallback for visitors who hate forms (most of them).
+              Mailto opens whatever default client they use. */}
+          <p className="mb-12 max-w-prose font-body text-sm leading-[1.55] text-blush sm:text-base">
+            Or just email us directly at{' '}
+            <a
+              href="mailto:hi@arealtuesday.com"
+              className="font-mono text-copper underline decoration-copper/40 underline-offset-[3px] hover:text-bright-copper"
+            >
+              hi@arealtuesday.com
+            </a>
+            .
           </p>
 
           {/* Two-column on desktop: form left, "what to expect" sidebar right.

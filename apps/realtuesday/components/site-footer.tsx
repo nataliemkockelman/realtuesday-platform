@@ -39,6 +39,13 @@ export function SiteFooter() {
             <em>real Tuesday</em>
             <br />
             est · sioux falls
+            <br />
+            <a
+              href="mailto:hi@arealtuesday.com"
+              className="font-mono not-italic text-[10px] uppercase tracking-mono-button text-copper hover:text-bright-copper"
+            >
+              hi@arealtuesday.com
+            </a>
           </div>
           <div className="text-right font-mono text-[8px] uppercase tracking-mono-label text-soft-gold">
             © 2026
