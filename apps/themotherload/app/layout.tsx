@@ -2,8 +2,18 @@ import type { Metadata, Viewport } from 'next';
 import { fontVariables } from './fonts';
 import './globals.css';
 
+// Until themotherload.co is pointed at Vercel, OG/icon URLs need to resolve
+// against the live deployment. Vercel sets VERCEL_PROJECT_PRODUCTION_URL on
+// every build (the production alias, no protocol). Fall back to the custom
+// domain so the metadata is correct once DNS is wired up.
+const productionUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'https://themotherload.vercel.app');
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://themotherload.co'),
+  metadataBase: new URL(productionUrl),
   title: {
     default: 'the Motherload — for moms running the whole damn show',
     template: '%s · the Motherload',
