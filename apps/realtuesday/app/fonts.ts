@@ -78,6 +78,19 @@ export const inter = localFont({
   ],
 });
 
+// Mint Condition sub-brand display. Surfaces on the parent portfolio card
+// for the wordmark only; Mint Condition's own site (when built) carries
+// the full type system (Space Grotesk + Crimson Pro + DM Mono).
+export const spaceGrotesk = localFont({
+  variable: '--font-space-grotesk',
+  display: 'swap',
+  src: [
+    { path: './fonts/files/SpaceGrotesk-Medium.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/files/SpaceGrotesk-SemiBold.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/files/SpaceGrotesk-Bold.woff2', weight: '700', style: 'normal' },
+  ],
+});
+
 export const fontVariables = [
   dmSerif.variable,
   caveat.variable,
@@ -85,4 +98,5 @@ export const fontVariables = [
   bricolage.variable,
   jetbrains.variable,
   inter.variable,
+  spaceGrotesk.variable,
 ].join(' ');

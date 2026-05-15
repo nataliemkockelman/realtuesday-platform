@@ -33,6 +33,10 @@ const FAMILIES = [
   { spec: 'Bricolage+Grotesque:wght@400;500;600;700;800', base: 'BricolageGrotesque' },
   { spec: 'JetBrains+Mono:wght@400;500;600;700', base: 'JetBrainsMono' },
   { spec: 'Inter:wght@400;500;600;700', base: 'Inter' },
+  // Mint Condition sub-brand — display wordmark (Space Grotesk 600/700)
+  // surfaces on the parent portfolio card; editorial (Crimson Pro italic)
+  // and utility (DM Mono) ship when Mint Condition's own site lands.
+  { spec: 'Space+Grotesk:wght@500;600;700', base: 'SpaceGrotesk' },
 ];
 
 const WEIGHT_NAME = {

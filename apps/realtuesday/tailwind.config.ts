@@ -1,5 +1,9 @@
 import type { Config } from 'tailwindcss';
 
+// Relative content paths resolve against PostCSS's CWD. `next build` and
+// `next dev` both run from the app project root (where this file lives),
+// so `./app/...` is correct in production (Vercel) and local dev.
+
 /**
  * Tailwind tokens for realtuesday.co (parent brand).
  *
@@ -12,6 +16,9 @@ import type { Config } from 'tailwindcss';
  * fills only (rules, hairlines, button accents).
  */
 const config: Config = {
+  // Absolute paths so Tailwind finds source files regardless of which
+  // directory `next dev` was launched from (preview tools, monorepo CI,
+  // etc may set CWD elsewhere).
   content: [
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -30,10 +37,16 @@ const config: Config = {
         cream: '#F6F1E8',
         bone: '#EBE4D8',
         // Sub-brands — surfaced on home portfolio cards
+        // Motherload (live)
         coral: '#C75D4A',
         'coral-light': '#E8826E',
         peach: '#FFB89E',
         blush: '#E8C5BD',
+        // Mint Condition (coming soon — "a real tuesday thing" for dads)
+        mint: '#A8C8A0',
+        'mint-sage': '#6B8A6E',
+        'mint-navy': '#1C3A52',
+        'mint-paper': '#F7F5EC',
       },
       fontFamily: {
         // Parent display — bold lowercase wordmark
@@ -42,6 +55,8 @@ const config: Config = {
         serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
         // Sub-brand display (Motherload card uses DM Serif Italic)
         'ml-display': ['var(--font-dm-serif)', 'Georgia', 'serif'],
+        // Mint Condition sub-brand display (wordmark, headlines)
+        'mc-display': ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
         // Handwritten accent ("the" on Motherload card)
         script: ['var(--font-caveat)', 'cursive'],
         // Utility — labels, eyebrows, CTAs
@@ -55,7 +70,13 @@ const config: Config = {
         'section-xl': ['clamp(40px, 11vw, 72px)', { lineHeight: '0.95', letterSpacing: '-0.04em' }],
       },
       letterSpacing: {
+        // 0.2em — buttons, brand-cta. Mockup CSS uses this on .cta-primary,
+        // .cta-secondary, .brand-cta, .brand-audience.
+        'mono-button': '0.2em',
+        // 0.25em — generic small-cap labels (.brand-status, footer-right).
         'mono-label': '0.25em',
+        // 0.3em — hero/section eyebrows (.hero-eyebrow, .section-eyebrow,
+        // .nl-eyebrow, .news-title-eyebrow).
         'mono-eyebrow': '0.3em',
       },
       maxWidth: {
