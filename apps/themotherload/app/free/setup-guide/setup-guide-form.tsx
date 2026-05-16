@@ -3,10 +3,11 @@
 import { SubscribeForm } from '@/components/subscribe-form';
 
 const PDF_PATH = '/free-downloads/claude-meet-your-family.pdf';
-// Static HTML served from /public via a next.config rewrite so the URL is
-// clean (no .html). Plain <a> rather than next/link — it's a cross-system
-// link, not a Next.js route, and typedRoutes wouldn't know about it.
-const CONTEXT_BUILDER_PATH = '/context-builder';
+// Static HTML in /public. Plain <a> rather than next/link — it's a
+// cross-system link, not a Next.js route, and typedRoutes wouldn't know
+// about it. Linking with the .html extension matches Mint and dodges
+// the next.config rewrite path entirely.
+const CONTEXT_BUILDER_PATH = '/context-builder.html';
 
 interface SetupGuideFormProps {
   /** Distinguishes hero vs final-capture form for analytics + a11y ids. */
@@ -72,7 +73,7 @@ export function SetupGuideForm({ position }: SetupGuideFormProps) {
               href={CONTEXT_BUILDER_PATH}
               className="inline-flex items-center justify-center gap-2 rounded bg-coral px-5 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
-              Skip the typing — use the form <span aria-hidden="true">&rarr;</span>
+              Use the context builder <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </div>

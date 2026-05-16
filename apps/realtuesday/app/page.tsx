@@ -47,13 +47,17 @@ function Hero() {
           — est · sioux falls —
         </p>
 
+        {/* Hero typography scales up aggressively on desktop so the
+            wordmark fills the centered max-w-content column rather than
+            hugging the left edge of a too-wide gutter. Mobile keeps the
+            mockup-faithful 92px size. */}
         <h1>
-          <span className="mb-1 block font-display text-[92px] font-extrabold leading-[0.85] tracking-[-0.06em] lowercase text-cream sm:text-[128px]">
+          <span className="mb-1 block font-display text-[92px] font-extrabold leading-[0.85] tracking-[-0.06em] lowercase text-cream sm:text-[160px] lg:text-[200px]">
             real
           </span>
           <FoilText
             variant="copper"
-            className="block font-serif italic font-normal text-[92px] leading-[1] tracking-[-0.03em] pb-3.5 sm:text-[128px]"
+            className="block font-serif italic font-normal text-[92px] leading-[1] tracking-[-0.03em] pb-3.5 sm:text-[160px] lg:text-[200px]"
           >
             Tuesday
           </FoilText>

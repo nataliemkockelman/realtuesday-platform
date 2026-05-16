@@ -160,21 +160,20 @@ export default function SetupGuidePage() {
         <section className="px-6 pb-12 sm:px-8 sm:pb-16">
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">&mdash; or skip the typing &mdash;</p>
-            {/* Plain <a> — /context-builder is a static HTML file in /public
-                served via a next.config rewrite, NOT a Next.js route, so
-                typedRoutes shouldn't and doesn't know about it. */}
+            {/* Plain <a> — context-builder.html is a static file in /public,
+                NOT a Next.js route, so typedRoutes shouldn't (and doesn't)
+                know about it. */}
             <a
-              href="/context-builder"
+              href="/context-builder.html"
               className="group block rounded-xl border border-coral/30 bg-navy/40 p-6 transition-colors hover:border-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy sm:p-8"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
                 <div className="max-w-prose">
                   <h3 className="font-ml-display text-[24px] italic leading-tight text-cream sm:text-[28px]">
-                    Don&rsquo;t feel like typing? Use the form.
+                    Skip the typing. Use the context builder.
                   </h3>
                   <p className="mt-2 font-serif text-[15px] italic leading-relaxed text-blush sm:text-[16px]">
-                    Same questions as the workbook, just clickable. Fill it out, click export,
-                    paste the result into Claude. Done.
+                    Fills in for you. Copy, paste, done.
                   </p>
                 </div>
                 <span

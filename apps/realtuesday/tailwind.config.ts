@@ -1,8 +1,13 @@
 import type { Config } from 'tailwindcss';
+import { join } from 'node:path';
 
-// Relative content paths resolve against PostCSS's CWD. `next build` and
-// `next dev` both run from the app project root (where this file lives),
-// so `./app/...` is correct in production (Vercel) and local dev.
+// Anchor content paths to this config file's directory (`__dirname`) so
+// PostCSS finds source files regardless of what CWD the dev server or
+// build was launched from. Tailwind's config loader runs the file through
+// jiti (CJS-style), so __dirname is defined. This works on Vercel (build
+// CWD = app dir) and locally (where the preview launcher's CWD may be
+// the monorepo root or anywhere else).
+const here = (...p: string[]) => join(__dirname, ...p);
 
 /**
  * Tailwind tokens for realtuesday.co (parent brand).
@@ -20,9 +25,9 @@ const config: Config = {
   // directory `next dev` was launched from (preview tools, monorepo CI,
   // etc may set CWD elsewhere).
   content: [
-    './app/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './lib/**/*.{ts,tsx}',
+    here('app/**/*.{ts,tsx}'),
+    here('components/**/*.{ts,tsx}'),
+    here('lib/**/*.{ts,tsx}'),
   ],
   theme: {
     extend: {
