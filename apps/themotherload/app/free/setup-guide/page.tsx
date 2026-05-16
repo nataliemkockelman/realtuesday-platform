@@ -125,7 +125,10 @@ export default function SetupGuidePage() {
         </section>
 
         {/* ─── HONEST TIME ESTIMATE ────────────────────────── */}
-        <section className="px-6 pb-12 sm:px-8 sm:pb-16">
+        {/* border-t hairline + pt creates a visible break between this
+            navy section and the previous one — without that, the
+            deliverables list runs straight into the time-estimate. */}
+        <section className="border-t border-coral/15 px-6 pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-14">
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">&mdash; the honest time estimate &mdash;</p>
             <h2 className="mb-2 max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-cream">
@@ -139,7 +142,9 @@ export default function SetupGuidePage() {
               {TIME_BLOCKS.map((block, i) => (
                 <li
                   key={i}
-                  className="rounded-lg border border-coral/20 bg-navy/40 px-5 py-5"
+                  // bg-white/[0.04] lifts the card just enough to read off
+                  // the navy field. Stronger coral border for definition.
+                  className="rounded-lg border border-coral/40 bg-white/[0.04] px-5 py-5"
                 >
                   <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-label text-coral-light">
                     {block.mono}
@@ -157,7 +162,7 @@ export default function SetupGuidePage() {
         </section>
 
         {/* ─── CONTEXT BUILDER CARD ────────────────────────── */}
-        <section className="px-6 pb-12 sm:px-8 sm:pb-16">
+        <section className="border-t border-coral/15 px-6 pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-14">
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">&mdash; or skip the typing &mdash;</p>
             {/* Plain <a> — context-builder.html is a static file in /public,
@@ -165,7 +170,7 @@ export default function SetupGuidePage() {
                 know about it. */}
             <a
               href="/context-builder.html"
-              className="group block rounded-xl border border-coral/30 bg-navy/40 p-6 transition-colors hover:border-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy sm:p-8"
+              className="group block rounded-xl border border-coral/50 bg-white/[0.04] p-6 transition-colors hover:border-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy sm:p-8"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
                 <div className="max-w-prose">
@@ -188,7 +193,7 @@ export default function SetupGuidePage() {
         </section>
 
         {/* ─── PAID PRODUCT TEE-UP ─────────────────────────── */}
-        <section className="px-6 pb-12 sm:px-8 sm:pb-16">
+        <section className="border-t border-coral/15 px-6 pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-14">
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">&mdash; what&rsquo;s next &mdash;</p>
             <h2 className="max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-cream">
