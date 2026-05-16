@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useState, type FormEvent, type ReactNode } from 'react';
 
 export type SubscribeSource =
   | 'home-hero'
@@ -14,6 +14,14 @@ interface SubscribeFormProps {
   placeholder?: string;
   /** Submit button label (mono uppercase). */
   submitLabel?: string;
+  /**
+   * Custom success UI. Replaces the default "On its way" line.
+   * Lead-magnet pages use this to render a download CTA + next-step links.
+   * Receives the submitted email so it can be referenced in the success copy.
+   */
+  successContent?: ReactNode | ((args: { email: string }) => ReactNode);
+  /** Called once the API returns ok. Lead-magnet pages use this to trigger a PDF download. */
+  onSuccess?: (args: { email: string }) => void;
 }
 
 type Status =
@@ -29,8 +37,13 @@ export function SubscribeForm({
   source,
   placeholder = 'your email',
   submitLabel = 'Send it over',
+  successContent,
+  onSuccess,
 }: SubscribeFormProps) {
   const [email, setEmail] = useState('');
+  // Captured at submit time so successContent can reference the email
+  // after the input has been cleared.
+  const [submittedEmail, setSubmittedEmail] = useState('');
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -55,8 +68,10 @@ export function SubscribeForm({
         });
         return;
       }
+      setSubmittedEmail(trimmed);
       setStatus({ kind: 'success' });
       setEmail('');
+      onSuccess?.({ email: trimmed });
     } catch {
       setStatus({
         kind: 'error',
@@ -66,6 +81,15 @@ export function SubscribeForm({
   }
 
   if (status.kind === 'success') {
+    if (successContent) {
+      return (
+        <>
+          {typeof successContent === 'function'
+            ? successContent({ email: submittedEmail })
+            : successContent}
+        </>
+      );
+    }
     return (
       <p className="font-serif text-[14px] italic leading-snug text-navy">
         On its way. Check your inbox in a minute.
