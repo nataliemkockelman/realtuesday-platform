@@ -43,21 +43,21 @@ export const LEAD_MAGNETS: Record<string, LeadMagnet> = {
   // Registered so /api/subscribe accepts `{ lead_magnet: 'setup-guide' }`.
   // The /free/setup-guide route is a hand-built static page (not rendered by
   // /free/[slug]), so most fields here are only used by the welcome-email
-  // logic. Keep `accent` as the clean PDF title — it becomes the subject line.
+  // logic. `accent` becomes the welcome-email subject line.
   'setup-guide': {
     slug: 'setup-guide',
-    eyebrow: 'free workbook',
-    title: 'the',
-    accent: 'AI Calendar Cheat.',
+    eyebrow: 'free \u00b7 start here',
+    title: 'Claude,',
+    accent: 'Meet Your Family.',
     intro:
-      'Part 1: set up Claude to know your family. About 20 minutes start to finish.',
+      'Set up Claude to know your family in about 20 minutes. Then it stops making you re-explain your life.',
     inside: [
       'The 10-minute Claude account setup — what to install, what to skip',
       'The Family Context Doc template — fill-in-the-blank, no blank page',
       'The 5 test prompts that prove it worked (or tell you what to fix)',
       'Where to save it so it actually gets used every week',
     ],
-    submitLabel: 'Send me the workbook',
+    submitLabel: 'Send me the setup guide',
     microcopy: 'No spam. Unsubscribe anytime.',
   },
 };

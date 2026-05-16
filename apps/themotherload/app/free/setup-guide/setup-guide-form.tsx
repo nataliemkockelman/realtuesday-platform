@@ -2,7 +2,7 @@
 
 import { SubscribeForm } from '@/components/subscribe-form';
 
-const PDF_PATH = '/free-downloads/ai-calendar-cheat-part-1.pdf';
+const PDF_PATH = '/free-downloads/claude-meet-your-family.pdf';
 // Static HTML served from /public via a next.config rewrite so the URL is
 // clean (no .html). Plain <a> rather than next/link — it's a cross-system
 // link, not a Next.js route, and typedRoutes wouldn't know about it.
@@ -31,13 +31,13 @@ export function SetupGuideForm({ position }: SetupGuideFormProps) {
     <SubscribeForm
       source={{ lead_magnet: 'setup-guide' }}
       placeholder="your email"
-      submitLabel="Send me the workbook"
+      submitLabel="Send me the setup guide"
       onSuccess={() => {
         // Trigger a download via a synthesized anchor so the browser treats
         // it as the natural same-origin download flow rather than a navigation.
         const a = document.createElement('a');
         a.href = PDF_PATH;
-        a.download = 'ai-calendar-cheat-part-1.pdf';
+        a.download = 'claude-meet-your-family.pdf';
         a.rel = 'noopener';
         document.body.appendChild(a);
         a.click();
@@ -54,7 +54,7 @@ export function SetupGuideForm({ position }: SetupGuideFormProps) {
           data-position={position}
         >
           <p className="font-ml-display text-[24px] italic leading-[1.1] text-navy sm:text-[28px]">
-            Check your email. The workbook is on its way.
+            Check your email. The setup guide is on its way.
           </p>
           <p className="mt-3 font-serif text-[15px] italic leading-snug text-navy/70">
             We also kicked off the download. Didn&rsquo;t happen?{' '}

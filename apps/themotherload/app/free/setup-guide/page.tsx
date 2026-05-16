@@ -5,34 +5,34 @@ import { FoilText } from '@/components/foil-text';
 import { SetupGuideForm } from './setup-guide-form';
 
 /**
- * /free/setup-guide — Part 1 setup workbook landing page.
+ * /free/setup-guide — Claude, Meet Your Family (free setup guide).
  *
  * Static route — takes precedence over /free/[slug] for this exact path.
  * The slug is still registered in lib/lead-magnets.ts so /api/subscribe
  * validates `{ lead_magnet: 'setup-guide' }` submissions; the page itself
  * does NOT consume the LEAD_MAGNETS entry because the content here is
  * richer than the dynamic template supports (time-estimate strip,
- * context-builder section, Part 2 tee-up, two captures).
+ * context-builder section, paid-product tee-up, two captures).
  *
  * TODO(content): The "what you walk away with" bullets are inferred from
- * the workbook's premise (Part 1 = setup). Swap with the verbatim list
- * from Section 01 of AI-Calendar-Cheat-Part-1-Setup.pdf once it's read.
+ * the workbook's premise (setting up Claude with family context). Swap
+ * with the verbatim list from Section 01 of the workbook PDF once read.
  */
 
-// Title is split per the brand kit: cream lead + coral foil on the second
-// half. "Calendar Cheat" (14 chars) is the longest foiled word — its size
-// drives the clamp below, since the SVG <text> doesn't wrap.
-const WORKBOOK_TITLE_LEAD = 'the AI';
-const WORKBOOK_TITLE_FOIL = 'Calendar Cheat';
+// Title is split: cream lead + coral foil on the second half. "Meet Your
+// Family" (16 chars) is the longest foiled word — its size drives the
+// clamp below, since the SVG <text> doesn't wrap.
+const WORKBOOK_TITLE_LEAD = 'Claude,';
+const WORKBOOK_TITLE_FOIL = 'Meet Your Family.';
 
 export const metadata: Metadata = {
-  title: 'the AI Calendar Cheat — free Part 1 setup workbook',
+  title: 'Claude, Meet Your Family — free setup guide',
   description:
-    'Set up Claude to know your family in about 20 minutes. Free Part 1 workbook from the Motherload.',
+    'Set up Claude to know your family in about 20 minutes. Free setup guide from the Motherload.',
   openGraph: {
-    title: 'the AI Calendar Cheat — free Part 1 setup workbook',
+    title: 'Claude, Meet Your Family — free setup guide',
     description:
-      'Set up Claude to know your family in about 20 minutes. Free Part 1 workbook from the Motherload.',
+      'Set up Claude to know your family in about 20 minutes. Free setup guide from the Motherload.',
   },
 };
 
@@ -57,11 +57,12 @@ export default function SetupGuidePage() {
         {/* ─── HERO ────────────────────────────────────────── */}
         <section className="px-6 pb-10 pt-7 sm:px-8 sm:pt-10">
           <div className="mx-auto max-w-content">
-            <p className="eyebrow-mono mb-3">free workbook</p>
+            <p className="eyebrow-mono mb-3">free &middot; start here</p>
 
-            {/* Two-line title: cream "the AI" + coral foil "Calendar Cheat".
-                Sized down at the small end so 14 chars of foil fit at 375px. */}
-            <h1 className="font-ml-display text-[clamp(40px,10vw,80px)] italic leading-[0.95] text-cream">
+            {/* Two-line title: cream "Claude," + coral foil "Meet Your Family."
+                Sized so "Meet Your Family." (16 chars + final period) fits
+                at 375px without wrapping the SVG <text>. */}
+            <h1 className="font-ml-display text-[clamp(36px,9vw,72px)] italic leading-[0.95] text-cream">
               <span className="block">{WORKBOOK_TITLE_LEAD}</span>
               <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
                 {WORKBOOK_TITLE_FOIL}
@@ -71,8 +72,8 @@ export default function SetupGuidePage() {
             <span className="rule-coral mb-5 mt-6" aria-hidden="true" />
 
             <p className="max-w-prose font-serif text-lg italic leading-relaxed text-blush sm:text-xl">
-              Set up Claude to know your family in about 20 minutes. Then your calendar can actually
-              start running itself.
+              The setup guide. 20 minutes. Then Claude knows your kids, your schedule, your
+              standards &mdash; and stops making you re-explain your life every time you open a chat.
             </p>
 
             {/* Hero email capture — cream block interrupts the navy column,
@@ -187,19 +188,19 @@ export default function SetupGuidePage() {
           </div>
         </section>
 
-        {/* ─── PART 2 TEE-UP ───────────────────────────────── */}
+        {/* ─── PAID PRODUCT TEE-UP ─────────────────────────── */}
         <section className="px-6 pb-12 sm:px-8 sm:pb-16">
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">&mdash; what&rsquo;s next &mdash;</p>
             <h2 className="max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-cream">
-              Part 2 is the calendar system.
+              The AI Calendar Cheat is the next step.
             </h2>
             <p className="mt-4 max-w-prose font-serif text-[17px] italic leading-relaxed text-blush">
-              The whole AI Calendar Cheat — every prompt, every weekly rhythm, every shortcut I
-              actually use. On the email list, you&rsquo;ll hear first.
+              Once Claude knows your family, the calendar system is where the time savings live —
+              every prompt, every weekly rhythm, every shortcut I actually use.
             </p>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-mono-label text-coral-light">
-              Coming soon
+              Coming soon &middot; on the email list, you&rsquo;ll hear first
             </p>
           </div>
         </section>
@@ -215,7 +216,7 @@ export default function SetupGuidePage() {
                 last call
               </p>
               <h2 className="mb-2.5 mt-2 font-ml-display text-[28px] italic leading-[1.05] text-navy sm:text-[32px]">
-                Send me the workbook.
+                Send me the setup guide.
               </h2>
               <p className="mb-5 font-serif text-[14px] italic leading-normal text-navy/60">
                 Twenty minutes from now you could be done with this part. Drop your email.
