@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { FoilText } from '@/components/foil-text';
-import { SetupGuideForm } from './setup-guide-form';
+import { SubscribeForm } from '@/components/subscribe-form';
 
 /**
  * /free/setup-guide — Claude, Meet Your Family (free setup guide).
@@ -76,22 +76,26 @@ export default function SetupGuidePage() {
               standards &mdash; and stops making you re-explain your life every time you open a chat.
             </p>
 
-            {/* Hero email capture — cream block interrupts the navy column,
-                same -mx-6 sm:-mx-8 trick used elsewhere on the site. */}
-            <div className="-mx-6 mt-8 rounded-xl bg-cream px-6 pb-10 pt-9 text-navy sm:-mx-8 sm:px-8">
-              <p
-                className="inline-block font-script text-[22px] font-semibold leading-none text-coral"
-                style={{ transform: 'rotate(-2deg)' }}
+            {/* Two CTAs — primary coral pill download, secondary text link
+                to the context builder. No email gate; the PDF and the form
+                are both gifts. Mirrors the home Hero's coral pill + ghost
+                link pattern so the buttons feel native to the brand. */}
+            <div className="mt-8 flex flex-wrap items-center gap-2">
+              <a
+                href="/free-downloads/claude-meet-your-family.pdf"
+                download
+                className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
               >
-                drop your email
-              </p>
-              <h2 className="mb-2.5 mt-2 font-ml-display text-[28px] italic leading-[1.05] text-navy sm:text-[32px]">
-                One email. PDF lands in your inbox in 60 seconds.
-              </h2>
-              <SetupGuideForm position="hero" />
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-mono-label text-navy/60">
-                No spam. Unsubscribe anytime.
-              </p>
+                Download the setup guide
+                <span aria-hidden="true">&darr;</span>
+              </a>
+              <a
+                href="/context-builder.html"
+                className="inline-flex items-center gap-2 px-3 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-peach transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
+              >
+                Or use the context builder
+                <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </div>
         </section>
@@ -208,36 +212,38 @@ export default function SetupGuidePage() {
               every prompt, every weekly rhythm, every shortcut I actually use.
             </p>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-mono-label text-coral-light">
-              Coming soon &middot; on the email list, you&rsquo;ll hear first
+              Coming soon
             </p>
           </div>
         </section>
 
-        {/* ─── FINAL EMAIL CAPTURE ─────────────────────────── */}
-        <section className="px-6 pb-16 pt-2 sm:px-8 sm:pb-24">
+        {/* ─── OPTIONAL: PART 2 NOTIFICATION ───────────────── */}
+        {/* Soft email ask in a compact cream card — intentionally smaller
+            than the hero CTAs and not full-bleed (this is opt-in, not the
+            main attraction). SubscribeForm posts to /api/subscribe with
+            source: 'home-email-capture' (newsletter, not lead-magnet). */}
+        <section className="px-6 pb-16 pt-4 sm:px-8 sm:pb-24">
           <div className="mx-auto max-w-content">
-            <div className="-mx-6 rounded-xl bg-cream px-6 pb-10 pt-9 text-navy sm:-mx-8 sm:px-8">
-              <p
-                className="inline-block font-script text-[22px] font-semibold leading-none text-coral"
-                style={{ transform: 'rotate(-2deg)' }}
-              >
-                last call
+            <div className="rounded-xl bg-cream px-6 pb-8 pt-7 text-navy sm:px-8 sm:pb-10 sm:pt-9">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-mono-eyebrow text-coral">
+                &mdash; optional &mdash;
               </p>
-              <h2 className="mb-2.5 mt-2 font-ml-display text-[28px] italic leading-[1.05] text-navy sm:text-[32px]">
-                Send me the setup guide.
+              <h2 className="mt-3 font-ml-display text-[22px] italic leading-tight text-navy sm:text-[26px]">
+                Hear first when the AI Calendar Cheat ships.
               </h2>
-              <p className="mb-5 font-serif text-[14px] italic leading-normal text-navy/60">
-                Twenty minutes from now you could be done with this part. Drop your email.
+              <p className="mb-5 mt-2 font-serif text-[14px] italic leading-relaxed text-navy/60">
+                One email when it&rsquo;s ready. Nothing else.
               </p>
-              <SetupGuideForm position="final" />
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-mono-label text-navy/60">
-                No spam. Unsubscribe anytime.
-              </p>
+              <SubscribeForm
+                source="home-email-capture"
+                placeholder="your email"
+                submitLabel="Notify me"
+              />
             </div>
 
             {/* Caveat tagline that lives at the bottom of every Motherload page */}
             <p
-              className="mt-10 text-center font-script text-[26px] leading-none text-coral-light"
+              className="mt-14 text-center font-script text-[26px] leading-none text-coral-light"
               style={{ transform: 'rotate(-1.5deg)', transformOrigin: 'center' }}
             >
               for moms running the whole damn show
