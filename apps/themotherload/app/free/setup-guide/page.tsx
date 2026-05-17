@@ -97,35 +97,33 @@ export default function SetupGuidePage() {
         </section>
 
         {/* ─── WHAT YOU WALK AWAY WITH ─────────────────────── */}
-        {/* Cream-on-navy panel. Same -mx + bg-cream + text-navy pattern
-            the email-capture islands use, scaled up to wrap a full body
-            section so the page actually breathes between navy passages. */}
-        <section className="px-6 pb-12 pt-2 sm:px-8 sm:pb-16">
+        {/* Full-bleed cream section. bg-cream sits on the <section> itself
+            so it stretches to the viewport edges; content stays centered
+            inside max-w-content. No rounded inner panel. */}
+        <section className="bg-cream px-6 pb-14 pt-12 text-navy sm:px-8 sm:pb-20 sm:pt-16">
           <div className="mx-auto max-w-content">
-            <div className="-mx-6 rounded-xl bg-cream px-6 pb-12 pt-10 text-navy sm:-mx-8 sm:px-10 sm:pb-14 sm:pt-12">
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-eyebrow text-coral">
-                &mdash; what you walk away with &mdash;
-              </p>
-              <h2 className="mb-7 mt-3 max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-navy">
-                Four things, fully done. Not homework.
-              </h2>
-              <ul className="space-y-3">
-                {DELIVERABLES.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-4 font-serif text-[17px] italic leading-snug text-navy"
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-eyebrow text-coral">
+              &mdash; what you walk away with &mdash;
+            </p>
+            <h2 className="mb-7 mt-3 max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-navy">
+              Four things, fully done. Not homework.
+            </h2>
+            <ul className="space-y-3">
+              {DELIVERABLES.map((item, i) => (
+                <li
+                  key={i}
+                  className="flex gap-4 font-serif text-[17px] italic leading-snug text-navy"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-1 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full border border-coral font-mono text-[11px] font-semibold not-italic text-coral"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="mt-1 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full border border-coral font-mono text-[11px] font-semibold not-italic text-coral"
-                    >
-                      {String(i + 1).padStart(2, '0').slice(-1)}
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                    {String(i + 1).padStart(2, '0').slice(-1)}
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -165,39 +163,36 @@ export default function SetupGuidePage() {
           </div>
         </section>
 
-        {/* ─── CONTEXT BUILDER CARD ────────────────────────── */}
-        {/* Second cream panel — splits up the navy time-estimate above and
-            the navy Part 2 tee-up below. */}
-        <section className="px-6 pb-12 sm:px-8 sm:pb-16">
+        {/* ─── CONTEXT BUILDER ─────────────────────────────── */}
+        {/* Second full-bleed cream section. */}
+        <section className="bg-cream px-6 pb-14 pt-12 text-navy sm:px-8 sm:pb-20 sm:pt-16">
           <div className="mx-auto max-w-content">
-            <div className="-mx-6 rounded-xl bg-cream px-6 pb-10 pt-9 text-navy sm:-mx-8 sm:px-10 sm:pb-12 sm:pt-10">
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-eyebrow text-coral">
-                &mdash; or skip the typing &mdash;
-              </p>
-              {/* Plain <a> — context-builder.html is a static file in /public,
-                  NOT a Next.js route, so typedRoutes shouldn't know. */}
-              <a
-                href="/context-builder.html"
-                className="group mt-4 block rounded-lg border border-coral/40 bg-coral/[0.06] p-5 transition-colors hover:border-coral hover:bg-coral/[0.1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-cream sm:p-6"
-              >
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
-                  <div className="max-w-prose">
-                    <h3 className="font-ml-display text-[24px] italic leading-tight text-navy sm:text-[28px]">
-                      Skip the typing. Use the context builder.
-                    </h3>
-                    <p className="mt-2 font-serif text-[15px] italic leading-relaxed text-navy/70 sm:text-[16px]">
-                      Fills in for you. Copy, paste, done.
-                    </p>
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex flex-none items-center gap-2 self-start font-mono text-[11px] font-semibold uppercase tracking-mono-label text-coral transition-transform group-hover:translate-x-1"
-                  >
-                    Open the builder &rarr;
-                  </span>
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-eyebrow text-coral">
+              &mdash; or skip the typing &mdash;
+            </p>
+            {/* Plain <a> — context-builder.html is a static file in /public,
+                NOT a Next.js route, so typedRoutes shouldn't know. */}
+            <a
+              href="/context-builder.html"
+              className="group mt-4 block rounded-lg border border-coral/40 bg-coral/[0.06] p-5 transition-colors hover:border-coral hover:bg-coral/[0.1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-cream sm:p-6"
+            >
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
+                <div className="max-w-prose">
+                  <h3 className="font-ml-display text-[24px] italic leading-tight text-navy sm:text-[28px]">
+                    Skip the typing. Use the context builder.
+                  </h3>
+                  <p className="mt-2 font-serif text-[15px] italic leading-relaxed text-navy/70 sm:text-[16px]">
+                    Fills in for you. Copy, paste, done.
+                  </p>
                 </div>
-              </a>
-            </div>
+                <span
+                  aria-hidden="true"
+                  className="inline-flex flex-none items-center gap-2 self-start font-mono text-[11px] font-semibold uppercase tracking-mono-label text-coral transition-transform group-hover:translate-x-1"
+                >
+                  Open the builder &rarr;
+                </span>
+              </div>
+            </a>
           </div>
         </section>
 
