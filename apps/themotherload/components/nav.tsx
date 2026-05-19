@@ -25,6 +25,7 @@ const NAV_LINKS = [
   { href: '/products', label: 'Products' },
   { href: '/about', label: 'About' },
   { href: '/free/setup-guide', label: 'Free Guide' },
+  { href: '/contact', label: 'Contact' },
 ] as const;
 
 export function Nav() {

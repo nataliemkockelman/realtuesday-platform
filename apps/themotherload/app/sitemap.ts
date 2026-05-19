@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/products/ai-calendar-cheat`, lastModified, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/free/setup-guide`, lastModified, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${baseUrl}/about`, lastModified, priority: 0.6, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/contact`, lastModified, priority: 0.5, changeFrequency: 'yearly' },
     { url: `${baseUrl}/privacy`, lastModified, priority: 0.2, changeFrequency: 'yearly' },
   ];
 

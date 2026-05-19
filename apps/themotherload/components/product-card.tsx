@@ -35,6 +35,8 @@ export interface FeaturedProductProps {
   buyUrl: string;
   /** Button label ("Get on Gumroad"). */
   buyLabel: string;
+  /** Optional ribbon text shown as a rotated foil sticker on the cover. */
+  ribbon?: string;
 }
 
 export function ProductCard(props: FeaturedProductProps) {
@@ -46,6 +48,7 @@ export function ProductCard(props: FeaturedProductProps) {
         titleLines={props.coverTitleLines}
         accent={props.coverAccent}
         tagline={props.coverTagline}
+        ribbon={props.ribbon}
       />
 
       <h3 className="mb-1.5 font-ml-display text-[22px] italic leading-tight text-cream">
@@ -82,7 +85,7 @@ interface CoverPreviewProps {
   tagline: string;
 }
 
-function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline }: CoverPreviewProps) {
+function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline, ribbon }: CoverPreviewProps & { ribbon?: string }) {
   return (
     <div
       // 4:3 instead of 3:4 — at desktop container width (~640px) a 3:4
@@ -103,8 +106,34 @@ function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline }: Co
             'radial-gradient(circle at 78% 22%, rgba(232,130,110,0.28) 0%, rgba(232,130,110,0.08) 28%, transparent 55%)',
         }}
       />
-      <div className="pointer-events-none absolute inset-x-6 bottom-[28%] h-px bg-coral/25 sm:inset-x-8" />
-      <div className="pointer-events-none absolute inset-x-6 bottom-[26%] h-px bg-coral/12 sm:inset-x-8" />
+      {/* Hairlines pulled — content height varies between covers and they
+          landed in different visual positions per card, which read as a bug.
+          The radial glow + SKU + ribbon do the editorial work alone. */}
+
+      {/* Foiled coral ribbon — top-right rotated sticker, only renders when a
+          ribbon string is passed (currently just the flagship card). The text
+          itself is foil-clipped via FoilText; the chip background stays clean
+          cream so the foil reads against navy. */}
+      {ribbon && (
+        <div
+          className="pointer-events-none absolute right-3 top-3 z-10 rounded-sm bg-cream px-2.5 py-1 shadow-[0_2px_8px_rgba(0,0,0,0.18)]"
+          style={{ transform: 'rotate(6deg)' }}
+        >
+          <span
+            className="block font-mono text-[10px] font-bold uppercase tracking-[0.22em]"
+            style={{
+              backgroundImage:
+                'linear-gradient(110deg, #B14E3D 0%, #C75D4A 30%, #E8826E 50%, #C75D4A 70%, #B14E3D 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: 'transparent',
+            }}
+          >
+            {ribbon}
+          </span>
+        </div>
+      )}
 
       {/* Top tag row — brand chip + sub-brand pill */}
       <div className="relative flex items-center justify-between">

@@ -33,6 +33,7 @@ export function FeaturedDrop() {
           coverTitleLines={['The whole', 'damn thing,']}
           coverAccent="handled."
           coverTagline="the whole system"
+          ribbon="the flagship"
           name="The Whole Damn Thing, Handled"
           description="The full Mom Command Center bundle — setup template, prompt library, color-code framework, and the AI Calendar Cheat. Run the family calendar off Claude, forever after."
           price="Coming Soon"

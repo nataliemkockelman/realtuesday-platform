@@ -44,8 +44,9 @@ export function ProductMini({ product }: { product: Product }) {
               'radial-gradient(circle at 78% 22%, rgba(232,130,110,0.26) 0%, rgba(232,130,110,0.07) 30%, transparent 58%)',
           }}
         />
-        <div className="pointer-events-none absolute inset-x-5 bottom-[34%] h-px bg-coral/25 sm:inset-x-7" />
-        <div className="pointer-events-none absolute inset-x-5 bottom-[31%] h-px bg-coral/12 sm:inset-x-7" />
+        {/* Hairlines pulled — they landed at different visual positions per
+            card because title content varies, which read as a layout bug.
+            Radial glow + SKU carry the editorial weight on their own. */}
 
         {/* Top tag row — Real Tuesday wordmark + Motherload pill */}
         <div className="relative flex items-center justify-between">

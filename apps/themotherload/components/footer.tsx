@@ -12,7 +12,7 @@ const LINKS = [
   { href: '/products', label: 'Products', external: false },
   { href: '/about', label: 'About', external: false },
   { href: '/free/setup-guide', label: 'Free Guide', external: false },
-  { href: 'mailto:hello@themomload.com', label: 'Contact', external: true },
+  { href: '/contact', label: 'Contact', external: false },
   { href: '/privacy', label: 'Privacy', external: false },
 ] as const;
 
