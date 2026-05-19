@@ -41,14 +41,20 @@ export interface FeaturedProductProps {
 
 export function ProductCard(props: FeaturedProductProps) {
   return (
-    <article className="rounded-xl border border-coral/20 bg-[#2A3450] p-6">
+    <article className="relative rounded-xl border border-coral/20 bg-[#2A3450] p-6">
+      {/* Foiled coral ribbon — peeks off the top-right corner of the entire
+          card (NOT the cover). Pulled out of the CoverPreview because it was
+          colliding with the "the Motherload" pill at top-right of the cover
+          on mobile. Sitting on the card edge instead gives both elements
+          breathing room and reads more like a real sticker on the package. */}
+      {props.ribbon && <FoilRibbon text={props.ribbon} />}
+
       <CoverPreview
         brandLabel={props.brandLabel}
         pillLabel={props.pillLabel}
         titleLines={props.coverTitleLines}
         accent={props.coverAccent}
         tagline={props.coverTagline}
-        ribbon={props.ribbon}
       />
 
       <h3 className="mb-1.5 font-ml-display text-[22px] italic leading-tight text-cream">
@@ -85,7 +91,7 @@ interface CoverPreviewProps {
   tagline: string;
 }
 
-function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline, ribbon }: CoverPreviewProps & { ribbon?: string }) {
+function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline }: CoverPreviewProps) {
   return (
     <div
       // 4:3 instead of 3:4 — at desktop container width (~640px) a 3:4
@@ -108,32 +114,7 @@ function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline, ribb
       />
       {/* Hairlines pulled — content height varies between covers and they
           landed in different visual positions per card, which read as a bug.
-          The radial glow + SKU + ribbon do the editorial work alone. */}
-
-      {/* Foiled coral ribbon — top-right rotated sticker, only renders when a
-          ribbon string is passed (currently just the flagship card). The text
-          itself is foil-clipped via FoilText; the chip background stays clean
-          cream so the foil reads against navy. */}
-      {ribbon && (
-        <div
-          className="pointer-events-none absolute right-3 top-3 z-10 rounded-sm bg-cream px-2.5 py-1 shadow-[0_2px_8px_rgba(0,0,0,0.18)]"
-          style={{ transform: 'rotate(6deg)' }}
-        >
-          <span
-            className="block font-mono text-[10px] font-bold uppercase tracking-[0.22em]"
-            style={{
-              backgroundImage:
-                'linear-gradient(105deg, #8B3D2E 0%, #B14E3D 20%, #C75D4A 38%, #F4A48C 47%, #FFE8DC 50%, #F4A48C 53%, #C75D4A 62%, #B14E3D 80%, #8B3D2E 100%)',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              color: 'transparent',
-            }}
-          >
-            {ribbon}
-          </span>
-        </div>
-      )}
+          The radial glow + SKU do the editorial work alone. */}
 
       {/* Top tag row — brand chip + sub-brand pill */}
       <div className="relative flex items-center justify-between">
@@ -176,6 +157,39 @@ function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline, ribb
       <p className="relative mt-4 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-coral/70 sm:text-[11px]">
         no. 01 · 2026
       </p>
+    </div>
+  );
+}
+
+/**
+ * Standalone foil ribbon — rotated cream sticker with coral-foil text,
+ * positioned to peek off the top-right corner of its parent card. Parent
+ * MUST be `relative` for the absolute positioning to anchor correctly.
+ *
+ * The foil gradient here is duplicated from FoilText's FOIL_GRADIENT constant
+ * (couldn't import it without exporting). If the foil palette changes in
+ * foil-text.tsx, update this string to match.
+ */
+function FoilRibbon({ text }: { text: string }) {
+  return (
+    <div
+      className="pointer-events-none absolute right-4 top-0 z-20 -translate-y-1/2 rounded-sm bg-cream px-3 py-1.5 shadow-[0_3px_10px_rgba(0,0,0,0.22)]"
+      style={{ transform: 'translateY(-50%) rotate(8deg)' }}
+      aria-hidden="true"
+    >
+      <span
+        className="block font-mono text-[10px] font-bold uppercase tracking-[0.22em] sm:text-[11px]"
+        style={{
+          backgroundImage:
+            'linear-gradient(105deg, #A04434 0%, #B14E3D 25%, #D8705C 50%, #B14E3D 75%, #A04434 100%)',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          color: 'transparent',
+        }}
+      >
+        {text}
+      </span>
     </div>
   );
 }
