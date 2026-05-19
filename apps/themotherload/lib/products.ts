@@ -25,6 +25,15 @@ export interface Product {
 
 export const PRODUCTS: Product[] = [
   {
+    slug: 'handled',
+    name: 'The Whole Damn Thing, Handled',
+    coverTitleLines: ['The whole', 'damn thing,'],
+    coverAccent: 'handled.',
+    price: '$12',
+    channel: 'Gumroad',
+    buyUrl: '/products/handled',
+  },
+  {
     slug: 'ai-calendar-cheat',
     name: 'AI Calendar Cheat',
     coverTitleLines: ['The AI'],

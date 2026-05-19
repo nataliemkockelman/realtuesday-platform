@@ -11,11 +11,17 @@ import type { Product } from '@/lib/products';
  * already announces the product to screen readers.
  */
 export function ProductMini({ product }: { product: Product }) {
+  // Internal landing-page URLs (e.g. "/products/handled") open in the same
+  // tab. External Gumroad/Etsy URLs open in a new tab.
+  const isInternal = product.buyUrl.startsWith('/');
+  const externalProps = isInternal
+    ? {}
+    : { target: '_blank' as const, rel: 'noopener noreferrer' };
+
   return (
     <a
       href={product.buyUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...externalProps}
       className="group block overflow-hidden rounded-[10px] border border-coral/15 bg-[#2A3450] transition-colors hover:border-coral/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
       aria-label={`${product.name} — ${product.price} on ${product.channel}`}
     >
