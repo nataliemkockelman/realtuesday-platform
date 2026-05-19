@@ -61,7 +61,7 @@ export default function AboutPage() {
                 by someone who has never been screamed at over the wrong color cup.
               </p>
               <p>
-                By day I&rsquo;m a COO. By every other waking minute I&rsquo;m the COO of
+                By day I&rsquo;m a COO. By every other waking minute I&rsquo;m the CCO of
                 this house &mdash; <em className="not-italic font-mono text-[14px] font-semibold uppercase tracking-mono-label text-coral-light">Chief Chaos Coordinator</em>,
                 by the actual job description. Different titles. Same job: running
                 operations for people who didn&rsquo;t read the manual and still expect

@@ -38,7 +38,7 @@ export function HomeAboutSnippet() {
         <span className="mb-5 mt-6 block h-[2px] w-10 bg-coral" aria-hidden="true" />
 
         <p className="max-w-prose font-serif text-[17px] italic leading-relaxed text-navy/75 sm:text-[18px]">
-          By day I&rsquo;m a COO. By every other waking minute I&rsquo;m the COO of this house
+          By day I&rsquo;m a COO. By every other waking minute I&rsquo;m the CCO of this house
           &mdash; the actual job description is Chief Chaos Coordinator. Different titles.
           Same job: running operations for people who didn&rsquo;t read the manual and still
           expect dinner. The Motherload is the small set of tools I built for myself to make
