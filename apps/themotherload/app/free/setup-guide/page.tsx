@@ -76,27 +76,32 @@ export default function SetupGuidePage() {
               standards &mdash; and stops making you re-explain your life every time you open a chat.
             </p>
 
-            {/* Two CTAs — primary coral pill download, secondary text link
-                to the context builder. No email gate; the PDF and the form
-                are both gifts. Mirrors the home Hero's coral pill + ghost
-                link pattern so the buttons feel native to the brand. */}
+            {/* Single primary CTA: start with the guide. The context builder
+                is a tool used INSIDE the guide (Section 06) — it is not an
+                alternative to the guide. A previous "OR use the context
+                builder" framing made people skip the guide, hit Copy on the
+                builder, and have no idea where to paste the result. The
+                builder link is kept as a quiet secondary for repeat visitors
+                who already know what they're doing. */}
             <div className="mt-8 flex flex-wrap items-center gap-2">
               <a
                 href="/free-downloads/claude-meet-your-family.pdf"
                 download
                 className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
               >
-                Download the setup guide
+                Start here. Download the guide.
                 <span aria-hidden="true">&darr;</span>
               </a>
+            </div>
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-mono-label text-peach/70">
+              Already done the setup?{' '}
               <a
                 href="/context-builder.html"
-                className="inline-flex items-center gap-2 px-3 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-peach transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
+                className="underline decoration-peach/40 underline-offset-4 transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
               >
-                Or use the context builder
-                <span aria-hidden="true">&rarr;</span>
+                Skip to the context builder &rarr;
               </a>
-            </div>
+            </p>
           </div>
         </section>
 
