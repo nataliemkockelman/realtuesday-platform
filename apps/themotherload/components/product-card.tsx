@@ -123,7 +123,7 @@ function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline, ribb
             className="block font-mono text-[10px] font-bold uppercase tracking-[0.22em]"
             style={{
               backgroundImage:
-                'linear-gradient(110deg, #B14E3D 0%, #C75D4A 30%, #E8826E 50%, #C75D4A 70%, #B14E3D 100%)',
+                'linear-gradient(105deg, #8B3D2E 0%, #B14E3D 20%, #C75D4A 38%, #F4A48C 47%, #FFE8DC 50%, #F4A48C 53%, #C75D4A 62%, #B14E3D 80%, #8B3D2E 100%)',
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
               WebkitTextFillColor: 'transparent',

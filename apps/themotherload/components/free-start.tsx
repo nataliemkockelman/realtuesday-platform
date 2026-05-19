@@ -23,7 +23,7 @@ export function FreeStart() {
 
         <h2 className="mt-3 font-ml-display text-[clamp(36px,9vw,72px)] italic leading-[0.95] text-navy">
           <span className="block">Claude,</span>
-          <FoilText solid italic className="block font-ml-display font-normal leading-[0.95]">
+          <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
             Meet Your Family.
           </FoilText>
         </h2>

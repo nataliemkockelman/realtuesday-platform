@@ -16,14 +16,17 @@
  *   • Don't recolor. Don't add shadows or outlines.
  */
 
-// Coral-only foil — no peach midstop. The original gradient ramped through
-// #FFB89E in the middle, which is ~equal-luminance to cream (#F6F1E8) and
-// disappeared against cream backgrounds. Natalie also prefers the punchier
-// coral read over peach. The new gradient stays inside the coral family
-// (deep coral → light coral → deep coral) so the shimmer is visible on
-// both navy and cream without losing the metallic foil feel.
+// Coral foil with a real highlight band. Previous version was a smooth 5-stop
+// coral ramp — Natalie's note: "seems more gradient than shimmer." Fixed by
+// concentrating the bright tone into a NARROW strip (45–55%) with sharp
+// falloff on both sides, plus darker edges to give the metallic depth.
+//
+// On navy: the cream-peach midstop reads as a bright shine catching light.
+// On cream: the midstop blends into the background, which is exactly what
+// real foil does when the lit angle matches the surface — the dark coral
+// edges still hold the text shape, and the "missing" middle reads as shine.
 const FOIL_GRADIENT =
-  'linear-gradient(110deg, #B14E3D 0%, #C75D4A 30%, #E8826E 50%, #C75D4A 70%, #B14E3D 100%)';
+  'linear-gradient(105deg, #8B3D2E 0%, #B14E3D 20%, #C75D4A 38%, #F4A48C 47%, #FFE8DC 50%, #F4A48C 53%, #C75D4A 62%, #B14E3D 80%, #8B3D2E 100%)';
 
 export interface FoilTextProps {
   children: string;
