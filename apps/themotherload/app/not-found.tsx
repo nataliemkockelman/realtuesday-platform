@@ -74,6 +74,6 @@ export default function NotFound() {
 const DESTINATIONS = [
   { href: '/', label: 'back to the home page' },
   { href: '/products', label: 'see what\u2019s in the shop' },
-  { href: '/free/sunday-reset', label: 'grab the free sunday reset' },
+  { href: '/free/setup-guide', label: 'grab the free setup guide' },
   { href: '/about', label: 'who\u2019s behind this' },
 ] as const;

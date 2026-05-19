@@ -5,7 +5,14 @@ import { Wordmark } from './wordmark';
  * Home hero. Mirrors the mockup left-aligned column on mobile, expands to a
  * comfortable max-width on desktop. The Caveat eyebrow ("finally —") sits
  * above the wordmark, then the coral hairline rule, the Fraunces italic
- * subhead, and finally the coral CTA + ghost CTA.
+ * subhead, and a single ghost link out to the shop.
+ *
+ * The free-guide CTA used to live here too. It was redundant — the
+ * FreeStart section directly below has its own "Get the setup guide" pill
+ * for the same destination, with proper product context (title,
+ * description, deliverables). Two coral pills to the same URL inside one
+ * scroll diluted both. The hero is now the brand entry; FreeStart is the
+ * pitch.
  *
  * The Wordmark component handles the handwritten "the" rotation and the
  * foil treatment on "Motherload" — see brand kit for why.
@@ -22,7 +29,6 @@ export function Hero() {
         </p>
 
         <h1 className="mt-1">
-          <span className="sr-only">the Motherload</span>
           <Wordmark size="hero" />
         </h1>
 
@@ -35,17 +41,10 @@ export function Hero() {
 
         <div className="flex flex-wrap items-center gap-2">
           <Link
-            href="/free/sunday-reset"
-            className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
-          >
-            Get the free cheat
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-          <Link
             href="/products"
-            className="inline-flex items-center gap-2 px-3 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-peach transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
+            className="inline-flex items-center gap-2 px-0 py-3 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-coral-light underline decoration-coral/40 underline-offset-[6px] transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
           >
-            see all
+            See the shop
             <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>

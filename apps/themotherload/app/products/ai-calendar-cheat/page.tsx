@@ -4,80 +4,56 @@ import { Footer } from '@/components/footer';
 import { FoilText } from '@/components/foil-text';
 
 /**
- * /products/handled — "The Whole Damn Thing, Handled" (paid calendar setup guide).
+ * /products/ai-calendar-cheat — standalone one-page printable.
  *
- * The whole-cal asset. They do NOT download the PDF from this page. Buy
- * happens on Gumroad/Etsy; this page sells the asset and bounces them out.
- * Replace BUY_URL when the Gumroad/Etsy link is live.
+ * Structure mirrors /products/handled (hero → what's inside → companion note
+ * → final CTA) so the two product pages feel like siblings. Critical
+ * positioning: this is a COMPONENT of Handled, not a separate system. The
+ * companion section explicitly links upward to the bundle.
  */
 
-// Replace with the live Gumroad or Etsy URL when checkout is set up.
-const BUY_URL = 'https://gumroad.com/themotherload/handled';
-const BUY_CHANNEL = 'Gumroad'; // or 'Etsy'
-// Handled is the full bundle: setup template, prompt library, color-code
-// framework, AND the calendar cheat. The bundle isn't packaged yet, so
-// the landing page exists in "coming soon" mode — price reads as such
-// across PRODUCTS, the home featured drop, and this page's CTA copy.
-const PRICE = 'Coming Soon';
+// Live channel link gets dropped in once Gumroad is set up.
+const BUY_URL = 'https://gumroad.com/themotherload/ai-calendar-cheat';
+const PRICE = '$12';
 
-const TITLE_LEAD = 'The whole damn thing,';
-const TITLE_FOIL = 'handled.';
+const TITLE_LEAD = 'The AI Calendar';
+const TITLE_FOIL = 'Cheat.';
 
 const INSIDE = [
   {
-    eyebrow: 'SECTION 02',
-    title: 'The connector.',
-    note: 'Three clicks to plug Claude into Google Calendar or Outlook. Including the iCloud workaround.',
+    eyebrow: 'THE LAYOUT',
+    title: 'One page. Front and back.',
+    note: 'Print it, slide it under the fridge magnet, done. No app, no system to maintain.',
   },
   {
-    eyebrow: 'SECTIONS 03 — 05',
-    title: 'Build the shared cal, name it, set up the category colors.',
-    note: 'School, birthdays, custody, travel. The four buckets every blended family runs on.',
+    eyebrow: 'THE PROMPTS',
+    title: 'Seven copy-paste prompts.',
+    note: 'The exact ones that turn a screenshot, a school PDF, or a coach text into calendar events.',
   },
   {
-    eyebrow: 'SECTIONS 06 — 07',
-    title: 'The standing stuff and the four house rules.',
-    note: 'Recurring practices, custody weeks, work blocks. Plus the rules that keep Claude from making a mess.',
+    eyebrow: 'THE RULES',
+    title: 'The four house rules.',
+    note: 'Quick reference for the boundaries that keep Claude from making a mess of the family cal.',
   },
   {
-    eyebrow: 'SECTION 08',
-    title: 'The four ways to feed it.',
-    note: 'Excel. PDF. Screenshot. Just talking. Whatever showed up in your inbox, Claude can use it.',
-  },
-  {
-    eyebrow: 'SECTION 09',
-    title: 'The setup prompt.',
-    note: 'One copy-paste block. Fill in the brackets, drop it in Claude, done teaching.',
-  },
-  {
-    eyebrow: 'SECTIONS 10 — 11',
-    title: 'Two ways to build it once. Project or Skill.',
-    note: 'Both methods walked through, both work entirely inside the Claude app. No terminal required.',
-  },
-  {
-    eyebrow: 'SECTIONS 12 — 13',
-    title: 'The blended-house deep cut.',
-    note: 'The Tangerine rule for custody. The screenshot-the-stipulation shortcut for holiday rotations through 2030.',
-  },
-  {
-    eyebrow: 'SECTION 14',
-    title: 'Five prompts to run the day you set it up.',
-    note: 'The ones that teach Claude your patterns fastest.',
+    eyebrow: 'THE COLOR KEY',
+    title: 'The four buckets.',
+    note: 'School, birthdays, custody, travel — the only category system most families ever need.',
   },
 ];
 
 export const metadata: Metadata = {
-  title: 'The Whole Damn Thing, Handled',
+  title: 'The AI Calendar Cheat',
   description:
-    'The full Mom Command Center bundle: setup template, prompt library, color-code framework, and the AI Calendar Cheat. Run the family calendar off Claude.',
+    'The one-page calendar cheat. The system on a fridge magnet — seven prompts, four rules, four colors. Or get it bundled in Handled.',
   openGraph: {
-    title: 'The Whole Damn Thing, Handled · the Motherload',
+    title: 'The AI Calendar Cheat · the Motherload',
     description:
-      'The full system, not just the cheat — setup, prompts, color framework, and the calendar cheat sheet. Run the family calendar off Claude.',
+      'Just the one-page printable. Seven prompts, four rules, four colors. The system on a fridge magnet.',
   },
 };
 
-export default function HandledProductPage() {
+export default function AiCalendarCheatPage() {
   return (
     <>
       <Nav />
@@ -85,7 +61,7 @@ export default function HandledProductPage() {
         {/* ─── HERO ────────────────────────────────────────── */}
         <section className="px-6 pb-10 pt-7 sm:px-8 sm:pt-10">
           <div className="mx-auto max-w-content">
-            <p className="eyebrow-mono mb-3">paid &middot; setup guide no. 02</p>
+            <p className="eyebrow-mono mb-3">paid &middot; one-page printable</p>
 
             <h1 className="font-ml-display text-[clamp(36px,9vw,72px)] italic leading-[0.95] text-cream">
               <span className="block">{TITLE_LEAD}</span>
@@ -97,9 +73,9 @@ export default function HandledProductPage() {
             <span className="rule-coral mb-5 mt-6" aria-hidden="true" />
 
             <p className="max-w-prose font-serif text-lg italic leading-relaxed text-blush sm:text-xl">
-              The family calendar, off your plate. Fifteen minutes to teach Claude your house.
-              Forever after, you hand off the spreadsheet, the school PDF, the screenshot from the
-              coach &mdash; and Claude puts it on the cal.
+              The system on a fridge magnet. Seven copy-paste prompts, four house rules, the
+              color key &mdash; everything you need to actually run the family calendar off
+              Claude, on a single printable page.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -109,24 +85,25 @@ export default function HandledProductPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
               >
-                Get notified when it ships
+                Get the Cheat &mdash; {PRICE}
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-mono-label text-peach/70">
               Delivered as a PDF after checkout. Not downloaded from this site.
             </p>
-            {/* Cheat-as-component note — Handled bundles the AI Calendar Cheat
-                inside the full system. Anyone who only wants the cheat can
-                still get it standalone at the lower price. */}
+            {/* Component-of-Handled note — the Cheat lives inside the full
+                bundle. Anyone considering buying both should go to Handled. */}
             <p className="mt-4 max-w-prose font-serif text-[14px] italic leading-snug text-blush">
-              Includes the AI Calendar Cheat.{' '}
+              This is a component of{' '}
               <a
-                href="/products/ai-calendar-cheat"
+                href="/products/handled"
                 className="text-coral-light underline-offset-4 hover:underline"
               >
-                If you want just that, get it on its own here &rarr;
+                The Whole Damn Thing, Handled
               </a>
+              . If you want the full system &mdash; setup, prompts, color framework, and the
+              cheat &mdash; get the bundle instead.
             </p>
           </div>
         </section>
@@ -135,22 +112,19 @@ export default function HandledProductPage() {
         <section className="bg-cream px-6 pb-14 pt-12 text-navy sm:px-8 sm:pb-20 sm:pt-16">
           <div className="mx-auto max-w-content">
             <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-eyebrow text-coral">
-              &mdash; what&rsquo;s inside &mdash;
+              &mdash; what&rsquo;s on it &mdash;
             </p>
             <h2 className="mb-7 mt-3 max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-navy">
-              Sixteen pages. Eight working sections.
+              One page. Everything you actually need.
             </h2>
             <p className="mb-8 max-w-prose font-serif text-[16px] italic leading-relaxed text-navy/80">
-              No filler. No 30-page intro. Just the moves, in order, with the exact prompts you
-              paste and the exact rules that keep Claude from making a mess of your cal.
+              No filler. No system to learn. Print it, stick it on the fridge, and pull a
+              prompt off it when you need one.
             </p>
 
             <ul className="space-y-5">
               {INSIDE.map((item, i) => (
-                <li
-                  key={i}
-                  className="border-l-2 border-coral pl-5"
-                >
+                <li key={i} className="border-l-2 border-coral pl-5">
                   <p className="font-mono text-[10px] font-semibold uppercase tracking-mono-label text-coral">
                     {item.eyebrow}
                   </p>
@@ -166,23 +140,26 @@ export default function HandledProductPage() {
           </div>
         </section>
 
-        {/* ─── PRE-REQ NOTE ────────────────────────────────── */}
+        {/* ─── COMPANION — UPSELL TO HANDLED ────────────────── */}
         <section className="px-6 pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-14">
           <div className="mx-auto max-w-content">
-            <p className="eyebrow-mono mb-3">&mdash; one thing first &mdash;</p>
+            <p className="eyebrow-mono mb-3">&mdash; the bigger thing &mdash;</p>
             <h2 className="mb-3 max-w-prose font-ml-display text-[clamp(24px,5.5vw,36px)] italic leading-[1.05] text-cream">
-              Do <FoilText solid italic className="inline-block font-ml-display font-normal">Claude, Meet Your Family</FoilText> first if you haven&rsquo;t.
+              Want the whole system?{' '}
+              <FoilText solid italic className="inline-block font-ml-display font-normal">
+                Get Handled.
+              </FoilText>
             </h2>
             <p className="mb-5 max-w-prose font-serif text-[17px] italic leading-relaxed text-blush">
-              This guide layers on top of the family setup. If Claude already knows your kids,
-              their sports, and their colors, this guide adds the calendar layer in fifteen minutes.
-              If not, start with the free family guide first &mdash; it&rsquo;s under <em>Free</em>.
+              The Cheat is the quick reference. The Whole Damn Thing, Handled is the full
+              setup &mdash; the template, the prompt library, the color-code framework, and
+              the cheat sheet bundled in.
             </p>
             <a
-              href="/free/setup-guide"
+              href="/products/handled"
               className="inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-coral-light underline decoration-coral/40 underline-offset-4 transition-opacity hover:opacity-70"
             >
-              Get the free family setup guide
+              See Handled
               <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -192,16 +169,16 @@ export default function HandledProductPage() {
         <section className="bg-cream px-6 pb-16 pt-14 text-navy sm:px-8 sm:pb-20 sm:pt-16">
           <div className="mx-auto max-w-content text-center sm:text-left">
             <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-eyebrow text-coral">
-              &mdash; the whole damn thing &mdash;
+              &mdash; the cheat &mdash;
             </p>
             <h2 className="mx-auto mt-3 max-w-prose font-ml-display text-[clamp(32px,7vw,52px)] italic leading-[1.02] text-navy sm:mx-0">
-              You&rsquo;re not the system anymore. {' '}
+              Print it once.{' '}
               <FoilText solid italic className="inline-block font-ml-display font-normal">
-                Claude is.
+                Use it forever.
               </FoilText>
             </h2>
             <p className="mx-auto mt-4 max-w-prose font-serif text-[17px] italic leading-relaxed text-navy/80 sm:mx-0">
-              Get it once. Run your house off it forever after.
+              No app, no login, no learning curve. One page on the fridge does the work.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
@@ -211,13 +188,10 @@ export default function HandledProductPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
               >
-                Get notified when it ships
+                Get the Cheat &mdash; {PRICE}
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
-            <p className="mt-3 font-mono text-[10px] uppercase tracking-mono-label text-navy/60 sm:text-left">
-              Now go run the damn show.
-            </p>
           </div>
         </section>
       </main>

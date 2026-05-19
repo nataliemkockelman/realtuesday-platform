@@ -3,20 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Family HQ Context Builder · the Motherload</title>
-<meta name="description" content="Build a context document for Claude so it knows how your household actually runs. Fill it in, copy it, paste it into Claude.">
-<!-- OG/Twitter — this static file isn't in the Next metadata pipeline,
-     so the social tags are inlined here. Keep in sync with the rest of
-     the site if branding shifts. -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="the Motherload">
-<meta property="og:title" content="Family HQ Context Builder · the Motherload">
-<meta property="og:description" content="A guided form that builds the Claude context document for you. Copy, paste, done.">
-<meta property="og:url" content="https://themomload.com/context-builder">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Family HQ Context Builder · the Motherload">
-<meta name="twitter:description" content="A guided form that builds the Claude context document for you. Copy, paste, done.">
-<link rel="canonical" href="https://themomload.com/context-builder">
+<title>Your Family HQ Context — the Motherload</title>
+<meta name="description" content="Build a context document for Claude so it knows how your household actually runs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Serif+Display&family=Fraunces:ital,wght@1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -321,49 +309,18 @@
   }
   .copy-btn.copied { background: var(--navy); }
 
-  /* Footer — mirrors the Next-rendered site footer (components/footer.tsx).
-     Cream background here vs. navy on the rest of the site, so colors are
-     navy-on-cream instead of cream-on-navy, but the layout (brand line →
-     link row → © line) and link order are identical. */
+  /* Footer */
   .footer {
-    margin-top: 80px;
-    padding-top: 28px;
+    margin-top: 64px;
+    padding-top: 24px;
     border-top: 1px solid var(--navy-line);
-    color: var(--navy);
-  }
-  .footer-brand {
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--coral);
-  }
-  .footer-links {
-    margin: 16px 0 0 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-  }
-  .footer-links a {
+    text-align: center;
     font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 10px;
-    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 11px;
     color: var(--navy);
-    text-decoration: none;
-    transition: opacity 0.15s;
-  }
-  .footer-links a:hover { opacity: 0.6; }
-  .footer-meta {
-    margin: 18px 0 0 0;
-    font-family: 'JetBrains Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    font-size: 9px;
-    color: var(--navy);
-    opacity: 0.55;
+    opacity: 0.6;
   }
 
   /* Skip link */
@@ -525,17 +482,7 @@
     </aside>
   </div>
 
-  <footer class="footer">
-    <p class="footer-brand"><em>the Motherload</em> · a Real Tuesday brand</p>
-    <ul class="footer-links">
-      <li><a href="/products">Products</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/free/setup-guide">Free Guide</a></li>
-      <li><a href="mailto:hello@themomload.com">Contact</a></li>
-      <li><a href="/privacy">Privacy</a></li>
-    </ul>
-    <p class="footer-meta">© 2026 · Sioux Falls, SD</p>
-  </footer>
+  <footer class="footer">a Real Tuesday brand · © 2026</footer>
 </div>
 
 <script>

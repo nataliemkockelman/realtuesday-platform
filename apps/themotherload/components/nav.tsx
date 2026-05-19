@@ -9,11 +9,13 @@ import { Wordmark } from './wordmark';
  * Top navigation — wordmark on the left.
  *
  * Mobile (<sm): hamburger toggles a full-width drawer that slides down
- * with the same nav links + CTA stacked vertically.
+ * with the nav links stacked vertically.
  *
- * Desktop (≥sm): right-aligned text links (Products, About) followed by
- * a small coral CTA pill ("Get the cheat"). Mockup-faithful for mobile,
- * editorial-style for desktop — inspired by the Knova nav pattern.
+ * Desktop (≥sm): right-aligned text links (Products, About, Free Guide).
+ *
+ * "Free Guide" points at /free/setup-guide — the Claude, Meet Your Family
+ * setup guide is the primary free offer. The Sunday Reset is a secondary
+ * bonus available on its own page, surfaced from the newsletter capture.
  *
  * Closes the drawer on route change so navigating from the open menu
  * doesn't leave it stuck open.
@@ -22,9 +24,8 @@ import { Wordmark } from './wordmark';
 const NAV_LINKS = [
   { href: '/products', label: 'Products' },
   { href: '/about', label: 'About' },
+  { href: '/free/setup-guide', label: 'Free Guide' },
 ] as const;
-
-const CTA = { href: '/free/sunday-reset', label: 'Get the cheat' } as const;
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -73,7 +74,7 @@ export function Nav() {
         <Wordmark size="nav" className="text-cream" />
       </Link>
 
-      {/* Desktop nav — right-aligned text links + coral CTA pill */}
+      {/* Desktop nav — right-aligned text links */}
       <div className="hidden items-center gap-7 sm:flex">
         {NAV_LINKS.map((link) => {
           const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -90,13 +91,6 @@ export function Nav() {
             </Link>
           );
         })}
-        <Link
-          href={CTA.href}
-          className="inline-flex items-center gap-1.5 border border-coral px-4 py-2 font-mono text-[10px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
-        >
-          {CTA.label}
-          <span aria-hidden="true">&rarr;</span>
-        </Link>
       </div>
 
       {/* Mobile hamburger — toggles the drawer below */}
@@ -138,15 +132,6 @@ export function Nav() {
               </Link>
             </li>
           ))}
-          <li className="pt-2">
-            <Link
-              href={CTA.href}
-              className="inline-flex items-center gap-2 bg-coral px-6 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream"
-            >
-              {CTA.label}
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </li>
         </ul>
       </div>
     </nav>

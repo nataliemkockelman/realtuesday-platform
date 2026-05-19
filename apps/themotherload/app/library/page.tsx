@@ -60,7 +60,7 @@ export default function LibraryPage() {
                         style={{ aspectRatio: '3 / 4' }}
                       >
                         <p className="font-mono text-[9px] font-semibold uppercase tracking-mono-label text-coral">
-                          the motherload
+                          the Motherload
                         </p>
                         <div>
                           <h2 className="font-ml-display text-[34px] italic leading-[1.05] text-cream">

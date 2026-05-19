@@ -105,7 +105,7 @@ function renderHtml({ intro, body }: { intro: string; body: string }) {
 <html lang="en">
 <body style="margin:0;padding:24px;background:#F6F1E8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1A2238;">
   <div style="max-width:560px;margin:0 auto;background:#ffffff;padding:32px 28px;border-radius:8px;line-height:1.55;">
-    <div style="font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#C75D4A;font-weight:600;margin-bottom:18px;">— the motherload —</div>
+    <div style="font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#C75D4A;font-weight:600;margin-bottom:18px;">— the Motherload —</div>
     <p style="margin:0 0 16px 0;font-size:18px;font-style:italic;color:#1A2238;">${escape(intro)}</p>
     ${paragraphs}
     <p style="margin:32px 0 0 0;font-size:14px;color:#1A2238;">— Natalie</p>

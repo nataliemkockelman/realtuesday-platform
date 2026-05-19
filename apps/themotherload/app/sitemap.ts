@@ -21,7 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified, priority: 1.0, changeFrequency: 'weekly' },
     { url: `${baseUrl}/products`, lastModified, priority: 0.9, changeFrequency: 'weekly' },
+    { url: `${baseUrl}/products/handled`, lastModified, priority: 0.85, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/products/dinner-handled`, lastModified, priority: 0.85, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/products/monthly-money-map`, lastModified, priority: 0.85, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/products/ai-calendar-cheat`, lastModified, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/free/setup-guide`, lastModified, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${baseUrl}/about`, lastModified, priority: 0.6, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/privacy`, lastModified, priority: 0.2, changeFrequency: 'yearly' },
   ];
 
   const leadMagnetRoutes: MetadataRoute.Sitemap = Object.keys(LEAD_MAGNETS).map((slug) => ({

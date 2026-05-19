@@ -25,21 +25,10 @@ export interface LeadMagnet {
 }
 
 export const LEAD_MAGNETS: Record<string, LeadMagnet> = {
-  'sunday-reset': {
-    slug: 'sunday-reset',
-    eyebrow: 'free for you',
-    title: 'Get the',
-    accent: 'Sunday Reset.',
-    intro:
-      'A one-pager I made for myself. Plan the whole week in 15 minutes — no app, no system, no learning curve. Just print it, fill it, run your week.',
-    inside: [
-      'The 4-square layout that catches everything (kids, work, you, the house)',
-      'My exact Sunday-night ritual (15 minutes, max)',
-      'A printable version you can stick on the fridge',
-    ],
-    submitLabel: 'Send it over',
-    microcopy: 'No spam. One email a week, max. Unsubscribe in one click.',
-  },
+  // The Sunday Reset is NOT a freebie. It's a forthcoming paid bundle that
+  // hasn't been built yet, so it doesn't get a /free/* route. When the
+  // bundle ships, give it a /products/sunday-reset landing page alongside
+  // the other paid products — do not bring it back here.
   // Registered so /api/subscribe accepts `{ lead_magnet: 'setup-guide' }`.
   // The /free/setup-guide route is a hand-built static page (not rendered by
   // /free/[slug]), so most fields here are only used by the welcome-email

@@ -8,7 +8,12 @@ import { PRODUCTS } from '@/lib/products';
 export const metadata: Metadata = {
   title: 'Products',
   description:
-    'Workbooks, cheat sheets, and tools — every one tested by an actual mom (me) before it hits the shop.',
+    'The shop. Workbooks, cheat sheets, and templates from the Motherload — every one tested by an actual mom (me) before it ships.',
+  openGraph: {
+    title: 'Products · the Motherload',
+    description:
+      'Workbooks, cheat sheets, and templates for moms running the whole damn show. Every product tested by an actual mom before it ships.',
+  },
 };
 
 /**

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Home Base Context — Mint Condition</title>
+<meta name="description" content="Build a context document for Claude so it knows how your home actually runs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,400;1,500;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1C3A52;
+    --mint: #A8C8A0;
+    --sage: #6B8A6E;
+    --paper: #F7F5EC;
+    --navy-line: rgba(28, 58, 82, 0.18);
+    --sage-line: rgba(107, 138, 110, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--navy);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* Mint top stripe (from brand kit pages) */
+  .top-stripe {
+    height: 6px;
+    background: var(--mint);
+  }
+
+  /* Topbar */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0 14px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* MC circle badge per brand kit lockup */
+  .mc-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mc-badge {
+    width: 36px;
+    height: 36px;
+    background: var(--mint);
+    border: 2px solid var(--sage);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .mc-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .mc-tag {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--sage);
+    display: block;
+    line-height: 1.2;
+  }
+
+  .mono-stamp {
+    font-family: 'DM Mono', ui-monospace, SFMono-Regular, monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    color: var(--sage);
+  }
+
+  /* Header */
+  .header { padding: 0 0 32px; }
+  .header-meta {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: var(--sage);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .tagline {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--sage);
+    margin: 0 0 14px;
+    line-height: 1.3;
+  }
+  .title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 8vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+    color: var(--navy);
+  }
+  .subhead {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: var(--navy);
+    opacity: 0.85;
+    margin: 0 0 20px;
+    max-width: 60ch;
+    line-height: 1.55;
+  }
+  .privacy {
+    background: var(--navy);
+    color: var(--paper);
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 16px 0 0;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+  }
+  .privacy strong { color: var(--mint); font-weight: 600; }
+
+  /* Layout */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 32px;
+  }
+  @media (min-width: 960px) {
+    .layout {
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .preview-col { position: sticky; top: 24px; }
+  }
+
+  /* Form sections — bordered cards with sage top-line per brand kit pattern */
+  .section {
+    background: white;
+    border: 1px solid var(--navy-line);
+    border-top: 3px solid var(--sage);
+    border-radius: 0 0 4px 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: var(--sage);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .section-hint {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sage);
+    margin: 0 0 22px;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    margin-bottom: 6px;
+    color: var(--navy);
+  }
+  input[type="text"], textarea {
+    width: 100%;
+    border: 1px solid var(--navy-line);
+    background: var(--paper);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    line-height: 1.5;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(168, 200, 160, 0.5);
+  }
+  textarea {
+    min-height: 80px;
+    resize: vertical;
+    font-family: 'Inter', sans-serif;
+  }
+  ::placeholder {
+    color: var(--navy);
+    opacity: 0.45;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+  }
+
+  /* Preview */
+  .preview {
+    background: var(--navy);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 28px;
+    border-top: 4px solid var(--mint);
+  }
+  .preview-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: var(--mint);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .preview-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+  .preview-body {
+    background: var(--paper);
+    color: var(--navy);
+    padding: 22px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 60vh;
+    overflow-y: auto;
+    min-height: 240px;
+  }
+  .preview-body .pv-h {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: var(--sage);
+    margin: 22px 0 8px;
+    display: block;
+    border-top: 1px solid var(--sage-line);
+    padding-top: 14px;
+  }
+  .preview-body .pv-h:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+  .preview-body .pv-sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+    display: block;
+    margin: 10px 0 2px;
+    letter-spacing: -0.01em;
+  }
+  .preview-body .pv-empty {
+    opacity: 0.65;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--sage);
+  }
+
+  /* Navy CTA per brand kit "GET IT" pattern */
+  .copy-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    background: var(--paper);
+    color: var(--navy);
+    border: 2px solid var(--mint);
+    padding: 16px 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.005em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, transform 0.05s;
+    line-height: 1.2;
+  }
+  .copy-btn:hover {
+    background: var(--mint);
+    border-color: var(--mint);
+  }
+  .copy-btn:active { transform: scale(0.99); }
+  .copy-btn:focus-visible {
+    outline: 3px solid var(--mint);
+    outline-offset: 2px;
+  }
+  .copy-btn.copied {
+    background: var(--mint);
+    border-color: var(--mint);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--sage-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer .left, .footer .right {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 11px;
+    color: var(--sage);
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--navy);
+    color: var(--paper);
+    padding: 8px 12px;
+    text-decoration: none;
+    z-index: 100;
+  }
+  .skip-link:focus { left: 10px; top: 10px; }
+</style>
+</head>
+<body>
+<a href="#form" class="skip-link">Skip to form</a>
+<div class="top-stripe" aria-hidden="true"></div>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="mc-lockup" aria-label="Mint Condition, a real tuesday thing">
+      <span class="mc-badge" aria-hidden="true">MC</span>
+      <span>
+        <span class="mc-name">Mint Condition</span>
+        <span class="mc-tag">a real tuesday thing</span>
+      </span>
+    </div>
+    <span class="mono-stamp">Context Builder · No. 01</span>
+  </div>
+
+  <header class="header">
+    <span class="header-meta">Mint Condition · 01 of 01</span>
+    <p class="tagline">life, mostly intact, sometimes pristine.</p>
+    <h1 class="title">Your Home Base Context</h1>
+    <p class="subhead">Tell Claude how your home runs. Paste it into your Claude Project. Stop explaining the same stuff every week.</p>
+    <div class="privacy"><strong>Nothing here is saved or sent anywhere.</strong> It lives in your browser until you copy it out.</div>
+  </header>
+
+  <div class="layout">
+    <main class="form-col" id="form">
+
+      <!-- Section 1 -->
+      <section class="section" aria-labelledby="s1-title">
+        <span class="section-eyebrow">No. 01 · the people</span>
+        <h2 class="section-title" id="s1-title">Who lives here</h2>
+        <p class="section-hint">Names. Ages. The basics. Keep it useful.</p>
+
+        <div class="field">
+          <label for="you">You</label>
+          <textarea id="you" data-key="you" placeholder="e.g., Dave, 42. Engineer. Work from home Mon/Wed/Fri. Cook on weekends."></textarea>
+        </div>
+        <div class="field">
+          <label for="partner">Partner</label>
+          <textarea id="partner" data-key="partner" placeholder="e.g., Sam, 40. Teacher. Mornings packed, free after 4. Runs the school stuff."></textarea>
+        </div>
+        <div class="field">
+          <label for="kids">Kids</label>
+          <textarea id="kids" data-key="kids" placeholder="e.g., Owen (11, 6th grade, soccer + Lego). Maddie (7, 2nd grade, reading machine)."></textarea>
+        </div>
+        <div class="field">
+          <label for="others">Anyone else</label>
+          <textarea id="others" data-key="others" placeholder="e.g., My dad lives in the in-law unit. Sister-in-law next door. Babysitter rotates."></textarea>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="section" aria-labelledby="s2-title">
+        <span class="section-eyebrow">No. 02 · the patterns</span>
+        <h2 class="section-title" id="s2-title">The stuff that repeats</h2>
+        <p class="section-hint">School. Sports. Custody. Work. The weekly shape.</p>
+
+        <div class="field">
+          <label for="school">School year</label>
+          <textarea id="school" data-key="school" placeholder="e.g., Public K-8. M–F 8–3. Late start Wednesdays. Out mid-June through Labor Day."></textarea>
+        </div>
+        <div class="field">
+          <label for="sports">Sports &amp; activities</label>
+          <textarea id="sports" data-key="sports" placeholder="e.g., Soccer fall + spring (Sat games, Tues practice). Cub Scouts every other Thu."></textarea>
+        </div>
+        <div class="field">
+          <label for="custody">Custody / co-parenting</label>
+          <textarea id="custody" data-key="custody" placeholder="e.g., 50/50 with ex. Week on, week off. Switch Sundays at 6."></textarea>
+        </div>
+        <div class="field">
+          <label for="work">Work rhythm</label>
+          <textarea id="work" data-key="work" placeholder="e.g., Standup 9am daily. Heads-down 10–12. Picks up kids at 3:15. Done by 5."></textarea>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="section" aria-labelledby="s3-title">
+        <span class="section-eyebrow">No. 03 · the logistics</span>
+        <h2 class="section-title" id="s3-title">The home base</h2>
+        <p class="section-hint">Where you are. Pets. Doctors. Standing stuff.</p>
+
+        <div class="field">
+          <label for="location">City / state / timezone</label>
+          <input type="text" id="location" data-key="location" placeholder="e.g., Boulder, CO. Mountain time.">
+        </div>
+        <div class="field">
+          <label for="pets">Pets</label>
+          <textarea id="pets" data-key="pets" placeholder="e.g., One golden, Tucker. Backyard chickens (3). No cats."></textarea>
+        </div>
+        <div class="field">
+          <label for="medical">Doctors / medical</label>
+          <textarea id="medical" data-key="medical" placeholder="e.g., Pediatrician at Boulder Peds. Maddie has mild asthma. Family dentist every 6 months."></textarea>
+        </div>
+        <div class="field">
+          <label for="services">Recurring services</label>
+          <textarea id="services" data-key="services" placeholder="e.g., Trash Mondays. Snow plow contract Nov–Mar. Lawn service biweekly."></textarea>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section" aria-labelledby="s4-title">
+        <span class="section-eyebrow">No. 04 · how to talk to me</span>
+        <h2 class="section-title" id="s4-title">How to be useful</h2>
+        <p class="section-hint">Tell Claude what works. Skip the fluff.</p>
+
+        <div class="field">
+          <label for="tone">Tone</label>
+          <textarea id="tone" data-key="tone" placeholder="e.g., Plain English. Short sentences. No hype. Tell me the answer, then the reasoning."></textarea>
+        </div>
+        <div class="field">
+          <label for="format">Format</label>
+          <textarea id="format" data-key="format" placeholder="e.g., Bullets when it's a list. Tables when it's a comparison. No emojis."></textarea>
+        </div>
+        <div class="field">
+          <label for="never">Never do this</label>
+          <textarea id="never" data-key="never" placeholder="e.g., Don't apologize. Don't ask follow-ups when the answer is obvious. Don't recommend apps."></textarea>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="section" aria-labelledby="s5-title">
+        <span class="section-eyebrow">No. 05 · right now</span>
+        <h2 class="section-title" id="s5-title">What's on the workbench</h2>
+        <p class="section-hint">Current focus. Update it when it changes.</p>
+
+        <div class="field">
+          <label for="focus">Current focus</label>
+          <textarea id="focus" data-key="focus" placeholder="e.g., Refinancing the mortgage. Planning a deck rebuild for spring. Owen tryouts next month."></textarea>
+        </div>
+        <div class="field">
+          <label for="open">Open questions</label>
+          <textarea id="open" data-key="open" placeholder="e.g., Is the roof good for another winter? Should we add a 529 for Maddie? When to retire the old grill?"></textarea>
+        </div>
+        <div class="field">
+          <label for="recent">Recent context worth remembering</label>
+          <textarea id="recent" data-key="recent" placeholder="e.g., Job change in February — still ramping. New car in March. Tucker had surgery, recovered fine."></textarea>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="preview-col" aria-label="Live context document preview">
+      <div class="preview">
+        <span class="preview-eyebrow">Live preview · your doc</span>
+        <h2 class="preview-title">Your Context Document</h2>
+        <div class="preview-body" id="preview" aria-live="polite"></div>
+        <button class="copy-btn" id="copyBtn" type="button">Copy it. Field-tested. Dad-approved. Mostly.</button>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <span class="left">a real tuesday thing</span>
+    <span class="right">© 2026</span>
+  </footer>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var SECTIONS = [
+    { title: 'THE PEOPLE', fields: [
+      { key: 'you',     label: 'You' },
+      { key: 'partner', label: 'Partner' },
+      { key: 'kids',    label: 'Kids' },
+      { key: 'others',  label: 'Others' }
+    ]},
+    { title: 'THE PATTERNS', fields: [
+      { key: 'school',  label: 'School year' },
+      { key: 'sports',  label: 'Sports & activities' },
+      { key: 'custody', label: 'Custody / co-parenting' },
+      { key: 'work',    label: 'Work rhythm' }
+    ]},
+    { title: 'THE LOGISTICS', fields: [
+      { key: 'location', label: 'Where we are' },
+      { key: 'pets',     label: 'Pets' },
+      { key: 'medical',  label: 'Doctors / medical' },
+      { key: 'services', label: 'Recurring services' }
+    ]},
+    { title: 'HOW TO TALK TO ME', fields: [
+      { key: 'tone',   label: 'Tone' },
+      { key: 'format', label: 'Format' },
+      { key: 'never',  label: 'Never do this' }
+    ]},
+    { title: 'WHAT I\u2019M WORKING ON RIGHT NOW', fields: [
+      { key: 'focus',  label: 'Current focus' },
+      { key: 'open',   label: 'Open questions' },
+      { key: 'recent', label: 'Recent context' }
+    ]}
+  ];
+
+  var preview = document.getElementById('preview');
+  var copyBtn = document.getElementById('copyBtn');
+  var inputs  = document.querySelectorAll('[data-key]');
+  var values  = {};
+  var defaultBtnText = 'Copy it. Field-tested. Dad-approved. Mostly.';
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, function(c) {
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
+  function renderPreview() {
+    var hasAny = false;
+    var html = '';
+    SECTIONS.forEach(function(section) {
+      var sectionHtml = '';
+      section.fields.forEach(function(f) {
+        var v = (values[f.key] || '').trim();
+        if (v) {
+          sectionHtml += '<span class="pv-sub">' + escapeHtml(f.label) + '</span>';
+          sectionHtml += escapeHtml(v) + '\n';
+          hasAny = true;
+        }
+      });
+      if (sectionHtml) {
+        html += '<span class="pv-h">' + escapeHtml(section.title) + '</span>' + sectionHtml;
+      }
+    });
+    if (!hasAny) {
+      preview.innerHTML = '<span class="pv-empty">Start typing. Your doc builds itself here.</span>';
+    } else {
+      preview.innerHTML = html;
+    }
+  }
+
+  function buildPlainText() {
+    var lines = ['# MY HOME BASE CONTEXT', ''];
+    SECTIONS.forEach(function(section) {
+      var sectionLines = [];
+      section.fields.forEach(function(f) {
+        var v = (values[f.key] || '').trim();
+        if (v) {
+          sectionLines.push('## ' + f.label);
+          sectionLines.push(v);
+          sectionLines.push('');
+        }
+      });
+      if (sectionLines.length) {
+        lines.push('# ' + section.title);
+        lines.push('');
+        lines = lines.concat(sectionLines);
+      }
+    });
+    return lines.join('\n').trim();
+  }
+
+  inputs.forEach(function(el) {
+    el.addEventListener('input', function(e) {
+      values[e.target.dataset.key] = e.target.value;
+      renderPreview();
+    });
+  });
+
+  copyBtn.addEventListener('click', function() {
+    var text = buildPlainText();
+    if (!text) {
+      copyBtn.textContent = 'Nothing to copy yet. Fill something in.';
+      setTimeout(function() { copyBtn.textContent = defaultBtnText; }, 2200);
+      return;
+    }
+    var done = function() {
+      copyBtn.classList.add('copied');
+      copyBtn.textContent = 'Copied. Paste it into your Claude Project.';
+      setTimeout(function() {
+        copyBtn.classList.remove('copied');
+        copyBtn.textContent = defaultBtnText;
+      }, 2400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); }
+      catch (e) { copyBtn.textContent = 'Copy failed. Select the preview and copy manually.'; }
+      document.body.removeChild(ta);
+    }
+  });
+
+  renderPreview();
+})();
+</script>
+</body>
+</html>

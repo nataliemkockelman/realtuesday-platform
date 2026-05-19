@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { FoilText } from '@/components/foil-text';
-import { SubscribeForm } from '@/components/subscribe-form';
 
 /**
  * /free/setup-guide — Claude, Meet Your Family (free setup guide).
@@ -28,11 +28,11 @@ const WORKBOOK_TITLE_FOIL = 'Meet Your Family.';
 export const metadata: Metadata = {
   title: 'Claude, Meet Your Family — free setup guide',
   description:
-    'Set up Claude to know your family in about 20 minutes. Free setup guide from the Motherload.',
+    'The free Motherload setup guide. Twenty minutes to teach Claude your kids, your schedule, and your standards so it stops making you re-explain your life.',
   openGraph: {
-    title: 'Claude, Meet Your Family — free setup guide',
+    title: 'Claude, Meet Your Family · the Motherload',
     description:
-      'Set up Claude to know your family in about 20 minutes. Free setup guide from the Motherload.',
+      'Free setup guide. Twenty minutes to teach Claude your family — kids, schedule, standards — so it stops making you re-explain your life.',
   },
 };
 
@@ -206,49 +206,34 @@ export default function SetupGuidePage() {
         </section>
 
         {/* ─── PAID PRODUCT TEE-UP ─────────────────────────── */}
-        <section className="px-6 pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-14">
+        {/* "Handled" is the full bundle (setup + prompts + color framework
+            + the cheat) — it's the natural next step once Claude knows the
+            family. The AI Calendar Cheat itself is a component of Handled
+            sold standalone; it gets surfaced from /products, not here. */}
+        <section className="px-6 pb-16 pt-12 sm:px-8 sm:pb-24 sm:pt-14">
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">&mdash; what&rsquo;s next &mdash;</p>
             <h2 className="max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-cream">
-              The AI Calendar Cheat is the next step.
+              When you&rsquo;re ready, The Whole Damn Thing, Handled is the next step.
             </h2>
             <p className="mt-4 max-w-prose font-serif text-[17px] italic leading-relaxed text-blush">
-              Once Claude knows your family, the calendar system is where the time savings live —
-              every prompt, every weekly rhythm, every shortcut I actually use.
+              The full system, not just the cheat. Setup template, prompt library,
+              color-code framework, and the calendar cheat sheet — once Claude knows your
+              family, this is where the time savings actually live.
             </p>
-            <p className="mt-2 font-mono text-[10px] uppercase tracking-mono-label text-coral-light">
-              Coming soon
-            </p>
-          </div>
-        </section>
-
-        {/* ─── OPTIONAL: PART 2 NOTIFICATION ───────────────── */}
-        {/* Soft email ask in a compact cream card — intentionally smaller
-            than the hero CTAs and not full-bleed (this is opt-in, not the
-            main attraction). SubscribeForm posts to /api/subscribe with
-            source: 'home-email-capture' (newsletter, not lead-magnet). */}
-        <section className="px-6 pb-16 pt-4 sm:px-8 sm:pb-24">
-          <div className="mx-auto max-w-content">
-            <div className="rounded-xl bg-cream px-6 pb-8 pt-7 text-navy sm:px-8 sm:pb-10 sm:pt-9">
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-mono-eyebrow text-coral">
-                &mdash; optional &mdash;
-              </p>
-              <h2 className="mt-3 font-ml-display text-[22px] italic leading-tight text-navy sm:text-[26px]">
-                Hear first when the AI Calendar Cheat ships.
-              </h2>
-              <p className="mb-5 mt-2 font-serif text-[14px] italic leading-relaxed text-navy/60">
-                One email when it&rsquo;s ready. Nothing else.
-              </p>
-              <SubscribeForm
-                source="home-email-capture"
-                placeholder="your email"
-                submitLabel="Notify me"
-              />
+            <div className="mt-6">
+              <Link
+                href="/products/handled"
+                className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
+              >
+                Get it here
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
             </div>
 
             {/* Caveat tagline that lives at the bottom of every Motherload page */}
             <p
-              className="mt-14 text-center font-script text-[26px] leading-none text-coral-light"
+              className="mt-16 text-center font-script text-[26px] leading-none text-coral-light"
               style={{ transform: 'rotate(-1.5deg)', transformOrigin: 'center' }}
             >
               for moms running the whole damn show

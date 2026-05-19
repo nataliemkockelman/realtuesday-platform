@@ -46,7 +46,7 @@ export const viewport: Viewport = {
   themeColor: '#1A2238',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
+  // No `maximumScale` — capping user zoom is an accessibility regression.
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -54,13 +54,16 @@ export function ProductCard(props: FeaturedProductProps) {
       <p className="mb-4 font-body text-[13px] leading-normal text-blush">{props.description}</p>
 
       <div className="flex items-center justify-between border-t border-blush/15 pt-3.5">
-        <span className="font-serif text-[22px] italic text-cream">{props.price}</span>
-        {/* External link — Etsy/Gumroad sit outside the typed-routes map,
-            so we use a plain <a> rather than next/link. */}
+        <span className="font-serif text-[22px] italic text-coral-light">{props.price}</span>
+        {/* Plain <a> instead of next/link — buyUrl can be either an internal
+            landing path (e.g. /products/handled) or an external Etsy/Gumroad
+            URL. The internal/external sniff sets target/rel accordingly so
+            internal navigation stays in-tab. */}
         <a
           href={props.buyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...(props.buyUrl.startsWith('/')
+            ? {}
+            : { target: '_blank', rel: 'noopener noreferrer' })}
           className="inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-mono-label text-coral-light transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-[#2A3450]"
         >
           {props.buyLabel}
@@ -82,23 +85,42 @@ interface CoverPreviewProps {
 function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline }: CoverPreviewProps) {
   return (
     <div
-      className="mb-4 flex flex-col justify-between rounded-lg border border-coral/30 bg-navy p-5"
-      style={{ aspectRatio: '3 / 4' }}
+      // 4:3 instead of 3:4 — at desktop container width (~640px) a 3:4
+      // cover was ~850px tall and pushed the title below the fold. The
+      // squat ratio puts the whole card on screen in one viewport.
+      className="relative mb-4 flex flex-col justify-between overflow-hidden rounded-lg border border-coral/30 bg-navy p-6 sm:p-8"
+      style={{ aspectRatio: '4 / 3' }}
       aria-hidden="true"
     >
+      {/* Decorative cover treatments — subtle radial coral glow in the
+          upper-right, a faint coral hairline grid across the bottom third,
+          and the big mono SKU. None of this is informative; everything is
+          aria-hidden via the parent. */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(circle at 78% 22%, rgba(232,130,110,0.28) 0%, rgba(232,130,110,0.08) 28%, transparent 55%)',
+        }}
+      />
+      <div className="pointer-events-none absolute inset-x-6 bottom-[28%] h-px bg-coral/25 sm:inset-x-8" />
+      <div className="pointer-events-none absolute inset-x-6 bottom-[26%] h-px bg-coral/12 sm:inset-x-8" />
+
       {/* Top tag row — brand chip + sub-brand pill */}
-      <div className="flex items-center justify-between">
-        <span className="font-serif text-[8px] italic uppercase tracking-[0.15em] text-blush">
+      <div className="relative flex items-center justify-between">
+        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-blush sm:text-[11px]">
           {brandLabel}
         </span>
-        <span className="rounded-full bg-cream px-1.5 py-[3px] font-mono text-[7px] font-semibold uppercase tracking-[0.2em] text-navy">
+        <span className="rounded-full bg-cream px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.22em] text-navy sm:text-[10px]">
           {pillLabel}
         </span>
       </div>
 
-      {/* Title block + tagline at the bottom */}
-      <div>
-        <h4 className="font-ml-display text-[26px] italic leading-none text-cream">
+      {/* Title block + tagline. Font scales with viewport via clamp so the
+          cover actually fills its container on desktop — at 600px wide,
+          26px Motherload looked like a postage stamp in a paddock. */}
+      <div className="relative">
+        <h4 className="font-ml-display italic leading-[0.95] text-cream text-[clamp(40px,6.5vw,76px)]">
           {titleLines.map((line, i) => (
             <span key={i} className="block">
               {line}
@@ -107,18 +129,24 @@ function CoverPreview({ brandLabel, pillLabel, titleLines, accent, tagline }: Co
           <FoilText
             solid
             italic
-            className="mt-1 block font-ml-display text-[26px] font-normal leading-none"
+            className="mt-1 block font-ml-display font-normal leading-[0.95]"
           >
             {accent}
           </FoilText>
         </h4>
         <p
-          className="mt-3 inline-block font-script text-[13px] font-semibold text-coral-light"
+          className="mt-4 inline-block font-script text-[clamp(18px,2vw,28px)] font-semibold text-coral-light"
           style={{ transform: 'rotate(-1deg)' }}
         >
           {tagline}
         </p>
       </div>
+
+      {/* Bottom-right SKU — adds visual weight without saying anything,
+          matches the editorial cover treatment from the brand kit. */}
+      <p className="relative mt-4 text-right font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-coral/70 sm:text-[11px]">
+        no. 01 · 2026
+      </p>
     </div>
   );
 }

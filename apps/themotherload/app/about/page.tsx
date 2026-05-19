@@ -8,15 +8,21 @@ import { EmailCapture } from '@/components/email-capture';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'the motherload is built by Natalie — a working mom in Sioux Falls who got tired of productivity systems that don\u2019t fit the way moms actually live.',
+    'the Motherload is built by Natalie — a working mom in Sioux Falls who got tired of productivity systems that don\u2019t fit the way moms actually live.',
+  openGraph: {
+    title: 'About · the Motherload',
+    description:
+      'Built by Natalie — a working mom in Sioux Falls. The story behind the Motherload and the rules every product has to pass.',
+  },
 };
 
 /**
- * /about — Natalie's story + why the motherload exists.
+ * /about — Natalie's story + why the Motherload exists.
  *
  * Layout follows the home hero structure: Caveat eyebrow + DM Serif title
- * with one foil accent word, coral rule, then a stacked Fraunces body block
- * (ALL lowercase per brand voice rule for "the motherload" in body copy).
+ * with one foil accent word, coral rule, then a stacked Fraunces body block.
+ * Brand-voice rule: "the Motherload" — lowercase "the", capital "M" — in
+ * body copy as well as nav.
  *
  * Voice: direct, specific (Sioux Falls, real specifics), warm without
  * saccharine, willing to swear (one "damn" ties back to the tagline). Not
@@ -55,7 +61,14 @@ export default function AboutPage() {
                 by someone who has never been screamed at over the wrong color cup.
               </p>
               <p>
-                the motherload is the thing I wish I&rsquo;d had ten years ago. Not another
+                By day I&rsquo;m a COO. By every other waking minute I&rsquo;m the COO of
+                this house &mdash; <em className="not-italic font-mono text-[14px] font-semibold uppercase tracking-mono-label text-coral-light">Chief Chaos Coordinator</em>,
+                by the actual job description. Different titles. Same job: running
+                operations for people who didn&rsquo;t read the manual and still expect
+                dinner.
+              </p>
+              <p>
+                the Motherload is the thing I wish I&rsquo;d had ten years ago. Not another
                 app. Not another guru. Just the small set of tools and templates that
                 actually work when you&rsquo;re running the whole damn show &mdash; the
                 school stuff, the work stuff, the dog, the dinner, the everything.
@@ -90,7 +103,7 @@ export default function AboutPage() {
         <section className="px-6 pb-12 pt-2 sm:px-8 sm:pb-16">
           <div className="mx-auto max-w-content space-y-4 font-serif text-[18px] italic leading-relaxed text-blush">
             <p>
-              the motherload is part of <Link href="/" className="text-coral-light underline-offset-4 hover:underline">Real Tuesday</Link>,
+              the Motherload is part of <em className="font-serif italic text-coral-light">Real Tuesday</em>,
               a small studio I&rsquo;m building to put out work that&rsquo;s worth your
               time on a Tuesday afternoon.
             </p>
@@ -111,7 +124,7 @@ export default function AboutPage() {
             <EmailCapture
               source="home-email-capture"
               title={'Get one email\na week.'}
-              description="The Sunday Reset PDF when you sign up, then one note a week. No spam, no lectures."
+              description="One email a week, max. Unsubscribe anytime."
               submitLabel="Send it over"
             />
           </div>
@@ -126,5 +139,5 @@ const RULES = [
   'If I haven\u2019t used it for a month, it\u2019s not in the shop.',
   'Every download is a single PDF. No accounts, no apps, no logins.',
   'No "mama," no "mommy," no pink wine, no bubble baths.',
-  'If you bought something and it didn\u2019t help, email me. I\u2019ll refund you.',
+  'If you bought something and it didn\u2019t help, email me. Let\u2019s figure it out.',
 ];
