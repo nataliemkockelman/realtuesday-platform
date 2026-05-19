@@ -105,7 +105,7 @@ export default function HandledProductPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
               >
-                Get it on {BUY_CHANNEL} {' '}&mdash;{' '} {PRICE}
+                Get the guide
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
@@ -195,7 +195,7 @@ export default function HandledProductPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
               >
-                Get it on {BUY_CHANNEL} {' '}&mdash;{' '} {PRICE}
+                Get the guide
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
