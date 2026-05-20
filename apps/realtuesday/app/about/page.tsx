@@ -109,10 +109,6 @@ export default function AboutPage() {
                     — life, mostly intact, sometimes pristine. For dads juggling kids, work, side
                     hustles, and learning Claude in real time. Coming soon.
                   </li>
-                  <li>
-                    <strong className="font-display font-bold text-cream">real talk</strong> — a
-                    third brand in the works. More when the kit lands.
-                  </li>
                 </ul>
               </div>
             </section>
@@ -123,7 +119,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 font-body text-base leading-[1.65] text-blush sm:text-[17px]">
                 <p>
-                  Natalie runs it. Bry&apos;s here too. Two people, three brands, no plan to be
+                  Natalie runs it. Bry&apos;s here too. Two people, two brands, no plan to be
                   more than what it is. We make the things we&apos;d want to use, and we publish
                   them under whichever brand fits.
                 </p>

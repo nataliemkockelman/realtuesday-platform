@@ -111,14 +111,16 @@ function Portfolio() {
           .
         </h2>
         <p className="mt-3.5 mb-[22px] max-w-prose font-serif italic text-sm leading-[1.5] text-soft-gold sm:text-base">
-          Three brands so far. Each one for a different kind of person doing real work.
+          Two brands and a few more Tuesdays brewing. Each one for a different kind of person doing real work.
         </p>
 
-        {/* Stack on mobile, 3-up grid on desktop */}
-        <div className="grid gap-3.5 lg:grid-cols-3 lg:gap-5">
+        {/* Stack on mobile, 2-up grid on desktop. Real Talk used to live here
+            as a third sub-brand placeholder, but Real Talk = the Real Tuesday
+            parent voice, not a separate sub-brand. The card and its component
+            were removed in May 2026. */}
+        <div className="grid gap-3.5 sm:grid-cols-2 lg:gap-5">
           <MotherloadCard />
           <MintConditionCard />
-          <RealTalkCard />
         </div>
       </div>
     </section>
@@ -203,41 +205,7 @@ function MintConditionCard() {
         <span className="font-mono text-[9px] uppercase tracking-mono-button text-mint">
           — FOR DADS —
         </span>
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-mint-sage">
-          2026
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function RealTalkCard() {
-  return (
-    // Real Talk = third sub-brand under Real Tuesday parent. Brand kit
-    // pending — using Bryan's TBD treatment (gold pill + Bricolage
-    // lowercase wordmark) until the kit lands and we can swap in the real
-    // accent color, type, and description.
-    <div className="rounded-xl border border-copper/15 bg-navy-card p-[22px_20px]">
-      <div className="mb-4 flex items-start justify-between">
-        <span className="rounded-full bg-soft-gold/15 px-2 py-1 font-mono text-[8px] font-semibold uppercase tracking-mono-label text-soft-gold">
-          Coming soon
-        </span>
-        <span className="h-3 w-3 rounded-full bg-[#c4a574]" aria-hidden />
-      </div>
-
-      <div className="mb-2 font-display text-[26px] font-extrabold leading-none tracking-[-0.04em] lowercase text-cream">
-        real talk
-      </div>
-
-      <p className="mb-4 font-serif italic text-[13px] leading-[1.55] text-blush">
-        Coming soon. A third brand from the Real Tuesday family. Brand kit in the works.
-      </p>
-
-      <div className="flex items-center justify-between border-t border-soft-gold/15 pt-3.5">
-        <span className="font-mono text-[9px] uppercase tracking-mono-button text-bright-copper">
-          — TBD —
-        </span>
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-[#5a6478]">
+        <span className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-mint">
           2026
         </span>
       </div>
