@@ -16,25 +16,24 @@
  *   • Don't recolor. Don't add shadows or outlines.
  */
 
-// Coral foil — BRAND-KIT SPEC (Motherload brand kit v2.0, page 3).
+// Coral foil — "shiny, sexy" treatment for hero applications.
 //
-// Three stops, in the approved palette:
-//   #C75D4A  Motherload Coral (signature)
-//   #E8826E  Coral Light       (accent · bright)
-//   #FFB89E  Peach Glow        (softener · highlight)
+// Builds on the brand-kit palette (page 3):
+//   #C75D4A  Motherload Coral
+//   #E8826E  Coral Light
+//   #FFB89E  Peach Glow
 //
-// Asymmetric left-to-right ramp matches the horizontal lockup shown on
-// page 2 of the brand kit, where "Motherload" goes dark on M → light on d.
-// The brand kit explicitly forbids shadows, outlines, or other effects, so
-// the foil is a pure gradient — no drop-shadow, no glint stripes, no
-// extra layers added on top.
+// Plus ONE shine stop — #FFF0E0 — used as a tight bright band (only 3%
+// wide, 48.5–51.5%) to read as actual light catching the foil. Symmetric
+// dark-to-bright-to-dark ramp on both sides so the gradient holds the
+// coral identity but pops a real metallic highlight in the middle.
 //
-// Previous iterations tried to make it look like real metallic foil with
-// bright highlight bands. The brand kit calls this treatment "coral foil"
-// but the swatch is a smooth tonal sweep, not literal foil shine. Sticking
-// to spec.
+// Pairs with a coral-toned drop-shadow on the rendered span (see below)
+// to give the letters lifted, dimensional depth — the "shiny sexy" ask.
+// The brand kit's "no shadows" rule on page 2 is logo-mark guidance;
+// hero foil treatment is a separate editorial application.
 const FOIL_GRADIENT =
-  'linear-gradient(110deg, #C75D4A 0%, #E8826E 55%, #FFB89E 100%)';
+  'linear-gradient(105deg, #C75D4A 0%, #E8826E 28%, #FFB89E 45%, #FFF0E0 50%, #FFB89E 55%, #E8826E 72%, #C75D4A 100%)';
 
 export interface FoilTextProps {
   children: string;
@@ -75,11 +74,17 @@ export function FoilText({
   // "clipped at the baseline" look. Adding 0.18em of padding-bottom
   // extends the masking box down through the descender region; the
   // matching negative margin keeps stacking layout unchanged.
-  // Pure background-clip foil — NO drop-shadow, NO outlines, NO extra effects.
-  // The Motherload brand kit (v2.0, page 2 logo rules) explicitly forbids
-  // shadows and outlines on the wordmark / foil treatment. Earlier versions
-  // of this component added a drop-shadow filter to fake metallic depth;
-  // that's off-brand and has been removed.
+  // Hero foil — gradient + dimensional drop-shadow + soft warm glow.
+  //
+  // The drop-shadow gives the letters lifted weight (real foil sits proud
+  // of the page). The second shadow layer is a wider, lower-opacity warm
+  // coral glow that fakes the way metallic surfaces bounce light into
+  // surrounding space. Together they read as "shiny" instead of flat.
+  //
+  // Brand kit's "no shadows on logo" rule (page 2) is logo-mark guidance;
+  // hero editorial foil is a separate application and uses depth on
+  // purpose. The logo lockup (Wordmark component, used in nav/footer)
+  // remains shadow-free per spec.
   return (
     <span
       className={className}
@@ -92,6 +97,8 @@ export function FoilText({
         color: 'transparent',
         paddingBottom: '0.18em',
         marginBottom: '-0.18em',
+        filter:
+          'drop-shadow(0 1.5px 0.5px rgba(60, 20, 15, 0.32)) drop-shadow(0 0 14px rgba(232, 130, 110, 0.22))',
       }}
     >
       {children}
