@@ -16,21 +16,21 @@
  *   • Don't recolor. Don't add shadows or outlines.
  */
 
-// Coral foil — gentle tonal shift, all stays in the coral family.
+// Coral foil — saturated tonal sweep with a tight bright band.
 //
 // Iteration history:
-//   v1: 5-stop ramp w/ #E8826E midstop — "more gradient than shimmer"
-//   v2: narrow #FFE8DC highlight band — "DI" letters washed out on cream
-//   v3: narrow #F4A48C highlight band — "r" in Motherload, "Fa" in Family
-//       still washed out. Any time the bright spot landed under a letter
-//       on cream, that letter disappeared.
-//   v4 (here): the brightest stop is #D8705C — clearly coral, only a few
-//       points lighter than the base #C75D4A. The whole gradient stays in
-//       the deep-coral → light-coral band. No letter ever drops below
-//       full-saturation coral, so nothing washes out on cream. The shimmer
-//       reads as a soft tonal sweep, not a metallic blowout.
+//   v1: smooth #E8826E midstop — "more gradient than shimmer"
+//   v2: narrow #FFE8DC band — letters under highlight washed out on cream
+//   v3: narrow #F4A48C band — still washed out under highlight
+//   v4: soft #D8705C peak, dark #A04434 edges — too gentle AND the dark
+//       edges (#A04434) read muddy against cream ("Chief is too dark")
+//   v5 (here): edges raised to #B14E3D (saturated coral, no muddy zone),
+//       narrow bright band at #F4A48C (peach-coral, clearly visible on
+//       cream), sharp falloff over 4% to make it read as a real highlight
+//       strip instead of a smooth ramp. No letter ever sits over a stop
+//       that washes against cream, and the dark zone is gone.
 const FOIL_GRADIENT =
-  'linear-gradient(105deg, #A04434 0%, #B14E3D 25%, #D8705C 50%, #B14E3D 75%, #A04434 100%)';
+  'linear-gradient(105deg, #B14E3D 0%, #C75D4A 35%, #EE8B73 48%, #F4A48C 50%, #EE8B73 52%, #C75D4A 65%, #B14E3D 100%)';
 
 export interface FoilTextProps {
   children: string;
