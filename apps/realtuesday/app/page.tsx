@@ -188,15 +188,15 @@ function MintConditionCard() {
       {/* MC monogram pill above the wordmark — matches the brand kit's
           profile-pic/sticker lockup but small enough to sit inline. */}
       <div className="mb-2 flex items-baseline gap-2">
-        <span className="grid h-6 w-6 place-items-center rounded-full bg-mint/15 font-mc-display text-[10px] font-bold tracking-tight text-mint">
+        <span className="grid h-6 w-6 place-items-center rounded-full bg-mint/25 font-mc-display text-[10px] font-bold tracking-tight text-mint">
           MC
         </span>
-        <span className="font-mc-display text-[24px] font-bold leading-none tracking-[-0.02em] text-cream">
+        <span className="font-mc-display text-[24px] font-bold leading-none tracking-[-0.02em] text-mint">
           Mint Condition
         </span>
       </div>
 
-      <p className="mb-4 font-serif italic text-[13px] leading-[1.55] text-blush">
+      <p className="mb-4 font-serif italic text-[13px] leading-[1.55] text-mint/80">
         Life, mostly intact, sometimes pristine. A guy being honest about how it&apos;s actually
         going — dads, schedules, side hustles, learning Claude in real time.
       </p>
