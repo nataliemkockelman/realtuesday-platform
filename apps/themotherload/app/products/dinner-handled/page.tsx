@@ -64,7 +64,7 @@ export default function DinnerHandledPage() {
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">paid &middot; the weeknight meal system</p>
 
-            <h1 className="font-ml-display text-[clamp(36px,9vw,72px)] italic leading-[0.95] text-cream">
+            <h1 className="font-ml-display text-[clamp(30px,9vw,72px)] italic leading-[0.95] text-cream">
               <span className="block">{TITLE_LEAD}</span>
               <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
                 {TITLE_FOIL}
@@ -73,22 +73,11 @@ export default function DinnerHandledPage() {
 
             <span className="rule-coral mb-5 mt-6" aria-hidden="true" />
 
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-mono-eyebrow text-coral-light">
-              twenty minutes sunday &middot; one pdf &middot; four sections
+            <p className="max-w-prose font-serif text-lg italic leading-relaxed text-blush sm:text-xl">
+              Twenty minutes Sunday. The whole week of dinners, decided.
             </p>
 
-            <p className="mt-5 max-w-prose font-serif text-lg italic leading-relaxed text-blush sm:text-xl">
-              Twenty minutes on Sunday night. The whole damn week of dinners, decided before
-              the week starts. It&rsquo;s 5:47 pm on a Wednesday. The fridge is open. Three
-              kids are asking what&rsquo;s for dinner. You&rsquo;ve already made 400
-              decisions today &mdash; this is the system that takes the deciding part off
-              your plate before Monday morning even hits.
-            </p>
-            <p className="mt-3 max-w-prose font-mono text-[10px] uppercase tracking-mono-label text-blush/70">
-              part of the forthcoming <em className="not-italic font-semibold text-coral-light">Sunday Reset</em> bundle &mdash; sold standalone until it ships.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
                 href={BUY_URL}
                 target="_blank"
@@ -100,7 +89,7 @@ export default function DinnerHandledPage() {
               </a>
             </div>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-mono-label text-peach/70">
-              Delivered as a PDF after checkout. Not downloaded from this site.
+              PDF after checkout.
             </p>
           </div>
         </section>

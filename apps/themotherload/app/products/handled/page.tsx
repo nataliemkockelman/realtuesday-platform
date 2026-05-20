@@ -87,7 +87,7 @@ export default function HandledProductPage() {
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">paid &middot; setup guide no. 02</p>
 
-            <h1 className="font-ml-display text-[clamp(36px,9vw,72px)] italic leading-[0.95] text-cream">
+            <h1 className="font-ml-display text-[clamp(30px,9vw,72px)] italic leading-[0.95] text-cream">
               <span className="block">{TITLE_LEAD}</span>
               <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
                 {TITLE_FOIL}
@@ -97,12 +97,10 @@ export default function HandledProductPage() {
             <span className="rule-coral mb-5 mt-6" aria-hidden="true" />
 
             <p className="max-w-prose font-serif text-lg italic leading-relaxed text-blush sm:text-xl">
-              The family calendar, off your plate. Fifteen minutes to teach Claude your house.
-              Forever after, you hand off the spreadsheet, the school PDF, the screenshot from the
-              coach &mdash; and Claude puts it on the cal.
+              The family calendar, off your plate. Fifteen minutes &mdash; forever after.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
                 href={BUY_URL}
                 target="_blank"
@@ -114,19 +112,7 @@ export default function HandledProductPage() {
               </a>
             </div>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-mono-label text-peach/70">
-              Delivered as a PDF after checkout. Not downloaded from this site.
-            </p>
-            {/* Cheat-as-component note — Handled bundles the AI Calendar Cheat
-                inside the full system. Anyone who only wants the cheat can
-                still get it standalone at the lower price. */}
-            <p className="mt-4 max-w-prose font-serif text-[14px] italic leading-snug text-blush">
-              Includes the AI Calendar Cheat.{' '}
-              <a
-                href="/products/ai-calendar-cheat"
-                className="text-coral-light underline-offset-4 hover:underline"
-              >
-                If you want just that, get it on its own here &rarr;
-              </a>
+              PDF after checkout.
             </p>
           </div>
         </section>
