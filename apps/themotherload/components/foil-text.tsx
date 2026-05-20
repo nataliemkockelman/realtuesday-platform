@@ -16,24 +16,30 @@
  *   • Don't recolor. Don't add shadows or outlines.
  */
 
-// Coral foil — "shiny, sexy" treatment for hero applications.
+// Coral foil — ANIMATED shimmer using brand-kit palette only.
 //
-// Builds on the brand-kit palette (page 3):
+// Real foil shimmers because, as the viewer's angle changes, the bright
+// highlight moves across the surface. Static gradients can't fake this no
+// matter where you place the stops; only motion reads as shimmer. The
+// fix: make the gradient WIDER than the text (background-size 200%) and
+// animate background-position so the bright zone sweeps across.
+//
+// Palette stops — all brand-kit (page 3), no off-brand shades:
 //   #C75D4A  Motherload Coral
 //   #E8826E  Coral Light
 //   #FFB89E  Peach Glow
 //
-// Plus ONE shine stop — #FFF0E0 — used as a tight bright band (only 3%
-// wide, 48.5–51.5%) to read as actual light catching the foil. Symmetric
-// dark-to-bright-to-dark ramp on both sides so the gradient holds the
-// coral identity but pops a real metallic highlight in the middle.
+// No cream-white shine stop — that washed letters on cream backgrounds
+// (the "DI" and "Fa" complaint). #FFB89E is the brightest tone and stays
+// saturated enough to read against cream. On navy, FFB89E still pops
+// against #1A2238 because of the luminance gap.
 //
-// Pairs with a coral-toned drop-shadow on the rendered span (see below)
-// to give the letters lifted, dimensional depth — the "shiny sexy" ask.
-// The brand kit's "no shadows" rule on page 2 is logo-mark guidance;
-// hero foil treatment is a separate editorial application.
+// The animation runs slowly (8s, ease-in-out) so it reads as ambient
+// shimmer rather than a flashing GIF. prefers-reduced-motion users get
+// the static gradient via the .motherload-foil-shimmer CSS rule in
+// globals.css.
 const FOIL_GRADIENT =
-  'linear-gradient(105deg, #C75D4A 0%, #E8826E 28%, #FFB89E 45%, #FFF0E0 50%, #FFB89E 55%, #E8826E 72%, #C75D4A 100%)';
+  'linear-gradient(105deg, #C75D4A 0%, #E8826E 30%, #FFB89E 50%, #E8826E 70%, #C75D4A 100%)';
 
 export interface FoilTextProps {
   children: string;
@@ -74,31 +80,34 @@ export function FoilText({
   // "clipped at the baseline" look. Adding 0.18em of padding-bottom
   // extends the masking box down through the descender region; the
   // matching negative margin keeps stacking layout unchanged.
-  // Hero foil — gradient + dimensional drop-shadow + soft warm glow.
+  // Hero foil — animated shimmer + coral-toned dimensional shadow.
   //
-  // The drop-shadow gives the letters lifted weight (real foil sits proud
-  // of the page). The second shadow layer is a wider, lower-opacity warm
-  // coral glow that fakes the way metallic surfaces bounce light into
-  // surrounding space. Together they read as "shiny" instead of flat.
+  // background-size 200% × 100% makes the gradient twice the text width,
+  // and the .motherload-foil-shimmer class (defined in globals.css)
+  // animates background-position so the bright peach zone sweeps across
+  // the letters — that's the actual shimmer motion.
   //
-  // Brand kit's "no shadows on logo" rule (page 2) is logo-mark guidance;
-  // hero editorial foil is a separate application and uses depth on
-  // purpose. The logo lockup (Wordmark component, used in nav/footer)
-  // remains shadow-free per spec.
+  // Drop-shadow uses a deep coral tone (rgba 140,60,50) so it reads as
+  // warm dimension on BOTH navy and cream backgrounds. The previous
+  // dark navy-toned shadow smudged ugly on cream. Glow layer drops to
+  // a tighter spread so it doesn't bleed too far on cream.
   return (
     <span
-      className={className}
+      className={`motherload-foil-shimmer ${className}`}
       style={{
         fontStyle: italic ? 'italic' : 'normal',
         backgroundImage: FOIL_GRADIENT,
+        backgroundSize: '200% 100%',
+        backgroundPosition: '0% 50%',
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         color: 'transparent',
         paddingBottom: '0.18em',
         marginBottom: '-0.18em',
+        animation: 'motherload-foil-shimmer 8s ease-in-out infinite',
         filter:
-          'drop-shadow(0 1.5px 0.5px rgba(60, 20, 15, 0.32)) drop-shadow(0 0 14px rgba(232, 130, 110, 0.22))',
+          'drop-shadow(0 1px 0.5px rgba(140, 60, 50, 0.28)) drop-shadow(0 0 8px rgba(232, 130, 110, 0.18))',
       }}
     >
       {children}

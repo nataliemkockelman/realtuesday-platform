@@ -53,3 +53,34 @@
     background-color: theme('colors.coral');
   }
 }
+
+/*
+ * Foil shimmer animation — the bright zone of the gradient sweeps across
+ * the text. Mimics light moving across real metallic foil as you tilt a
+ * cover. Used by <FoilText /> via inline `animation` style. Slow + eased
+ * so it reads as ambient shimmer, not a flashing GIF.
+ *
+ * The gradient is sized 200% × 100% so it's twice the text width; we
+ * animate background-position between 0% and 100% (in the X axis) so the
+ * bright midstop sweeps from one edge to the other.
+ *
+ * Respects prefers-reduced-motion: users who opted out of motion get a
+ * static gradient instead.
+ */
+@keyframes motherload-foil-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motherload-foil-shimmer {
+    animation: none !important;
+  }
+}
