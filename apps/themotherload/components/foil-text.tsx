@@ -16,22 +16,25 @@
  *   • Don't recolor. Don't add shadows or outlines.
  */
 
-// Coral foil — saturated tonal sweep with an ultra-narrow glint stripe.
+// Coral foil — BRAND-KIT SPEC (Motherload brand kit v2.0, page 3).
 //
-// Iteration history:
-//   v1: smooth #E8826E midstop — "more gradient than shimmer"
-//   v2: #FFE8DC band — letters washed out on cream
-//   v3: #F4A48C band — still washed out under bright highlight
-//   v4: soft #D8705C peak, #A04434 edges — too gentle, edges muddy on cream
-//   v5: #F4A48C peak in 4% band — reads as smooth gradient again
-//   v6 (here): the glint stripe. Bright #F8C8B0 highlight, but ONLY 2% wide
-//       (49–51%). Even on cream, a 2% slice across a letter reads as a
-//       light-catching glint rather than washing the whole letter. Adjacent
-//       ramps go through #EB8870 (clearly coral) so the transition stays
-//       saturated. Combined with `drop-shadow` below, the result reads as
-//       dimensional metallic foil instead of a flat gradient.
+// Three stops, in the approved palette:
+//   #C75D4A  Motherload Coral (signature)
+//   #E8826E  Coral Light       (accent · bright)
+//   #FFB89E  Peach Glow        (softener · highlight)
+//
+// Asymmetric left-to-right ramp matches the horizontal lockup shown on
+// page 2 of the brand kit, where "Motherload" goes dark on M → light on d.
+// The brand kit explicitly forbids shadows, outlines, or other effects, so
+// the foil is a pure gradient — no drop-shadow, no glint stripes, no
+// extra layers added on top.
+//
+// Previous iterations tried to make it look like real metallic foil with
+// bright highlight bands. The brand kit calls this treatment "coral foil"
+// but the swatch is a smooth tonal sweep, not literal foil shine. Sticking
+// to spec.
 const FOIL_GRADIENT =
-  'linear-gradient(105deg, #B14E3D 0%, #C75D4A 30%, #DC715C 45%, #EB8870 49%, #F8C8B0 50%, #EB8870 51%, #DC715C 55%, #C75D4A 70%, #B14E3D 100%)';
+  'linear-gradient(110deg, #C75D4A 0%, #E8826E 55%, #FFB89E 100%)';
 
 export interface FoilTextProps {
   children: string;
@@ -72,14 +75,11 @@ export function FoilText({
   // "clipped at the baseline" look. Adding 0.18em of padding-bottom
   // extends the masking box down through the descender region; the
   // matching negative margin keeps stacking layout unchanged.
-  // The `filter: drop-shadow(...)` gives the foil-text actual depth — a
-  // ~1px warm-coral shadow under the letterforms reads as the letters being
-  // "raised" off the surface, which is what real metallic foil does as it
-  // catches light. Without this, even a strong gradient reads as a flat
-  // color sweep. Drop-shadow is applied via `filter` rather than
-  // `text-shadow` because text-shadow renders behind the transparent
-  // text fill and ends up showing the shadow on top of the gradient
-  // instead of behind the letterforms.
+  // Pure background-clip foil — NO drop-shadow, NO outlines, NO extra effects.
+  // The Motherload brand kit (v2.0, page 2 logo rules) explicitly forbids
+  // shadows and outlines on the wordmark / foil treatment. Earlier versions
+  // of this component added a drop-shadow filter to fake metallic depth;
+  // that's off-brand and has been removed.
   return (
     <span
       className={className}
@@ -92,7 +92,6 @@ export function FoilText({
         color: 'transparent',
         paddingBottom: '0.18em',
         marginBottom: '-0.18em',
-        filter: 'drop-shadow(0 1.5px 1px rgba(110, 40, 30, 0.18))',
       }}
     >
       {children}
