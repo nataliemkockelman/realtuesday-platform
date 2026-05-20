@@ -59,11 +59,15 @@ export default function AiCalendarCheatPage() {
       <Nav />
       <main>
         {/* ─── HERO ────────────────────────────────────────── */}
+        {/* Trimmed for mobile — original hero had a 30+ word description plus
+            a bundle-explainer paragraph that duplicates the "the bigger thing"
+            upsell section further down. Now: eyebrow, title, one-line tagline,
+            CTA, micro PDF note. Everything else lives in the sections below. */}
         <section className="px-6 pb-10 pt-7 sm:px-8 sm:pt-10">
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">paid &middot; one-page printable</p>
 
-            <h1 className="font-ml-display text-[clamp(36px,9vw,72px)] italic leading-[0.95] text-cream">
+            <h1 className="font-ml-display text-[clamp(30px,9vw,72px)] italic leading-[0.95] text-cream">
               <span className="block">{TITLE_LEAD}</span>
               <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
                 {TITLE_FOIL}
@@ -73,12 +77,10 @@ export default function AiCalendarCheatPage() {
             <span className="rule-coral mb-5 mt-6" aria-hidden="true" />
 
             <p className="max-w-prose font-serif text-lg italic leading-relaxed text-blush sm:text-xl">
-              The system on a fridge magnet. Seven copy-paste prompts, four house rules, the
-              color key &mdash; everything you need to actually run the family calendar off
-              Claude, on a single printable page.
+              Seven prompts. Four rules. One printable page.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
                 href={BUY_URL}
                 target="_blank"
@@ -90,20 +92,7 @@ export default function AiCalendarCheatPage() {
               </a>
             </div>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-mono-label text-peach/70">
-              Delivered as a PDF after checkout. Not downloaded from this site.
-            </p>
-            {/* Component-of-Handled note — the Cheat lives inside the full
-                bundle. Anyone considering buying both should go to Handled. */}
-            <p className="mt-4 max-w-prose font-serif text-[14px] italic leading-snug text-blush">
-              This is a component of{' '}
-              <a
-                href="/products/handled"
-                className="text-coral-light underline-offset-4 hover:underline"
-              >
-                The Whole Damn Thing, Handled
-              </a>
-              . If you want the full system &mdash; setup, prompts, color framework, and the
-              cheat &mdash; get the bundle instead.
+              PDF after checkout.
             </p>
           </div>
         </section>
