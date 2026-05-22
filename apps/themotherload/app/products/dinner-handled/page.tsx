@@ -14,7 +14,7 @@ import { FoilText } from '@/components/foil-text';
  * Pricing: $12 placeholder until Natalie confirms.
  */
 
-const BUY_URL = 'https://gumroad.com/themotherload/dinner-handled';
+const BUY_URL = 'https://arealtuesday.gumroad.com/l/hcbpm?wanted=true';
 const PRICE = '$12';
 
 const TITLE_LEAD = 'dinner,';
