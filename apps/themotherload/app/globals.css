@@ -55,6 +55,69 @@
 }
 
 /*
+ * Blog post body — renders raw HTML from remark, so we style tag selectors
+ * directly. Italic body matches the rest of the site (Fraunces editorial);
+ * bold gets the cream hero color so emphasized lines stand out from the
+ * blush body text. Tight rhythm with comfortable line height for reading.
+ */
+.post-body p {
+  margin-top: 1.1em;
+  font-style: italic;
+}
+.post-body p:first-child {
+  margin-top: 0;
+}
+.post-body strong {
+  color: theme('colors.cream');
+  font-weight: 600;
+  font-style: normal;
+}
+.post-body em {
+  font-style: italic;
+  color: theme('colors.coral-light');
+}
+.post-body a {
+  color: theme('colors.coral-light');
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.post-body a:hover {
+  color: theme('colors.coral');
+}
+.post-body h2,
+.post-body h3 {
+  font-family: theme('fontFamily.ml-display');
+  font-style: italic;
+  color: theme('colors.cream');
+  margin-top: 2em;
+  line-height: 1.15;
+}
+.post-body h2 {
+  font-size: 28px;
+}
+.post-body h3 {
+  font-size: 22px;
+}
+.post-body ul,
+.post-body ol {
+  margin-top: 1.1em;
+  padding-left: 1.25em;
+  font-style: italic;
+}
+.post-body ul li {
+  list-style-type: disc;
+}
+.post-body ol li {
+  list-style-type: decimal;
+}
+.post-body blockquote {
+  border-left: 2px solid theme('colors.coral');
+  padding-left: 1em;
+  margin: 1.5em 0;
+  color: theme('colors.cream');
+}
+
+/*
  * Foil shimmer animation — the bright zone of the gradient sweeps across
  * the text. Mimics light moving across real metallic foil as you tilt a
  * cover. Used by <FoilText /> via inline `animation` style. Slow + eased

@@ -23,6 +23,7 @@ import { Wordmark } from './wordmark';
 
 const NAV_LINKS = [
   { href: '/products', label: 'Products' },
+  { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
   { href: '/free/setup-guide', label: 'Free Guide' },
   { href: '/contact', label: 'Contact' },

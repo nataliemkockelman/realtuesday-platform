@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { LEAD_MAGNETS } from '@/lib/lead-magnets';
+import { getAllPosts } from '@/lib/posts';
 
 /**
  * /sitemap.xml — lists every public page so search engines can crawl them
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/products/monthly-money-map`, lastModified, priority: 0.85, changeFrequency: 'monthly' },
     { url: `${baseUrl}/products/ai-calendar-cheat`, lastModified, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/free/setup-guide`, lastModified, priority: 0.9, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/blog`, lastModified, priority: 0.8, changeFrequency: 'weekly' },
     { url: `${baseUrl}/about`, lastModified, priority: 0.6, changeFrequency: 'monthly' },
     { url: `${baseUrl}/contact`, lastModified, priority: 0.5, changeFrequency: 'yearly' },
     { url: `${baseUrl}/privacy`, lastModified, priority: 0.2, changeFrequency: 'yearly' },
@@ -38,5 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
   }));
 
-  return [...staticRoutes, ...leadMagnetRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    priority: 0.7,
+    changeFrequency: 'yearly',
+  }));
+
+  return [...staticRoutes, ...leadMagnetRoutes, ...blogRoutes];
 }
