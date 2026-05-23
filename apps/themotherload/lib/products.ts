@@ -71,7 +71,7 @@ export const PRODUCTS: Product[] = [
     coverNumber: '03',
     price: '$12',
     channel: 'Gumroad',
-    buyUrl: 'https://arealtuesday.gumroad.com/l/hcbpm?wanted=true',
+    buyUrl: '/products/dinner-handled',
   },
   {
     // Monthly Money Map — household budget workbook. Etsy because the file
