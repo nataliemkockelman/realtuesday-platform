@@ -46,14 +46,14 @@ export default function ContactPage() {
 
           <span className="rule-copper mt-3 mb-[22px]" />
 
-          <p className="mb-6 max-w-prose font-serif italic text-lg leading-[1.45] text-soft-gold sm:text-xl">
+          <p className="mb-6 max-w-prose font-serif italic text-lg leading-[1.45] text-mist sm:text-xl">
             Tell me about your operation and where the manual work is piling up. I respond
             personally, and only take on engagements where I can genuinely move the needle.
           </p>
 
           {/* Direct-email fallback for visitors who hate forms (most of them).
               Mailto opens whatever default client they use. */}
-          <p className="mb-12 max-w-prose font-body text-sm leading-[1.55] text-blush sm:text-base">
+          <p className="mb-12 max-w-prose font-body text-sm leading-[1.55] text-mist sm:text-base">
             Or just email us directly at{' '}
             <a
               href="mailto:hi@arealtuesday.com"
@@ -126,7 +126,7 @@ function ContactForm() {
           type="text"
           required
           autoComplete="name"
-          className="w-full rounded border border-soft-gold/20 bg-navy-card px-4 py-3.5 font-body text-sm text-cream placeholder:text-blush/40 focus:border-copper focus:outline-none"
+          className="w-full rounded border border-cream/15 bg-navy-card px-4 py-3.5 font-body text-sm text-cream placeholder:text-mist/40 focus:border-copper focus:outline-none"
         />
       </Field>
 
@@ -136,7 +136,7 @@ function ContactForm() {
           type="email"
           required
           autoComplete="email"
-          className="w-full rounded border border-soft-gold/20 bg-navy-card px-4 py-3.5 font-body text-sm text-cream placeholder:text-blush/40 focus:border-copper focus:outline-none"
+          className="w-full rounded border border-cream/15 bg-navy-card px-4 py-3.5 font-body text-sm text-cream placeholder:text-mist/40 focus:border-copper focus:outline-none"
         />
       </Field>
 
@@ -145,7 +145,7 @@ function ContactForm() {
           name="topic"
           required
           defaultValue=""
-          className="w-full rounded border border-soft-gold/20 bg-navy-card px-4 py-3.5 font-body text-sm text-cream focus:border-copper focus:outline-none"
+          className="w-full rounded border border-cream/15 bg-navy-card px-4 py-3.5 font-body text-sm text-cream focus:border-copper focus:outline-none"
         >
           <option value="" disabled>
             pick one
@@ -162,7 +162,7 @@ function ContactForm() {
           name="message"
           required
           rows={6}
-          className="w-full rounded border border-soft-gold/20 bg-navy-card px-4 py-3.5 font-body text-sm text-cream placeholder:text-blush/40 focus:border-copper focus:outline-none"
+          className="w-full rounded border border-cream/15 bg-navy-card px-4 py-3.5 font-body text-sm text-cream placeholder:text-mist/40 focus:border-copper focus:outline-none"
         />
       </Field>
 
@@ -193,7 +193,7 @@ function Block({ title, body }: { title: string; body: string }) {
       <h2 className="mb-1.5 font-mono text-[10px] font-semibold uppercase tracking-mono-button text-copper">
         {title}
       </h2>
-      <p className="font-serif italic text-sm leading-[1.55] text-blush sm:text-base">{body}</p>
+      <p className="font-serif italic text-sm leading-[1.55] text-mist sm:text-base">{body}</p>
     </div>
   );
 }

@@ -41,6 +41,7 @@ const config: Config = {
         'soft-gold': '#F5D18F',
         cream: '#F6F1E8',
         bone: '#EBE4D8',
+        mist: '#C2C9D6', // cool neutral for body copy on navy — sleek, no warmth
         // Sub-brands — surfaced on home portfolio cards
         // Motherload (live)
         coral: '#C75D4A',
@@ -86,7 +87,7 @@ const config: Config = {
       },
       maxWidth: {
         prose: '36rem',
-        content: '72rem',
+        content: '84rem',
       },
       backgroundImage: {
         // Copper foil gradient. For non-text fills (rules, accents) only —

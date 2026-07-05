@@ -17,7 +17,7 @@ const FOOTER_LINKS = [
 export function SiteFooter() {
   return (
     <footer className="mt-12 px-6 pt-7 pb-7 sm:px-8 sm:mt-16">
-      <div className="mx-auto max-w-content border-t border-soft-gold/15 pt-8">
+      <div className="mx-auto max-w-content border-t border-cream/10 pt-8">
         {/* Nav row */}
         <ul className="mb-6 flex flex-wrap gap-x-6 gap-y-2">
           {FOOTER_LINKS.map((link) => (
@@ -46,7 +46,7 @@ export function SiteFooter() {
               hi@arealtuesday.com
             </a>
           </div>
-          <div className="text-right font-mono text-[8px] uppercase tracking-mono-label text-soft-gold">
+          <div className="text-right font-mono text-[8px] uppercase tracking-mono-label text-mist">
             © 2026
           </div>
         </div>

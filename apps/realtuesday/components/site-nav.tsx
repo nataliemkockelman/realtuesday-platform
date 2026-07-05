@@ -61,12 +61,20 @@ export function SiteNav() {
         <Link
           href="/"
           aria-label="real Tuesday — home"
-          className="relative flex h-8 w-8 items-center justify-center rounded bg-cream text-navy outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+          className="group flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
         >
-          <span className="font-display text-base font-extrabold leading-none tracking-[-0.05em]">
-            rT
+          <span className="relative flex h-8 w-8 items-center justify-center rounded bg-cream text-navy">
+            <span className="font-display text-base font-extrabold leading-none tracking-[-0.05em]">
+              rT
+            </span>
+            <span className="absolute bottom-[5px] left-[5px] h-[1.5px] w-[6px] bg-copper" />
           </span>
-          <span className="absolute bottom-[5px] left-[5px] h-[1.5px] w-[6px] bg-copper" />
+          <span className="flex items-baseline gap-[3px] leading-none">
+            <span className="font-display text-xl font-extrabold lowercase tracking-[-0.04em] text-cream">
+              real
+            </span>
+            <span className="font-serif text-xl italic text-copper">Tuesday</span>
+          </span>
         </Link>
 
         {/* Desktop inline nav (≥sm) */}

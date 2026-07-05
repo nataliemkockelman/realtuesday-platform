@@ -34,56 +34,60 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="px-6 pt-8 pb-9 sm:px-8">
-      <div className="mx-auto max-w-content">
-        <p className="mb-7 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-          — ai operations studio —
-        </p>
+    <section className="px-6 pt-8 pb-9 sm:px-8 sm:pt-10 lg:pb-16">
+      <div className="mx-auto grid max-w-content items-center gap-10 lg:grid-cols-[1fr_360px] lg:gap-20">
+        {/* Left — eyebrow, headline, subhead, CTAs */}
+        <div>
+          <p className="mb-7 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
+            — ai operations studio —
+          </p>
 
-        <h1 className="max-w-[760px]">
-          <span className="block font-display text-[38px] font-extrabold leading-[0.92] tracking-[-0.05em] lowercase text-cream sm:text-[56px] lg:text-[68px]">
-            your team shouldn&apos;t be doing this
-          </span>
-          <FoilText
-            variant="copper"
-            className="block font-serif italic font-normal text-[38px] leading-[1] tracking-[-0.03em] pb-3.5 sm:text-[56px] lg:text-[68px]"
-          >
-            by hand.
-          </FoilText>
-        </h1>
+          <h1 className="max-w-[940px]">
+            <span className="block font-display text-[38px] font-extrabold leading-[0.92] tracking-[-0.05em] lowercase text-cream sm:text-[56px] lg:text-[72px]">
+              your team shouldn&apos;t be doing this
+            </span>
+            <FoilText
+              variant="copper"
+              className="block font-serif italic font-normal text-[38px] leading-[1] tracking-[-0.03em] pb-3.5 sm:text-[56px] lg:text-[72px]"
+            >
+              by hand.
+            </FoilText>
+          </h1>
 
-        <span className="rule-copper mt-3 mb-[22px]" />
+          <span className="rule-copper mt-3 mb-[22px]" />
 
-        <p className="mb-7 max-w-prose font-serif italic text-lg leading-[1.45] text-soft-gold sm:text-xl">
-          I find where your business loses the most time, build the AI systems that take that work
-          over, and stay until your team actually runs on them.
-        </p>
+          <p className="mb-7 max-w-[52ch] font-serif italic text-lg leading-[1.45] text-mist sm:text-xl">
+            I find where your business loses the most time, build the AI systems that take that work
+            over, and stay until your team actually runs on them.
+          </p>
 
-        <div className="flex flex-wrap items-center gap-1">
-          <Link
-            href="/contact"
-            className="inline-block rounded bg-copper px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-mono-button text-navy no-underline"
-          >
-            Book an audit →
-          </Link>
-          <a
-            href="#how"
-            className="ml-2 inline-block shrink-0 whitespace-nowrap px-2 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-button text-bright-copper no-underline"
-          >
-            see how it works →
-          </a>
+          <div className="flex flex-wrap items-center gap-1">
+            <Link
+              href="/contact"
+              className="inline-block rounded bg-copper px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-mono-button text-navy no-underline"
+            >
+              Book an audit →
+            </Link>
+            <a
+              href="#how"
+              className="ml-2 inline-block shrink-0 whitespace-nowrap px-2 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-button text-bright-copper no-underline"
+            >
+              see how it works →
+            </a>
+          </div>
         </div>
 
-        <div className="mt-9 max-w-[540px] border-t border-soft-gold/15 pt-5">
-          <p className="mb-2 font-mono text-[9px] uppercase tracking-mono-label text-bright-copper">
+        {/* Right — proof stat, fills the desktop column; stacks below on mobile */}
+        <div className="rounded-xl border border-cream/10 bg-navy-card/50 p-6 lg:p-7">
+          <p className="mb-3 font-mono text-[9px] uppercase tracking-mono-label text-bright-copper">
             — most recently —
           </p>
-          <p className="font-body text-[15px] leading-[1.6] text-blush sm:text-base">
-            <strong className="font-semibold text-cream">
-              Six figures of operating cost removed
-            </strong>{' '}
-            for one business in a single year, by handing its busywork to systems that run on their
-            own.
+          <p className="font-display text-[40px] font-extrabold leading-[0.95] tracking-[-0.04em] text-cream sm:text-[48px]">
+            six figures
+          </p>
+          <p className="mt-3 font-body text-[15px] leading-[1.6] text-mist">
+            of operating cost removed for one business in a single year, by handing its busywork to
+            systems that run on their own.
           </p>
         </div>
       </div>
@@ -102,7 +106,7 @@ function Why() {
         <p className="mb-2 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
           — why this exists —
         </p>
-        <h2 className="max-w-[18ch] font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
+        <h2 className="max-w-[24ch] font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
           most consultants hand you a deck. i hand you a{' '}
           <FoilText
             variant="copper-tight"
@@ -112,7 +116,7 @@ function Why() {
           </FoilText>
         </h2>
 
-        <div className="mt-6 max-w-[640px] space-y-4 font-body text-base leading-[1.7] text-blush sm:text-[17px]">
+        <div className="mt-6 max-w-[640px] space-y-4 font-body text-base leading-[1.7] text-mist sm:text-[17px]">
           <p>Most consultancies stop at the slide deck. This was built differently.</p>
           <p>
             I&apos;m an operations builder who ships. My career has been spent in the messy middle
@@ -121,7 +125,7 @@ function Why() {
           </p>
           <p>
             The difference is simple.{' '}
-            <em className="font-serif italic text-soft-gold">
+            <em className="font-serif italic text-mist">
               I don&apos;t just tell you what to automate. I build it, ship it, and stay until your
               team actually uses it.
             </em>
@@ -170,16 +174,16 @@ function HowItWorks() {
             working operation.
           </FoilText>
         </h2>
-        <p className="mt-3.5 mb-8 max-w-prose font-serif italic text-sm leading-[1.5] text-soft-gold sm:text-base">
+        <p className="mt-3.5 mb-8 max-w-prose font-serif italic text-sm leading-[1.5] text-mist sm:text-base">
           No six-month transformations. I find the friction, build the system, and stay until it
           sticks.
         </p>
 
-        <div className="border-t border-soft-gold/15">
+        <div className="border-t border-cream/10">
           {STEPS.map((step) => (
             <div
               key={step.num}
-              className="grid grid-cols-[auto_1fr] gap-5 border-b border-soft-gold/15 py-7 sm:gap-8"
+              className="grid grid-cols-[auto_1fr] gap-5 border-b border-cream/10 py-7 sm:gap-8"
             >
               <span className="font-serif text-[40px] font-normal italic leading-none text-copper sm:text-[56px]">
                 {step.num}
@@ -188,7 +192,7 @@ function HowItWorks() {
                 <h3 className="mb-1.5 font-display text-[22px] font-bold leading-[1.1] tracking-[-0.02em] lowercase text-cream sm:text-[26px]">
                   {step.title}
                 </h3>
-                <p className="font-body text-[15px] leading-[1.65] text-blush sm:text-base">
+                <p className="font-body text-[15px] leading-[1.65] text-mist sm:text-base">
                   {step.text}
                 </p>
               </div>
@@ -220,7 +224,7 @@ function Services() {
             the whole operation.
           </FoilText>
         </h2>
-        <p className="mt-3.5 mb-8 max-w-prose font-serif italic text-sm leading-[1.5] text-soft-gold sm:text-base">
+        <p className="mt-3.5 mb-8 max-w-prose font-serif italic text-sm leading-[1.5] text-mist sm:text-base">
           Two ways to work together: a fixed-scope audit to find the wins, or an ongoing build
           partnership to ship them.
         </p>
@@ -283,7 +287,7 @@ function ServiceCard({
   return (
     <div
       className={`flex flex-col rounded-xl border p-[22px_20px] ${
-        featured ? 'border-copper/55 bg-navy-card' : 'border-soft-gold/25 bg-navy-card'
+        featured ? 'border-copper/55 bg-navy-card' : 'border-cream/12 bg-navy-card'
       }`}
     >
       <p className="mb-3 font-mono text-[9px] uppercase tracking-mono-label text-bright-copper">
@@ -294,13 +298,13 @@ function ServiceCard({
       </h3>
       <p className="mt-1.5 font-serif italic text-sm text-copper">{tagline}</p>
 
-      <p className="mt-4 font-body text-[14px] leading-[1.6] text-blush">{desc}</p>
+      <p className="mt-4 font-body text-[14px] leading-[1.6] text-mist">{desc}</p>
 
       <ul className="mt-5 mb-6 flex-1 space-y-2.5">
         {features.map((f) => (
           <li
             key={f}
-            className="flex items-start gap-2.5 font-body text-[13.5px] leading-[1.45] text-blush"
+            className="flex items-start gap-2.5 font-body text-[13.5px] leading-[1.45] text-mist"
           >
             <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-copper" aria-hidden />
             {f}
@@ -342,7 +346,7 @@ function Industries() {
         <p className="mb-2 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
           — where i work —
         </p>
-        <h2 className="max-w-[20ch] font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
+        <h2 className="max-w-[26ch] font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
           built to work anywhere there&apos;s{' '}
           <FoilText
             variant="copper-tight"
@@ -351,7 +355,7 @@ function Industries() {
             manual work worth killing.
           </FoilText>
         </h2>
-        <p className="mt-3.5 mb-6 max-w-prose font-serif italic text-sm leading-[1.5] text-soft-gold sm:text-base">
+        <p className="mt-3.5 mb-6 max-w-prose font-serif italic text-sm leading-[1.5] text-mist sm:text-base">
           Diagnose first, build second, run it until it sticks. That holds whether you&apos;re
           closing real estate transactions, onboarding clients, or scaling a service business.
           Below is where I have the deepest experience.
@@ -365,15 +369,15 @@ function Industries() {
                 pill.tone === 'primary'
                   ? 'border-copper bg-copper/12 font-medium text-copper'
                   : pill.tone === 'muted'
-                    ? 'border-dashed border-soft-gold/40 text-soft-gold'
-                    : 'border-soft-gold/25 bg-navy-card text-cream'
+                    ? 'border-dashed border-cream/25 text-mist'
+                    : 'border-cream/12 bg-navy-card text-cream'
               }`}
             >
               {pill.label}
             </span>
           ))}
         </div>
-        <p className="mt-6 font-serif italic text-sm leading-[1.6] text-soft-gold">
+        <p className="mt-6 font-serif italic text-sm leading-[1.6] text-mist">
           If your business doesn&apos;t fit a category above, that&apos;s not a problem. It&apos;s
           usually a sign we should talk.
         </p>

@@ -49,7 +49,7 @@ export default function AboutPage() {
 
           <span className="rule-copper mt-3 mb-[22px]" />
 
-          <p className="mb-12 max-w-prose font-serif italic text-lg leading-[1.45] text-soft-gold sm:text-xl">
+          <p className="mb-12 max-w-prose font-serif italic text-lg leading-[1.45] text-mist sm:text-xl">
             Real Tuesday is a studio, not an agency. You work directly with the person doing the
             work. No account managers, no junior handoffs, no decks that go nowhere.
           </p>
@@ -59,12 +59,12 @@ export default function AboutPage() {
               <h2 className="mb-3 font-display text-[28px] font-extrabold leading-[1.05] tracking-[-0.03em] lowercase text-cream sm:text-[32px]">
                 the operator.
               </h2>
-              <div className="space-y-4 font-body text-base leading-[1.65] text-blush sm:text-[17px]">
+              <div className="space-y-4 font-body text-base leading-[1.65] text-mist sm:text-[17px]">
                 <p>
                   An operations leader and builder. I&apos;ve spent my career designing processes
                   and scaling teams inside fast-growing companies, and increasingly building the AI
                   systems that quietly run the work underneath.{' '}
-                  <em className="font-serif italic text-soft-gold">
+                  <em className="font-serif italic text-mist">
                     Multiple internal platforms shipped end-to-end, a fleet of AI agents in
                     production, and six figures of operating cost removed in a single year.
                   </em>
@@ -89,7 +89,7 @@ export default function AboutPage() {
                     </span>
                     <div>
                       <h3 className="mb-1 font-display text-base font-bold text-cream">{p.title}</h3>
-                      <p className="font-body text-[15px] leading-[1.6] text-blush sm:text-base">
+                      <p className="font-body text-[15px] leading-[1.6] text-mist sm:text-base">
                         {p.text}
                       </p>
                     </div>
@@ -102,7 +102,7 @@ export default function AboutPage() {
               <h2 className="mb-3 font-display text-[28px] font-extrabold leading-[1.05] tracking-[-0.03em] lowercase text-cream sm:text-[32px]">
                 the mission.
               </h2>
-              <p className="font-serif italic text-lg leading-[1.5] text-soft-gold sm:text-xl">
+              <p className="font-serif italic text-lg leading-[1.5] text-mist sm:text-xl">
                 Give growing businesses the operational leverage of a much bigger team, by automating
                 the work nobody should be doing by hand.
               </p>
@@ -112,15 +112,15 @@ export default function AboutPage() {
               <p className="mb-3 font-mono text-[10px] uppercase tracking-mono-label text-bright-copper">
                 — built with —
               </p>
-              <div className="flex flex-wrap gap-x-5 gap-y-2 font-body text-sm font-medium text-blush">
+              <div className="flex flex-wrap gap-x-5 gap-y-2 font-body text-sm font-medium text-mist">
                 {['Claude', 'Next.js', 'Supabase', 'Cloudflare', 'Stripe', 'Python'].map((t) => (
                   <span key={t}>{t}</span>
                 ))}
               </div>
             </section>
 
-            <div className="border-t border-soft-gold/15 pt-8">
-              <p className="mb-4 font-serif italic text-base leading-[1.55] text-soft-gold sm:text-lg">
+            <div className="border-t border-cream/10 pt-8">
+              <p className="mb-4 font-serif italic text-base leading-[1.55] text-mist sm:text-lg">
                 If manual work is piling up somewhere in your operation, that&apos;s the place to
                 start.
               </p>
