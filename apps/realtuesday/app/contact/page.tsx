@@ -18,7 +18,7 @@ import { SiteFooter } from '@/components/site-footer';
 export const metadata: Metadata = {
   title: 'contact',
   description:
-    'reach out about real tuesday \u2014 press, collaborations, working with us, or just saying hi.',
+    'book an operations audit or start a build with real tuesday. tell me where the manual work is piling up.',
 };
 
 export default function ContactPage() {
@@ -47,7 +47,8 @@ export default function ContactPage() {
           <span className="rule-copper mt-3 mb-[22px]" />
 
           <p className="mb-6 max-w-prose font-serif italic text-lg leading-[1.45] text-soft-gold sm:text-xl">
-            Press, collabs, working with us, or just saying hi. Real responses, no auto-replies.
+            Tell me about your operation and where the manual work is piling up. I respond
+            personally, and only take on engagements where I can genuinely move the needle.
           </p>
 
           {/* Direct-email fallback for visitors who hate forms (most of them).
@@ -70,20 +71,20 @@ export default function ContactPage() {
 
             <aside className="space-y-8">
               <Block
-                title="press"
-                body="Quotes, mentions, podcast outreach. Include a deadline if you have one — we move faster when there's a clock."
+                title="the audit"
+                body="A fixed-scope dive into your operation. You leave with a prioritized build plan and an ROI estimate per opportunity."
               />
               <Block
-                title="collabs"
-                body="Co-branded notes, guest features, sub-brand partnerships. Tell us what you're making and why real tuesday fits."
+                title="the build"
+                body="Where the audit becomes infrastructure. Agents, automations, and internal platforms your team actually adopts."
               />
               <Block
-                title="working with us"
-                body="We're a small operation, not an agency. We don't take client work — but if you're doing something that overlaps, we'd rather hear about it than not."
+                title="capacity"
+                body="I take on a limited number of builds at a time so every client gets real attention. If I'm full or not the right fit, I'll tell you honestly."
               />
               <Block
-                title="just saying hi"
-                body="Also welcome. Notes from readers are the best part of the job."
+                title="response"
+                body="I respond personally. No auto-replies, no account manager, no junior handoff."
               />
             </aside>
           </div>
@@ -149,10 +150,10 @@ function ContactForm() {
           <option value="" disabled>
             pick one
           </option>
-          <option value="press">press</option>
-          <option value="collab">collab</option>
-          <option value="work">working with us</option>
-          <option value="hi">just saying hi</option>
+          <option value="audit">operations audit</option>
+          <option value="build">build &amp; embed</option>
+          <option value="fractional">fractional ops (ongoing)</option>
+          <option value="unsure">not sure yet</option>
         </select>
       </Field>
 

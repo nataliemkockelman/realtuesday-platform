@@ -11,7 +11,6 @@ import Link from 'next/link';
 
 const FOOTER_LINKS = [
   { href: '/about', label: 'about' },
-  { href: '/notes', label: 'notes' },
   { href: '/contact', label: 'contact' },
 ] as const;
 
@@ -38,7 +37,7 @@ export function SiteFooter() {
           <div className="font-serif text-[11px] italic leading-[1.5] text-bright-copper">
             <em>real Tuesday</em>
             <br />
-            est · sioux falls
+            ai operations studio
             <br />
             <a
               href="mailto:hi@arealtuesday.com"
@@ -49,8 +48,6 @@ export function SiteFooter() {
           </div>
           <div className="text-right font-mono text-[8px] uppercase tracking-mono-label text-soft-gold">
             © 2026
-            <br />
-            Sioux Falls, SD
           </div>
         </div>
       </div>
