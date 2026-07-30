@@ -32,7 +32,7 @@ export async function generateMetadata({
   const note = await getNote(params.slug);
   if (!note) return { title: 'note not found' };
   return {
-    title: `${note.issueLabel} — ${note.title}`,
+    title: `${note.issueLabel} · ${note.title}`,
     description: note.deck,
     openGraph: {
       title: `notes from ${note.title}`,
@@ -47,17 +47,12 @@ export default async function NotePage({ params }: { params: { slug: string } })
   const note = await getNote(params.slug);
   if (!note) notFound();
 
-  // Strip trailing period from the title since we render it separately
-  // for the foil treatment to keep the punctuation outside the gradient.
-  const titleWord = note.title.replace(/\.$/, '');
-
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-navy">
       <SiteNav />
 
-      {/* Inline "← all notes" link above the article header so single-post
-          visitors have a clear path back to the index. Sits below the
-          top nav for a tighter back-to-context move. */}
+      {/* Dark hero: back link, issue meta, foil title, deck. Mirrors the
+          about/contact/privacy pattern of one dark editorial moment up top. */}
       <div className="px-6 pt-2 sm:px-8">
         <div className="mx-auto max-w-content">
           <Link
@@ -69,52 +64,55 @@ export default async function NotePage({ params }: { params: { slug: string } })
         </div>
       </div>
 
-      <article className="px-6 pt-6 pb-7 sm:px-8 sm:pt-8">
+      <header className="px-6 pt-6 pb-9 sm:px-8 sm:pt-8">
         <div className="mx-auto max-w-[680px]">
-          <header className="mb-7">
-            <div className="mb-7 flex items-center justify-between">
-              <span className="rounded-full border border-copper px-3 py-1 font-mono text-[10px] uppercase tracking-mono-label text-soft-gold">
-                {note.issueLabel}
-              </span>
-              <span className="font-serif italic text-xs text-bright-copper">
-                {note.readingTime}
-              </span>
-            </div>
-
-            <p className="mb-2.5 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-              — notes from —
-            </p>
-
-            <h1 className="font-display text-[56px] font-extrabold leading-[0.95] tracking-[-0.05em] lowercase text-cream sm:text-[96px]">
-              <FoilText
-                variant="copper-tight"
-                className="font-serif italic font-normal text-[56px] leading-[0.95] tracking-[-0.05em] sm:text-[96px]"
-              >
-                {titleWord}
-              </FoilText>
-              .
-            </h1>
-
-            <span className="rule-copper my-6" />
-
-            <p className="font-serif italic text-base leading-[1.55] text-soft-gold sm:text-lg">
-              {note.deck}
-            </p>
-          </header>
-
-          {/* Markdown body. The .prose-notes utility (defined in globals.css)
-              styles all child elements — h2 in Bricolage cream, p in Inter
-              blush, em in Fraunces soft-gold, blockquote with copper rule. */}
-          <div
-            className="prose-notes"
-            dangerouslySetInnerHTML={{ __html: note.bodyHtml }}
-          />
-
-          <div className="mt-7 border-t border-soft-gold/15 pt-6 font-serif italic text-xs text-bright-copper">
-            — {note.byline}
+          <div className="mb-7 flex items-center justify-between">
+            <span className="rounded-full border border-copper px-3 py-1 font-mono text-[10px] uppercase tracking-mono-label text-soft-gold">
+              {note.issueLabel}
+            </span>
+            <span className="font-serif italic text-xs text-bright-copper">
+              {note.readingTime}
+            </span>
           </div>
+
+          <p className="mb-2.5 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
+            notes from
+          </p>
+
+          <h1 className="font-display text-[56px] font-extrabold leading-[0.95] tracking-[-0.05em] lowercase text-cream sm:text-[96px]">
+            <FoilText
+              variant="copper-tight"
+              className="font-serif italic font-normal text-[56px] leading-[0.95] tracking-[-0.05em] sm:text-[96px]"
+            >
+              {note.title}
+            </FoilText>
+          </h1>
+
+          <span className="rule-copper my-6" />
+
+          <p className="font-serif italic text-base leading-[1.55] text-soft-gold sm:text-lg">
+            {note.deck}
+          </p>
         </div>
-      </article>
+      </header>
+
+      {/* Warm cream reading area. The .prose-notes utility (globals.css)
+          styles children for cream: h2 navy, p navy, em navy italic,
+          blockquote deep-copper with a copper rule. */}
+      <div className="bg-cream text-navy">
+        <article className="px-6 py-12 sm:px-8 sm:py-14">
+          <div className="mx-auto max-w-[680px]">
+            <div
+              className="prose-notes"
+              dangerouslySetInnerHTML={{ __html: note.bodyHtml }}
+            />
+
+            <div className="mt-9 border-t border-navy/10 pt-6 font-serif italic text-xs text-deep-copper">
+              {note.byline}
+            </div>
+          </div>
+        </article>
+      </div>
 
       <SiteFooter />
     </main>

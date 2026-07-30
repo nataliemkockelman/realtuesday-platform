@@ -11,7 +11,10 @@ import Link from 'next/link';
 
 const FOOTER_LINKS = [
   { href: '/about', label: 'about' },
+  { href: '/notes', label: 'notes' },
   { href: '/contact', label: 'contact' },
+  { href: '/privacy', label: 'privacy' },
+  { href: '/portal/login', label: 'client login' },
 ] as const;
 
 export function SiteFooter() {

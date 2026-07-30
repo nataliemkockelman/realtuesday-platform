@@ -21,6 +21,7 @@ import { useEffect, useState } from 'react';
  */
 
 const NAV_LINKS = [
+  { href: '/notes', label: 'notes' },
   { href: '/about', label: 'about' },
   { href: '/contact', label: 'contact' },
 ] as const;
@@ -60,7 +61,7 @@ export function SiteNav() {
       <div className="mx-auto flex max-w-content items-center justify-between">
         <Link
           href="/"
-          aria-label="real Tuesday — home"
+          aria-label="real Tuesday home"
           className="group flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
         >
           <span className="relative flex h-8 w-8 items-center justify-center rounded bg-cream text-navy">

@@ -12,8 +12,7 @@ import { FoilText } from '@/components/foil-text';
  * companion section explicitly links upward to the bundle.
  */
 
-// Live channel link gets dropped in once Gumroad is set up.
-const BUY_URL = 'https://gumroad.com/themotherload/ai-calendar-cheat';
+const BUY_URL = 'https://arealtuesday.gumroad.com/l/calendar-workbook';
 const PRICE = '$12';
 
 const TITLE_LEAD = 'The AI Calendar';

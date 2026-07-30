@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="real Tuesday monogram">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;display=swap');
+      .mono { font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:132px; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="240" height="240" rx="40" fill="#1A2238"/>
+  <text class="mono" x="122" y="150" text-anchor="middle" fill="#F6F1E8">rT</text>
+  <rect x="77" y="162" width="28" height="5" rx="2.5" fill="#C97B3E"/>
+</svg>

@@ -67,7 +67,7 @@
     line-height: 1.1;
     letter-spacing: -0.03em;
     text-transform: lowercase;
-    color: theme('colors.cream');
+    color: theme('colors.navy');
     margin-top: 2rem;
     margin-bottom: 0.625rem;
   }
@@ -78,28 +78,27 @@
     font-family: theme('fontFamily.body');
     font-size: 15px;
     line-height: 1.65;
-    color: theme('colors.blush');
+    color: theme('colors.navy');
   }
   .prose-notes p em,
   .prose-notes em {
-    color: theme('colors.soft-gold');
-    font-family: theme('fontFamily.serif');
+    color: theme('colors.navy');
     font-style: italic;
   }
   .prose-notes a {
-    color: theme('colors.copper');
+    color: theme('colors.deep-copper');
     text-decoration: underline;
     text-underline-offset: 3px;
   }
   .prose-notes a:hover {
-    color: theme('colors.bright-copper');
+    color: theme('colors.copper');
   }
   .prose-notes blockquote {
     font-family: theme('fontFamily.serif');
     font-style: italic;
     font-size: 22px;
     line-height: 1.3;
-    color: theme('colors.soft-gold');
+    color: theme('colors.deep-copper');
     padding: 0.5rem 0 0.5rem 1.125rem;
     border-left: 3px solid theme('colors.copper');
     margin: 1.375rem 0;
@@ -114,7 +113,7 @@
   .prose-notes ul,
   .prose-notes ol {
     padding-left: 1.5rem;
-    color: theme('colors.blush');
+    color: theme('colors.navy');
     font-family: theme('fontFamily.body');
     font-size: 15px;
     line-height: 1.65;

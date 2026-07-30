@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   // social previews resolve correctly when posted off-site.
   metadataBase: new URL('https://arealtuesday.com'),
   title: {
-    default: 'real Tuesday — ai operations studio',
+    default: 'real Tuesday · ai operations studio',
     template: '%s · real Tuesday',
   },
   description:
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'real Tuesday',
-    title: 'real Tuesday — ai operations studio',
+    title: 'real Tuesday · ai operations studio',
     description:
       'I find the work your business hates, build the AI systems that run it, and stay until your team adopts them.',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'real Tuesday — ai operations studio',
+    title: 'real Tuesday · ai operations studio',
     description:
       'I find the work your business hates, build the AI systems that run it, and stay until your team adopts them.',
   },

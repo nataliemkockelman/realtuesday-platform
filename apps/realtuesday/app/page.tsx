@@ -1,135 +1,82 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { FoilText } from '@/components/foil-text';
 import { SiteNav } from '@/components/site-nav';
 import { SiteFooter } from '@/components/site-footer';
 
 /**
- * Home page — Real Tuesday as an AI operations studio.
+ * Home — Real Tuesday, AI operations studio.
  *
- *   nav · hero · why · how it works · services · industries · cta · footer
+ * Structure is deliberately NOT the templated eyebrow→headline→sub→card-grid
+ * repeat. One dark moment (the brand hero), then a warm off-white body that
+ * varies its rhythm section to section: an editorial statement split with a
+ * photo panel, oversized numeral steps, two offerings as full-width editorial
+ * rows, a single oversized proof stat, and a copper closing block.
  *
- * The consumer portfolio (the Motherload, Mint Condition) and the
- * newsletter block are parked for now — they return as a "what we make"
- * section once those sub-brands are further along. Voice + copy port the
- * consulting messaging into Real Tuesday's navy + copper-foil system.
+ * Palette: navy + off-white foundation, copper the only accent. Foil is used
+ * once, in the dark hero, where the light-gold stops actually read.
+ *
+ * PHOTO SLOTS: <PhotoPanel /> renders an intentional placeholder. Swap each
+ * for a real next/image when photography is supplied. Keep the wrapper's
+ * aspect + rounding so the layout doesn't shift.
  */
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-navy">
       <SiteNav />
       <Hero />
-      <Why />
-      <HowItWorks />
-      <Services />
-      <Industries />
-      <ClosingCta />
+
+      {/* Light body — cream is the brand's warm "white" (F6F1E8). Pure #FFF
+          reads cold against the navy + copper foil, so we stay on cream. */}
+      <div className="bg-cream text-navy">
+        <Statement />
+        <Steps />
+        <PhotoBreak />
+        <Offerings />
+        <Proof />
+        <ClosingCta />
+      </div>
+
       <SiteFooter />
     </main>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Hero — headline lead                                                       */
+/*  Hero — the one dark moment. Brand-forward.                                  */
 /* -------------------------------------------------------------------------- */
 
 function Hero() {
   return (
-    <section className="px-6 pt-8 pb-9 sm:px-8 sm:pt-10 lg:pb-16">
-      <div className="mx-auto grid max-w-content items-center gap-10 lg:grid-cols-[1fr_360px] lg:gap-20">
-        {/* Left — eyebrow, headline, subhead, CTAs */}
-        <div>
-          <p className="mb-7 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-            — ai operations studio —
-          </p>
-
-          <h1 className="max-w-[940px]">
-            <span className="block font-display text-[38px] font-extrabold leading-[0.92] tracking-[-0.05em] lowercase text-cream sm:text-[56px] lg:text-[72px]">
-              your team shouldn&apos;t be doing this
-            </span>
-            <FoilText
-              variant="copper"
-              className="block font-serif italic font-normal text-[38px] leading-[1] tracking-[-0.03em] pb-3.5 sm:text-[56px] lg:text-[72px]"
-            >
-              by hand.
-            </FoilText>
-          </h1>
-
-          <span className="rule-copper mt-3 mb-[22px]" />
-
-          <p className="mb-7 max-w-[52ch] font-serif italic text-lg leading-[1.45] text-mist sm:text-xl">
-            I find where your business loses the most time, build the AI systems that take that work
-            over, and stay until your team actually runs on them.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-1">
-            <Link
-              href="/contact"
-              className="inline-block rounded bg-copper px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-mono-button text-navy no-underline"
-            >
-              Book an audit →
-            </Link>
-            <a
-              href="#how"
-              className="ml-2 inline-block shrink-0 whitespace-nowrap px-2 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-button text-bright-copper no-underline"
-            >
-              see how it works →
-            </a>
-          </div>
-        </div>
-
-        {/* Right — proof stat, fills the desktop column; stacks below on mobile */}
-        <div className="rounded-xl border border-cream/10 bg-navy-card/50 p-6 lg:p-7">
-          <p className="mb-3 font-mono text-[9px] uppercase tracking-mono-label text-bright-copper">
-            — most recently —
-          </p>
-          <p className="font-display text-[40px] font-extrabold leading-[0.95] tracking-[-0.04em] text-cream sm:text-[48px]">
-            six figures
-          </p>
-          <p className="mt-3 font-body text-[15px] leading-[1.6] text-mist">
-            of operating cost removed for one business in a single year, by handing its busywork to
-            systems that run on their own.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Why                                                                        */
-/* -------------------------------------------------------------------------- */
-
-function Why() {
-  return (
-    <section className="px-6 pt-7 pb-7 sm:px-8 sm:pt-12 sm:pb-12">
+    <section className="px-6 pb-12 pt-4 sm:px-8 lg:pb-16">
       <div className="mx-auto max-w-content">
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-          — why this exists —
+        <p className="mb-6 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
+          ai operations studio
         </p>
-        <h2 className="max-w-[24ch] font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
-          most consultants hand you a deck. i hand you a{' '}
-          <FoilText
-            variant="copper-tight"
-            className="font-serif italic font-normal text-[36px] leading-[0.98] tracking-[-0.04em] sm:text-[56px]"
-          >
-            working system.
-          </FoilText>
-        </h2>
 
-        <div className="mt-6 max-w-[640px] space-y-4 font-body text-base leading-[1.7] text-mist sm:text-[17px]">
-          <p>Most consultancies stop at the slide deck. This was built differently.</p>
-          <p>
-            I&apos;m an operations builder who ships. My career has been spent in the messy middle
-            of growing companies: the manual handoffs, the duplicate data entry, the five tools that
-            refuse to talk to each other. I build the AI systems that make that mess quietly go away.
+        {/* The brand, bigger again — but not the old screen-filling size */}
+        <h1 className="mb-6">
+          <span className="block font-display text-[64px] font-extrabold leading-[0.82] tracking-[-0.06em] lowercase text-cream sm:text-[104px] lg:text-[128px]">
+            real
+          </span>
+          <FoilText
+            variant="copper"
+            className="block font-serif italic font-normal text-[64px] leading-[0.9] tracking-[-0.03em] pb-2 sm:text-[104px] lg:text-[128px]"
+          >
+            Tuesday
+          </FoilText>
+        </h1>
+
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <p className="max-w-[34ch] font-serif text-xl italic leading-[1.4] text-mist sm:text-2xl">
+            AI systems for the work your team hates. Found, built, and run until it sticks.
           </p>
-          <p>
-            The difference is simple.{' '}
-            <em className="font-serif italic text-mist">
-              I don&apos;t just tell you what to automate. I build it, ship it, and stay until your
-              team actually uses it.
-            </em>
-          </p>
+          <Link
+            href="/contact"
+            className="inline-block shrink-0 self-start rounded bg-copper px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-mono-button text-navy no-underline lg:self-auto"
+          >
+            Book an audit →
+          </Link>
         </div>
       </div>
     </section>
@@ -137,7 +84,41 @@ function Why() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  How it works — three steps                                                 */
+/*  Statement — editorial split, the value prop as a big line + a photo panel  */
+/* -------------------------------------------------------------------------- */
+
+function Statement() {
+  return (
+    <section className="px-6 py-12 sm:px-8 sm:py-14 lg:py-16">
+      <div className="mx-auto grid max-w-content items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+        <div>
+          <p className="mb-6 font-mono text-[10px] uppercase tracking-mono-eyebrow text-copper">
+            the premise
+          </p>
+          <p className="font-display text-[38px] font-extrabold leading-[1.02] tracking-[-0.04em] lowercase text-navy sm:text-[60px]">
+            your team shouldn&apos;t be doing this{' '}
+            <span className="font-serif font-normal italic text-copper">by hand.</span>
+          </p>
+          <p className="mt-8 max-w-[46ch] font-body text-lg leading-[1.6] text-navy/70">
+            Most consultancies stop at the slide deck. I don&apos;t. I find where your business
+            loses the most time, build the AI systems that take that work over, and stay until your
+            team actually runs on them.
+          </p>
+        </div>
+
+        <PhotoPanel
+          className="aspect-[4/5] lg:aspect-square"
+          label="portrait / workspace"
+          src="/photos/workspace-coffee-notebook.jpg"
+          alt="A quiet workspace with coffee, an open notebook, and warm morning light"
+        />
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Steps — oversized numerals, hairline rows. No cards.                       */
 /* -------------------------------------------------------------------------- */
 
 const STEPS = [
@@ -149,7 +130,7 @@ const STEPS = [
   {
     num: '02',
     title: 'build the system',
-    text: 'Custom AI agents, automations, and internal platforms, built around your operation instead of bolted on from a template.',
+    text: 'Custom AI agents, automations, and internal platforms, built around your operation, not bolted on from a template.',
   },
   {
     num: '03',
@@ -158,43 +139,33 @@ const STEPS = [
   },
 ] as const;
 
-function HowItWorks() {
+function Steps() {
   return (
-    <section id="how" className="px-6 pt-7 pb-7 sm:px-8 sm:pt-12 sm:pb-12">
+    <section id="how" className="border-t border-navy/10 px-6 py-16 sm:px-8 lg:py-20">
       <div className="mx-auto max-w-content">
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-          — how it works —
-        </p>
-        <h2 className="font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
-          three steps. one{' '}
-          <FoilText
-            variant="copper-tight"
-            className="font-serif italic font-normal text-[36px] leading-[0.98] tracking-[-0.04em] sm:text-[56px]"
-          >
-            working operation.
-          </FoilText>
-        </h2>
-        <p className="mt-3.5 mb-8 max-w-prose font-serif italic text-sm leading-[1.5] text-mist sm:text-base">
-          No six-month transformations. I find the friction, build the system, and stay until it
-          sticks.
-        </p>
+        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <h2 className="font-display text-[32px] font-extrabold leading-[0.95] tracking-[-0.04em] lowercase text-navy sm:text-[48px]">
+            how it works
+          </h2>
+          <p className="max-w-[38ch] font-serif text-base italic leading-[1.5] text-navy/60 sm:text-lg">
+            No six-month transformations. Find the friction, build the system, stay until it sticks.
+          </p>
+        </div>
 
-        <div className="border-t border-cream/10">
+        <div>
           {STEPS.map((step) => (
             <div
               key={step.num}
-              className="grid grid-cols-[auto_1fr] gap-5 border-b border-cream/10 py-7 sm:gap-8"
+              className="grid items-baseline gap-4 border-t border-navy/10 py-8 sm:grid-cols-[140px_1fr] sm:gap-10 lg:grid-cols-[200px_1fr]"
             >
-              <span className="font-serif text-[40px] font-normal italic leading-none text-copper sm:text-[56px]">
+              <span className="font-serif text-[64px] font-normal italic leading-none text-copper sm:text-[92px]">
                 {step.num}
               </span>
-              <div className="max-w-[540px] pt-1">
-                <h3 className="mb-1.5 font-display text-[22px] font-bold leading-[1.1] tracking-[-0.02em] lowercase text-cream sm:text-[26px]">
+              <div className="max-w-[560px]">
+                <h3 className="mb-3 font-display text-[26px] font-bold leading-[1.05] tracking-[-0.02em] lowercase text-navy sm:text-[32px]">
                   {step.title}
                 </h3>
-                <p className="font-body text-[15px] leading-[1.65] text-mist sm:text-base">
-                  {step.text}
-                </p>
+                <p className="font-body text-base leading-[1.65] text-navy/70">{step.text}</p>
               </div>
             </div>
           ))}
@@ -205,220 +176,224 @@ function HowItWorks() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Services — two cards                                                       */
+/*  Offerings — two full-width editorial rows, not twin cards.                  */
 /* -------------------------------------------------------------------------- */
 
-function Services() {
+const OFFERINGS = [
+  {
+    kicker: 'start here',
+    title: 'The Audit',
+    tagline: 'Find the work worth automating.',
+    text: 'A fixed-scope dive into your operation. I map where time and money leak out, then hand you a prioritized build plan: what to automate first, the payback, and how to get there.',
+    points: [
+      'End-to-end workflow & tool-stack review',
+      'Friction & cost-leak mapping',
+      'Prioritized automation roadmap with ROI',
+    ],
+    cta: 'Book an audit →',
+  },
+  {
+    kicker: 'go further',
+    title: 'The Build',
+    tagline: 'Ship the systems that run it.',
+    text: 'Where the audit becomes infrastructure. I build the AI agents, automations, and internal platforms that run your highest-friction work, and stay until your team has fully adopted them.',
+    points: [
+      'Custom AI agents, automations & internal platforms',
+      'API integrations across your existing tools',
+      'Fractional AI operations leadership',
+    ],
+    cta: 'Start a build →',
+  },
+] as const;
+
+function Offerings() {
   return (
-    <section id="services" className="px-6 pt-7 pb-7 sm:px-8 sm:pt-12 sm:pb-12">
+    <section id="services" className="bg-navy px-6 py-16 text-cream sm:px-8 lg:py-20">
       <div className="mx-auto max-w-content">
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-          — what i do —
+        <p className="mb-4 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
+          what i do
         </p>
-        <h2 className="font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
-          start small. or hand me{' '}
+        <h2 className="mb-10 max-w-[16ch] font-display text-[34px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream sm:text-[54px]">
+          start small, or hand me{' '}
           <FoilText
-            variant="copper-tight"
-            className="font-serif italic font-normal text-[36px] leading-[0.98] tracking-[-0.04em] sm:text-[56px]"
+            variant="copper"
+            className="font-serif font-normal italic text-[34px] leading-[0.98] tracking-[-0.03em] sm:text-[54px]"
           >
             the whole operation.
           </FoilText>
         </h2>
-        <p className="mt-3.5 mb-8 max-w-prose font-serif italic text-sm leading-[1.5] text-mist sm:text-base">
-          Two ways to work together: a fixed-scope audit to find the wins, or an ongoing build
-          partnership to ship them.
-        </p>
 
-        <div className="grid gap-3.5 sm:grid-cols-2 lg:gap-5">
-          <ServiceCard
-            kicker="start here"
-            title="Operations Audit"
-            tagline="Find the work worth automating."
-            desc="A focused dive into your operation. I map where time and money leak out, then hand you a prioritized build plan: what to automate first, what the payback looks like, and how to get there."
-            features={[
-              'End-to-end workflow & tool-stack review',
-              'Friction & cost-leak mapping',
-              'Prioritized automation roadmap',
-              'ROI estimate per opportunity',
-              'Quick wins you can act on immediately',
-            ]}
-            ctaLabel="Book an audit →"
-            variant="outline"
-          />
-          <ServiceCard
-            kicker="go further"
-            title="Build & Embed"
-            tagline="Ship the systems that run it."
-            desc="Where the audit becomes infrastructure. I build the AI agents, automations, and internal platforms that run your highest-friction work, and I stay until your team has fully adopted them."
-            features={[
-              'Custom AI agents & assistants',
-              'Workflow & process automation',
-              'Internal platforms, CRMs & client portals',
-              'API integrations across your existing tools',
-              'Fractional AI operations leadership',
-            ]}
-            ctaLabel="Start a build →"
-            variant="solid"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ServiceCard({
-  kicker,
-  title,
-  tagline,
-  desc,
-  features,
-  ctaLabel,
-  variant,
-}: {
-  kicker: string;
-  title: string;
-  tagline: string;
-  desc: string;
-  features: readonly string[];
-  ctaLabel: string;
-  variant: 'solid' | 'outline';
-}) {
-  const featured = variant === 'solid';
-  return (
-    <div
-      className={`flex flex-col rounded-xl border p-[22px_20px] ${
-        featured ? 'border-copper/55 bg-navy-card' : 'border-cream/12 bg-navy-card'
-      }`}
-    >
-      <p className="mb-3 font-mono text-[9px] uppercase tracking-mono-label text-bright-copper">
-        {kicker}
-      </p>
-      <h3 className="font-display text-[28px] font-extrabold leading-[1.05] tracking-[-0.03em] lowercase text-cream sm:text-[32px]">
-        {title}
-      </h3>
-      <p className="mt-1.5 font-serif italic text-sm text-copper">{tagline}</p>
-
-      <p className="mt-4 font-body text-[14px] leading-[1.6] text-mist">{desc}</p>
-
-      <ul className="mt-5 mb-6 flex-1 space-y-2.5">
-        {features.map((f) => (
-          <li
-            key={f}
-            className="flex items-start gap-2.5 font-body text-[13.5px] leading-[1.45] text-mist"
-          >
-            <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-copper" aria-hidden />
-            {f}
-          </li>
-        ))}
-      </ul>
-
-      <Link
-        href="/contact"
-        className={`block rounded px-6 py-3.5 text-center font-mono text-[11px] font-bold uppercase tracking-mono-button no-underline ${
-          featured
-            ? 'bg-copper text-navy'
-            : 'border border-copper/50 text-copper hover:bg-copper hover:text-navy'
-        }`}
-      >
-        {ctaLabel}
-      </Link>
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Industries                                                                 */
-/* -------------------------------------------------------------------------- */
-
-const PILLS = [
-  { label: 'Real Estate Operations', tone: 'primary' },
-  { label: 'Professional Services', tone: 'default' },
-  { label: 'Coaching & Education', tone: 'default' },
-  { label: 'SaaS & Startups', tone: 'default' },
-  { label: 'Scaling Organizations', tone: 'default' },
-  { label: '+ open to fit', tone: 'muted' },
-] as const;
-
-function Industries() {
-  return (
-    <section className="px-6 pt-7 pb-7 sm:px-8 sm:pt-12 sm:pb-12">
-      <div className="mx-auto max-w-content">
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-          — where i work —
-        </p>
-        <h2 className="max-w-[26ch] font-display text-[36px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream pb-1.5 sm:text-[56px]">
-          built to work anywhere there&apos;s{' '}
-          <FoilText
-            variant="copper-tight"
-            className="font-serif italic font-normal text-[36px] leading-[0.98] tracking-[-0.04em] sm:text-[56px]"
-          >
-            manual work worth killing.
-          </FoilText>
-        </h2>
-        <p className="mt-3.5 mb-6 max-w-prose font-serif italic text-sm leading-[1.5] text-mist sm:text-base">
-          Diagnose first, build second, run it until it sticks. That holds whether you&apos;re
-          closing real estate transactions, onboarding clients, or scaling a service business.
-          Below is where I have the deepest experience.
-        </p>
-
-        <div className="flex flex-wrap gap-2">
-          {PILLS.map((pill) => (
-            <span
-              key={pill.label}
-              className={`inline-flex items-center rounded-full border px-4 py-2 font-body text-[13px] ${
-                pill.tone === 'primary'
-                  ? 'border-copper bg-copper/12 font-medium text-copper'
-                  : pill.tone === 'muted'
-                    ? 'border-dashed border-cream/25 text-mist'
-                    : 'border-cream/12 bg-navy-card text-cream'
-              }`}
+        <div>
+          {OFFERINGS.map((o) => (
+            <div
+              key={o.title}
+              className="grid gap-6 border-t border-cream/15 py-9 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16"
             >
-              {pill.label}
-            </span>
+              <div>
+                <p className="mb-4 font-mono text-[9px] uppercase tracking-mono-label text-bright-copper">
+                  {o.kicker}
+                </p>
+                <h3 className="font-display text-[40px] font-extrabold leading-[0.95] tracking-[-0.03em] lowercase text-cream sm:text-[52px]">
+                  {o.title}
+                </h3>
+                <p className="mt-3 font-serif text-lg italic text-soft-gold">{o.tagline}</p>
+              </div>
+
+              <div className="max-w-[520px]">
+                <p className="font-body text-base leading-[1.65] text-mist">{o.text}</p>
+                <ul className="mt-6 space-y-3">
+                  {o.points.map((p) => (
+                    <li
+                      key={p}
+                      className="flex items-start gap-3 font-body text-[15px] leading-[1.5] text-mist"
+                    >
+                      <span
+                        className="mt-[8px] h-[5px] w-[5px] shrink-0 rounded-full bg-copper"
+                        aria-hidden
+                      />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="mt-8 inline-block font-mono text-[11px] font-bold uppercase tracking-mono-button text-bright-copper no-underline hover:text-copper"
+                >
+                  {o.cta}
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
-        <p className="mt-6 font-serif italic text-sm leading-[1.6] text-mist">
-          If your business doesn&apos;t fit a category above, that&apos;s not a problem. It&apos;s
-          usually a sign we should talk.
-        </p>
       </div>
     </section>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Closing CTA — cream island                                                 */
+/*  Proof — a single oversized stat.                                           */
+/* -------------------------------------------------------------------------- */
+
+function Proof() {
+  return (
+    <section className="px-6 py-20 sm:px-8 lg:py-32">
+      <div className="mx-auto grid max-w-content items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-20">
+        <p className="font-display text-[88px] font-extrabold leading-[0.8] tracking-[-0.05em] lowercase text-copper sm:text-[132px] lg:text-[168px]">
+          six figures
+        </p>
+        <div className="max-w-[42ch]">
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-mono-label text-copper">
+            most recently
+          </p>
+          <p className="font-serif text-2xl italic leading-[1.35] text-navy sm:text-[28px]">
+            of operating cost removed for one business in a single year, by handing its busywork to
+            systems that run on their own.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Closing CTA — copper block, single accent, full bleed feel.                */
 /* -------------------------------------------------------------------------- */
 
 function ClosingCta() {
   return (
-    <section className="px-6 pt-2 pb-2 sm:px-8">
+    <section className="px-6 pb-20 sm:px-8">
       <div className="mx-auto max-w-content">
-        <div className="rounded-xl bg-cream px-6 pt-8 pb-9 text-navy sm:px-10 sm:pt-12 sm:pb-14">
-          <p className="mb-2.5 font-mono text-[10px] font-semibold uppercase tracking-mono-eyebrow text-copper">
-            — let&apos;s talk —
+        <div className="rounded-2xl bg-copper-foil px-8 py-14 text-navy sm:px-14 sm:py-20">
+          <p className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-mono-eyebrow text-navy/70">
+            let&apos;s talk
           </p>
-          <h2 className="mb-1.5 pb-1 font-display text-[38px] font-extrabold leading-[0.95] tracking-[-0.05em] lowercase sm:text-[56px]">
-            book an{' '}
-            <FoilText
-              variant="copper-tight"
-              className="font-serif italic font-normal text-[38px] leading-[0.95] tracking-[-0.05em] sm:text-[56px]"
-            >
-              audit.
-            </FoilText>
-          </h2>
-          <p className="mb-5 max-w-prose font-serif italic text-sm leading-[1.5] text-[#5a6478] sm:text-base">
-            Tell me about your operation and where the manual work is piling up. I respond
-            personally and only take on engagements where I can genuinely move the needle.
+          <p className="max-w-[18ch] font-display text-[44px] font-extrabold leading-[0.9] tracking-[-0.05em] lowercase text-navy sm:text-[72px]">
+            book an audit.
+          </p>
+          <p className="mt-6 max-w-[46ch] font-body text-lg leading-[1.55] text-navy/80">
+            Tell me where the manual work is piling up. I respond personally, and only take on
+            builds where I can genuinely move the needle.
           </p>
           <Link
             href="/contact"
-            className="inline-block rounded bg-navy px-6 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-mono-button text-cream no-underline"
+            className="mt-9 inline-block rounded bg-navy px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-mono-button text-cream no-underline"
           >
             Get in touch →
           </Link>
         </div>
       </div>
     </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  PhotoBreak — wide full-width photo, the breather before the dark band.      */
+/* -------------------------------------------------------------------------- */
+
+function PhotoBreak() {
+  return (
+    <section className="px-6 pb-16 sm:px-8 lg:pb-20">
+      <PhotoPanel
+        className="mx-auto aspect-[16/10] max-w-content sm:aspect-[5/2]"
+        label="workspace"
+        src="/photos/copper-laptop-desk.jpg"
+        alt="A minimal workspace with a copper laptop on a light-wood desk against white paneling"
+        sizes="(min-width: 1344px) 1344px, 100vw"
+      />
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  PhotoPanel — real photo (next/image) with a placeholder fallback.          */
+/* -------------------------------------------------------------------------- */
+
+function PhotoPanel({
+  className = '',
+  label,
+  src,
+  alt,
+  sizes = '(min-width: 1024px) 40vw, 100vw',
+}: {
+  className?: string;
+  label: string;
+  src?: string;
+  alt?: string;
+  sizes?: string;
+}) {
+  // Real photo: fill the rounded frame, warm ring, subtle navy floor so the
+  // image sits on the cream body as a designed element rather than a raw cut-out.
+  if (src) {
+    return (
+      <div
+        className={`relative overflow-hidden rounded-2xl bg-navy ring-1 ring-navy/10 ${className}`}
+      >
+        <Image
+          src={src}
+          alt={alt ?? label}
+          fill
+          sizes={sizes}
+          className="object-cover"
+          priority={false}
+        />
+      </div>
+    );
+  }
+
+  // Placeholder: copper wash so an empty slot still reads as a designed element.
+  return (
+    <div
+      className={`relative overflow-hidden rounded-2xl bg-navy ${className}`}
+      role="img"
+      aria-label={`Photo placeholder: ${label}`}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-copper/25 via-transparent to-navy" />
+      <div className="absolute bottom-4 left-4 flex items-center gap-2">
+        <span className="h-[6px] w-[6px] rounded-full bg-bright-copper" aria-hidden />
+        <span className="font-mono text-[9px] uppercase tracking-mono-label text-mist">
+          {label}
+        </span>
+      </div>
+    </div>
   );
 }
