@@ -16,6 +16,7 @@ export type EngagementStatus = 'active' | 'paused' | 'complete' | 'archived';
 export type TaskStatus = 'todo' | 'in_progress' | 'done';
 export type InvoiceStatus = 'draft' | 'sent' | 'paid' | 'overdue' | 'void';
 export type InviteStatus = 'pending' | 'accepted' | 'revoked';
+export type RoadmapStatus = 'now' | 'next' | 'later' | 'done';
 
 export interface Database {
   public: {
@@ -240,6 +241,94 @@ export interface Database {
         Update: Partial<Database['public']['Tables']['portal_invites']['Insert']>;
         Relationships: [];
       };
+      admin_users: {
+        Row: {
+          user_id: string;
+          name: string;
+          email: string;
+          color: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id: string;
+          name: string;
+          email: string;
+          color?: string;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['admin_users']['Insert']>;
+        Relationships: [];
+      };
+      admin_invites: {
+        Row: {
+          id: string;
+          email: string;
+          name: string;
+          color: string;
+          token: string;
+          status: InviteStatus;
+          created_at: string;
+          accepted_at: string | null;
+          expires_at: string;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          name: string;
+          color?: string;
+          token: string;
+          status?: InviteStatus;
+          created_at?: string;
+          accepted_at?: string | null;
+          expires_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['admin_invites']['Insert']>;
+        Relationships: [];
+      };
+      brainstorm_notes: {
+        Row: {
+          id: string;
+          body: string;
+          author_user_id: string | null;
+          author_name: string;
+          color: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          body: string;
+          author_user_id?: string | null;
+          author_name: string;
+          color?: string;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['brainstorm_notes']['Insert']>;
+        Relationships: [];
+      };
+      roadmap_items: {
+        Row: {
+          id: string;
+          title: string;
+          detail: string | null;
+          status: RoadmapStatus;
+          position: number;
+          author_name: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          detail?: string | null;
+          status?: RoadmapStatus;
+          position?: number;
+          author_name?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['roadmap_items']['Insert']>;
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
@@ -251,6 +340,7 @@ export interface Database {
       task_status: TaskStatus;
       invoice_status: InvoiceStatus;
       invite_status: InviteStatus;
+      roadmap_status: RoadmapStatus;
     };
     CompositeTypes: Record<string, never>;
   };

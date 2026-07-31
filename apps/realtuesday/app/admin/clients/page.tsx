@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PageHeader, Panel, EmptyState, StatusPill } from '@/components/admin/ui';
 import { AddClientForm } from '@/components/admin/add-client-form';
 import { InviteControl } from '@/components/admin/invite-control';
@@ -55,6 +56,12 @@ export default async function ClientsPage() {
                         ) : null}
                       </div>
                       <div className="flex shrink-0 items-center gap-3">
+                        <Link
+                          href={`/admin/clients/${c.id}/portal`}
+                          className="font-mono text-[10px] uppercase tracking-mono-button text-deep-copper no-underline hover:underline"
+                        >
+                          view portal
+                        </Link>
                         <InviteControl clientId={c.id} hasEmail={Boolean(c.email)} />
                         <StatusPill status={c.status} />
                       </div>
