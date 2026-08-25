@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { PRIMARY_NAV } from '@/lib/site-links';
 
 /**
  * Top navigation — rT submark on the left, nav links on the right.
@@ -18,13 +19,10 @@ import { useEffect, useState } from 'react';
  *  - Body scroll locked while drawer is open.
  *  - Escape closes the drawer.
  *  - aria-current="page" on the active link.
+ *
+ * Link destinations come from lib/site-links.ts (PRIMARY_NAV) so the top nav
+ * and footer share a single source of truth.
  */
-
-const NAV_LINKS = [
-  { href: '/notes', label: 'notes' },
-  { href: '/about', label: 'about' },
-  { href: '/contact', label: 'contact' },
-] as const;
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -80,7 +78,7 @@ export function SiteNav() {
 
         {/* Desktop inline nav (≥sm) */}
         <ul className="hidden items-center gap-7 sm:flex">
-          {NAV_LINKS.map((link) => {
+          {PRIMARY_NAV.map((link) => {
             const active =
               pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
@@ -130,7 +128,7 @@ export function SiteNav() {
         className="absolute left-0 right-0 top-full z-40 border-t border-copper/20 bg-navy px-6 pb-10 pt-6 sm:hidden"
       >
         <ul className="flex flex-col gap-4">
-          {NAV_LINKS.map((link) => {
+          {PRIMARY_NAV.map((link) => {
             const active =
               pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (

@@ -39,7 +39,7 @@ export async function sendContactMessage(
 ): Promise<ContactState> {
   // Honeypot: if filled, treat as spam and no-op with a success response.
   if (formData.get('company')?.toString().trim()) {
-    return { status: 'success', message: "Thanks. I'll be in touch personally." };
+    return { status: 'success', message: "Thanks. We'll be in touch personally." };
   }
 
   const name = formData.get('name')?.toString().trim() ?? '';
@@ -62,7 +62,7 @@ export async function sendContactMessage(
     console.error('[realtuesday/contact] RESEND_API_KEY is not set; cannot send.');
     return {
       status: 'error',
-      message: "Something went wrong on my end. Email me directly at hi@arealtuesday.com.",
+      message: "Something went wrong on our end. Email us directly at hi@arealtuesday.com.",
     };
   }
 
@@ -89,19 +89,19 @@ export async function sendContactMessage(
       console.error('[realtuesday/contact] Resend error:', error);
       return {
         status: 'error',
-        message: "Something went wrong sending that. Email me directly at hi@arealtuesday.com.",
+        message: "Something went wrong sending that. Email us directly at hi@arealtuesday.com.",
       };
     }
   } catch (err) {
     console.error('[realtuesday/contact] Unexpected send failure:', err);
     return {
       status: 'error',
-      message: "Something went wrong sending that. Email me directly at hi@arealtuesday.com.",
+      message: "Something went wrong sending that. Email us directly at hi@arealtuesday.com.",
     };
   }
 
   return {
     status: 'success',
-    message: "Got it. I'll reply personally, usually within a day or two.",
+    message: "Got it. We'll reply personally, usually within a day or two.",
   };
 }

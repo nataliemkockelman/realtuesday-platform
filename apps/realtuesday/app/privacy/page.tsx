@@ -12,8 +12,11 @@ import { SiteFooter } from '@/components/site-footer';
  * Resend, and no analytics or advertising trackers.
  *
  * If analytics (Plausible/Umami per the tech spec) or a newsletter signup get
- * added later, update the "what I collect" and "who else touches it" sections
- * to match. Keep the last-updated date current when the substance changes.
+ * added later, update the "what real Tuesday collects" and "who else touches it"
+ * sections to match. Keep the last-updated date current when the substance changes.
+ *
+ * Written in the third person using the business name ("real Tuesday collects…"),
+ * not first person — the site is a two-operator studio, not one person.
  */
 
 export const metadata: Metadata = {
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
     'how real tuesday handles the small amount of information you share through this site. plain language, no dark patterns.',
 };
 
-const LAST_UPDATED = 'July 5, 2026';
+const LAST_UPDATED = 'August 24, 2026';
 
 export default function PrivacyPage() {
   return (
@@ -58,8 +61,8 @@ function PrivacyHero() {
           </FoilText>
         </h1>
         <p className="max-w-[52ch] font-serif text-lg italic leading-[1.4] text-mist sm:text-xl">
-          I collect as little as possible, I do not sell anything to anyone, and there are no
-          tracking cookies following you around. Here is the full picture.
+          real Tuesday collects as little as possible, sells nothing to anyone, and sets no tracking
+          cookies that follow you around. Here is the full picture.
         </p>
       </div>
     </section>
@@ -70,25 +73,25 @@ function PrivacyBody() {
   return (
     <section className="px-6 py-12 sm:px-8 sm:py-14 lg:py-16">
       <div className="mx-auto max-w-[680px] space-y-10">
-        <Section title="what I collect">
+        <Section title="what real Tuesday collects">
           <p>
-            The only information I gather is what you type into the contact form: your name, your
-            email address, the topic you pick, and your message. That is it. I ask for these so I
-            can understand your situation and reply to you.
+            The only information real Tuesday gathers is what you type into the contact form: your
+            name, your email address, the topic you pick, and your message. That is it. It is used
+            to understand your situation and reply to you.
           </p>
         </Section>
 
-        <Section title="what I do with it">
+        <Section title="what real Tuesday does with it">
           <p>
-            I read it and I respond, personally. I may keep our correspondence so I remember the
-            context of our conversation if we work together. I do not add you to a mailing list, and
-            I do not send you marketing you did not ask for.
+            real Tuesday reads it and responds, personally. Your correspondence may be kept so the
+            context of the conversation is there if you end up working together. real Tuesday does
+            not add you to a mailing list, and does not send you marketing you did not ask for.
           </p>
         </Section>
 
         <Section title="who else touches it">
           <p>
-            Your message is delivered to my inbox through{' '}
+            Your message is delivered through{' '}
             <a
               href="https://resend.com/legal/privacy-policy"
               target="_blank"
@@ -97,8 +100,8 @@ function PrivacyBody() {
             >
               Resend
             </a>
-            , the service that sends the email, and it lives in my email provider like any other
-            message. The site itself is hosted on{' '}
+            , the service that sends the email, and it lives in real Tuesday&apos;s email provider
+            like any other message. The site itself is hosted on{' '}
             <a
               href="https://vercel.com/legal/privacy-policy"
               target="_blank"
@@ -115,27 +118,27 @@ function PrivacyBody() {
         <Section title="cookies and tracking">
           <p>
             This site sets no advertising or analytics cookies. There is no Google Analytics, no
-            Facebook pixel, no third-party tracker profiling your visit. If I ever add
-            privacy-friendly, cookieless analytics to understand traffic in aggregate, I will update
-            this page first.
+            Facebook pixel, no third-party tracker profiling your visit. If real Tuesday ever adds
+            privacy-friendly, cookieless analytics to understand traffic in aggregate, this page
+            will be updated first.
           </p>
         </Section>
 
-        <Section title="how long I keep things">
+        <Section title="how long things are kept">
           <p>
-            I hold onto contact messages only as long as they are useful. If you would like me to
-            delete our correspondence, just ask and I will.
+            real Tuesday holds onto contact messages only as long as they are useful. If you would
+            like your correspondence deleted, just ask and it will be.
           </p>
         </Section>
 
         <Section title="your choices">
           <p>
-            You can ask me what I hold about you, ask me to correct it, or ask me to delete it. No
-            forms, no hoops. Email me and I will take care of it.
+            You can ask what real Tuesday holds about you, ask to have it corrected, or ask to have
+            it deleted. No forms, no hoops. Email and it will be taken care of.
           </p>
         </Section>
 
-        <Section title="reaching me">
+        <Section title="reaching real Tuesday">
           <p>
             Questions about any of this go to{' '}
             <a

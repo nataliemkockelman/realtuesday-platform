@@ -1,21 +1,17 @@
 import Link from 'next/link';
+import { FOOTER_NAV } from '@/lib/site-links';
 
 /**
  * Site footer — italic byline + lockup on the left, nav links + meta on
  * the right. Adds discoverability for the same pages the top nav surfaces
  * so visitors who scroll past the nav still have a way around the site.
  *
+ * Link destinations come from lib/site-links.ts (FOOTER_NAV) so the footer
+ * and top nav can never drift out of sync.
+ *
  * Stacks vertically on mobile (no need for the side-by-side layout when
  * the column is 375px wide) and goes inline on desktop.
  */
-
-const FOOTER_LINKS = [
-  { href: '/about', label: 'about' },
-  { href: '/notes', label: 'notes' },
-  { href: '/contact', label: 'contact' },
-  { href: '/privacy', label: 'privacy' },
-  { href: '/portal/login', label: 'client login' },
-] as const;
 
 export function SiteFooter() {
   return (
@@ -23,7 +19,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-content border-t border-cream/10 pt-8">
         {/* Nav row */}
         <ul className="mb-6 flex flex-wrap gap-x-6 gap-y-2">
-          {FOOTER_LINKS.map((link) => (
+          {FOOTER_NAV.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -40,7 +36,7 @@ export function SiteFooter() {
           <div className="font-serif text-[11px] italic leading-[1.5] text-bright-copper">
             <em>real Tuesday</em>
             <br />
-            ai operations studio
+            operations studio
             <br />
             <a
               href="mailto:hi@arealtuesday.com"

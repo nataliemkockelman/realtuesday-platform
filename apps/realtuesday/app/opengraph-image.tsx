@@ -18,7 +18,7 @@ import path from 'node:path';
  * scripts/install-og-fonts.mjs from upstream font repos on GitHub.
  */
 
-export const alt = 'real Tuesday · ai operations studio';
+export const alt = 'real Tuesday · operations studio';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -85,7 +85,7 @@ export default async function OGImage() {
               fontWeight: 800,
             }}
           >
-            ai operations studio
+            operations studio
           </div>
         </div>
 
@@ -152,7 +152,7 @@ export default async function OGImage() {
               lineHeight: 1.3,
             }}
           >
-            AI systems for the work your team hates.
+two operators who build the thing.
           </div>
         </div>
 

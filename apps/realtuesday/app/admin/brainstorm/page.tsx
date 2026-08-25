@@ -1,10 +1,10 @@
 import { PageHeader, Panel, EmptyState } from '@/components/admin/ui';
 import { NoteComposer } from '@/components/admin/note-composer';
 import { RoadmapComposer } from '@/components/admin/roadmap-composer';
-import { RoadmapCard } from '@/components/admin/roadmap-card';
+import { RoadmapBoard } from '@/components/admin/roadmap-board';
 import { authorColor } from '@/components/admin/author-color';
 import { getAdminIdentity } from '@/lib/admin-auth';
-import { getBrainstormNotes, getRoadmapItems, ROADMAP_STATUSES } from '@/lib/collab-data';
+import { getBrainstormNotes, getRoadmapItems } from '@/lib/collab-data';
 import { deleteNote } from './actions';
 import { isSupabaseConfigured } from '@/lib/supabase';
 
@@ -15,13 +15,6 @@ import { isSupabaseConfigured } from '@/lib/supabase';
  * and what is already done.
  */
 export const dynamic = 'force-dynamic';
-
-const COLUMN_COPY: Record<string, string> = {
-  now: 'in flight',
-  next: 'up next',
-  later: 'someday',
-  done: 'shipped',
-};
 
 function formatWhen(iso: string): string {
   return new Intl.DateTimeFormat('en-US', {
@@ -129,8 +122,8 @@ export default async function BrainstormPage() {
             roadmap.
           </h2>
           <p className="mb-5 max-w-2xl font-body text-sm leading-relaxed text-navy/60">
-            Where the ideas go once they have earned a slot. Move a card between columns as it
-            picks up or loses momentum.
+            Where the ideas go once they have earned a slot. Drag a card between columns as it
+            picks up or loses momentum, or use its dropdown.
           </p>
 
           <div className="mb-6">
@@ -139,29 +132,7 @@ export default async function BrainstormPage() {
             </Panel>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {ROADMAP_STATUSES.map((status) => {
-              const items = roadmap.filter((i) => i.status === status);
-              return (
-                <div
-                  key={status}
-                  className="rounded-xl border border-navy/10 bg-white/40 p-3"
-                >
-                  <p className="mb-1 font-mono text-[10px] uppercase tracking-mono-label text-navy/50">
-                    {status}
-                  </p>
-                  <p className="mb-3 font-body text-[11px] text-navy/40">{COLUMN_COPY[status]}</p>
-                  <div className="space-y-2.5">
-                    {items.length === 0 ? (
-                      <p className="font-body text-xs text-navy/35">empty</p>
-                    ) : (
-                      items.map((item) => <RoadmapCard key={item.id} item={item} />)
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <RoadmapBoard items={roadmap} />
         </section>
       </div>
     </>

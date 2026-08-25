@@ -78,6 +78,22 @@ export async function updateRoadmapStatus(formData: FormData): Promise<void> {
   revalidatePath('/admin/brainstorm');
 }
 
+/** Move a roadmap item into a different column by id (used by drag-and-drop,
+ *  which passes typed args instead of a form). No-op if the status is unknown. */
+export async function moveRoadmapItem(id: string, statusRaw: string): Promise<void> {
+  if (!id || !ROADMAP_STATUSES.includes(statusRaw as RoadmapStatus)) return;
+
+  const me = await getAdminIdentity();
+  if (!me) return;
+
+  const admin = getSupabaseAdmin();
+  await admin
+    .from('roadmap_items')
+    .update({ status: statusRaw as RoadmapStatus, updated_at: new Date().toISOString() })
+    .eq('id', id);
+  revalidatePath('/admin/brainstorm');
+}
+
 /** Delete a roadmap item. */
 export async function deleteRoadmapItem(formData: FormData): Promise<void> {
   const id = String(formData.get('id') ?? '');

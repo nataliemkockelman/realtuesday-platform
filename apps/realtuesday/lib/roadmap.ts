@@ -6,6 +6,7 @@
  */
 import type { Database, RoadmapStatus } from './database.types';
 
+export type { RoadmapStatus } from './database.types';
 export type RoadmapItem = Database['public']['Tables']['roadmap_items']['Row'];
 
 export const ROADMAP_STATUSES: RoadmapStatus[] = ['now', 'next', 'later', 'done'];

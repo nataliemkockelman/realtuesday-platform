@@ -33,6 +33,8 @@ const SECTIONS: NavSection[] = [
   {
     heading: 'pipeline',
     links: [
+      { href: '/admin/hitlist', label: 'Hitlist' },
+      { href: '/admin/intake', label: 'Intake' },
       { href: '/admin/clients', label: 'Clients' },
       { href: '/admin/proposals', label: 'Proposals' },
       { href: '/admin/sales', label: 'Sales' },
@@ -52,7 +54,10 @@ const SECTIONS: NavSection[] = [
   },
   {
     heading: 'money',
-    links: [{ href: '/admin/finance', label: 'Finance' }],
+    links: [
+      { href: '/admin/offerings', label: 'Offerings' },
+      { href: '/admin/finance', label: 'Finance' },
+    ],
   },
   {
     heading: 'assist',

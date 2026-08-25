@@ -19,7 +19,7 @@ import { ContactForm } from './contact-form';
 export const metadata: Metadata = {
   title: 'contact',
   description:
-    'book an operations audit or start a build with real tuesday. tell me where the manual work is piling up.',
+    'book an operations audit or start a build with real tuesday. tell us where the manual work is piling up.',
 };
 
 export default function ContactPage() {
@@ -60,11 +60,11 @@ function ContactHero() {
           </FoilText>
         </h1>
         <p className="max-w-[52ch] font-serif text-lg italic leading-[1.4] text-mist sm:text-xl">
-          Tell me about your operation and where the manual work is piling up. I respond
-          personally, and only take on engagements where I can genuinely move the needle.
+          Tell us about your operation and where the manual work is piling up. We respond
+          personally, and only take on engagements where we can genuinely move the needle.
         </p>
         <p className="mt-6 max-w-prose font-body text-sm leading-[1.55] text-mist sm:text-base">
-          Or just email me directly at{' '}
+          Or just email us directly at{' '}
           <a
             href="mailto:hi@arealtuesday.com"
             className="font-mono text-bright-copper underline decoration-copper/40 underline-offset-[3px] hover:text-soft-gold"
@@ -95,15 +95,15 @@ function ContactBody() {
           />
           <Block
             title="the build"
-            body="Where the audit becomes infrastructure. Agents, automations, and internal platforms your team actually adopts."
+            body="Where the audit becomes infrastructure. Automations, integrations, and internal platforms your team actually adopts."
           />
           <Block
             title="capacity"
-            body="I take on a limited number of builds at a time so every client gets real attention. If I'm full or not the right fit, I'll tell you honestly."
+            body="We take on a limited number of builds at a time so every client gets real attention. If we're full or not the right fit, we'll tell you honestly."
           />
           <Block
             title="response"
-            body="I respond personally. No auto-replies, no account manager, no junior handoff."
+            body="We respond personally. No auto-replies, no account manager, no junior handoff."
           />
         </aside>
       </div>

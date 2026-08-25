@@ -12,10 +12,21 @@
  *
  * Each instance gets a unique gradient id (via React useId) so multiple
  * FoilText components on a page don't collide.
+ *
+ * Accessibility / SEO note (why the DOM looks the way it does):
+ * The word is rendered exactly ONCE in the server HTML — as a real text node
+ * inside the base <span>. That single copy is what crawlers read and what
+ * screen readers announce. The SVG <text> that paints the copper foil is a
+ * visual duplicate of the same glyphs; it is marked aria-hidden AND its text
+ * is injected on the client only (after mount), so it never appears in the
+ * server-rendered markup. This avoids the "realTuesdayTuesday" double-text bug
+ * without hiding a duplicate purely with CSS. The base <span> carries a solid
+ * fallback color so the word is visible (and correctly sized) before/without
+ * JS; once mounted, the foil overlays it pixel-for-pixel.
  */
 'use client';
 
-import { useId } from 'react';
+import { useEffect, useId, useState } from 'react';
 
 type FoilVariant = 'copper' | 'copper-tight' | 'coral';
 
@@ -68,6 +79,19 @@ const STOPS: Record<FoilVariant, Array<{ offset: string; color: string }>> = {
  */
 const GRADIENT_VECTOR = { x1: '0%', y1: '20%', x2: '100%', y2: '80%' };
 
+/**
+ * Solid fallback color per variant, used for the single real text node. It's a
+ * representative mid-tone from each gradient, so before the foil overlays (no
+ * JS, or the brief pre-mount moment) the word reads as intentional brand copper
+ * rather than blank, and any sub-pixel edge peeking out from under the foil
+ * blends into the gradient.
+ */
+const BASE_COLOR: Record<FoilVariant, string> = {
+  copper: '#C97B3E',
+  'copper-tight': '#C97B3E',
+  coral: '#E8826E',
+};
+
 export function FoilText({
   children,
   variant = 'copper',
@@ -75,13 +99,19 @@ export function FoilText({
   ariaLabel,
 }: FoilTextProps) {
   const gradId = useId();
+  // The foil <text> is injected only after mount so it never lands in the
+  // server-rendered HTML — the base <span> below is the single SSR text copy.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   return (
     <span
       className={`relative inline-block leading-[0.85] ${className}`}
-      aria-label={ariaLabel ?? children}
+      title={ariaLabel && ariaLabel !== children ? ariaLabel : undefined}
     >
-      {/* Invisible text reserves layout space so the SVG can size itself. */}
-      <span aria-hidden className="invisible whitespace-pre">
+      {/* The one real text node: accessible, crawlable, and it reserves the
+          layout box the overlaid SVG sizes itself against. Not aria-hidden. */}
+      <span className="whitespace-pre" style={{ color: BASE_COLOR[variant] }}>
         {children}
       </span>
       <svg
@@ -113,7 +143,7 @@ export function FoilText({
             letterSpacing: 'inherit',
           }}
         >
-          {children}
+          {mounted ? children : ''}
         </text>
       </svg>
     </span>

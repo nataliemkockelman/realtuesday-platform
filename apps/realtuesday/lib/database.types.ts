@@ -17,6 +17,8 @@ export type TaskStatus = 'todo' | 'in_progress' | 'done';
 export type InvoiceStatus = 'draft' | 'sent' | 'paid' | 'overdue' | 'void';
 export type InviteStatus = 'pending' | 'accepted' | 'revoked';
 export type RoadmapStatus = 'now' | 'next' | 'later' | 'done';
+export type HitlistStatus = 'to_reach' | 'reached_out' | 'in_talks' | 'won' | 'passed';
+export type IntakeStatus = 'new' | 'reviewing' | 'quoted' | 'archived';
 
 export interface Database {
   public: {
@@ -329,6 +331,130 @@ export interface Database {
         Update: Partial<Database['public']['Tables']['roadmap_items']['Insert']>;
         Relationships: [];
       };
+      offerings: {
+        Row: {
+          id: string;
+          name: string;
+          summary: string | null;
+          price_cents: number | null;
+          price_note: string | null;
+          published: boolean;
+          position: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          summary?: string | null;
+          price_cents?: number | null;
+          price_note?: string | null;
+          published?: boolean;
+          position?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['offerings']['Insert']>;
+        Relationships: [];
+      };
+      proposal_templates: {
+        Row: {
+          id: string;
+          name: string;
+          title: string;
+          summary: string | null;
+          body: string;
+          amount_cents: number | null;
+          price_note: string | null;
+          position: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          title: string;
+          summary?: string | null;
+          body?: string;
+          amount_cents?: number | null;
+          price_note?: string | null;
+          position?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['proposal_templates']['Insert']>;
+        Relationships: [];
+      };
+      hitlist_prospects: {
+        Row: {
+          id: string;
+          name: string;
+          company: string | null;
+          link: string | null;
+          note: string | null;
+          status: HitlistStatus;
+          position: number;
+          author_name: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          company?: string | null;
+          link?: string | null;
+          note?: string | null;
+          status?: HitlistStatus;
+          position?: number;
+          author_name?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['hitlist_prospects']['Insert']>;
+        Relationships: [];
+      };
+      intake_submissions: {
+        Row: {
+          id: string;
+          status: IntakeStatus;
+          contact_name: string;
+          email: string;
+          company: string | null;
+          phone: string | null;
+          business_type: string | null;
+          primary_goal: string | null;
+          current_site: string | null;
+          domain_status: string | null;
+          budget_range: string | null;
+          timeline: string | null;
+          beyond_website: string | null;
+          message: string | null;
+          client_id: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          status?: IntakeStatus;
+          contact_name: string;
+          email: string;
+          company?: string | null;
+          phone?: string | null;
+          business_type?: string | null;
+          primary_goal?: string | null;
+          current_site?: string | null;
+          domain_status?: string | null;
+          budget_range?: string | null;
+          timeline?: string | null;
+          beyond_website?: string | null;
+          message?: string | null;
+          client_id?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['intake_submissions']['Insert']>;
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
@@ -341,6 +467,8 @@ export interface Database {
       invoice_status: InvoiceStatus;
       invite_status: InviteStatus;
       roadmap_status: RoadmapStatus;
+      hitlist_status: HitlistStatus;
+      intake_status: IntakeStatus;
     };
     CompositeTypes: Record<string, never>;
   };
