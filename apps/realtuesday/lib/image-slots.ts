@@ -38,14 +38,14 @@ export const IMAGE_SLOTS = {
   'IMG-01': {
     id: 'IMG-01',
     file: '/photos/img-01-hero.jpg',
-    alt: 'Abstract brand texture in real Tuesday navy and copper',
+    alt: 'A notebook and coffee cup on a warm, softly lit desk',
     ratioClass: 'aspect-[16/10] lg:aspect-[4/5]',
     sizes: '(min-width: 1024px) 45vw, 100vw',
     dimensions: '1600×2000 (4:5)',
     page: 'home',
     placement: 'hero, right half',
     priority: 'must',
-    ready: false,
+    ready: true,
     shortLabel: 'hero',
   },
   'IMG-02': {
@@ -64,14 +64,14 @@ export const IMAGE_SLOTS = {
   'IMG-03': {
     id: 'IMG-03',
     file: '/photos/img-03-the-two-of-you.jpg',
-    alt: 'The two operators behind real Tuesday',
+    alt: 'A laptop open on a copper-lit desk',
     ratioClass: 'aspect-[4/5] lg:aspect-square',
     sizes: '(min-width: 1024px) 45vw, 100vw',
     dimensions: '1600×1600 (1:1)',
     page: 'home',
     placement: 'beside “you get us”',
     priority: 'must',
-    ready: false,
+    ready: true,
     shortLabel: 'the two of you',
   },
   'IMG-04': {
