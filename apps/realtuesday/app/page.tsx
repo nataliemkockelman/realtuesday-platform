@@ -3,6 +3,7 @@ import { FoilText } from '@/components/foil-text';
 import { SiteNav } from '@/components/site-nav';
 import { SiteFooter } from '@/components/site-footer';
 import { SlotPanel } from '@/components/slot-panel';
+import { BeforeAfterDiagram } from '@/components/before-after-diagram';
 
 /**
  * Home — real Tuesday, two-operator operations studio.
@@ -131,8 +132,8 @@ function Problem() {
           </div>
         </div>
 
-        {/* IMG-02 — before/after diagram (custom SVG) */}
-        <SlotPanel slot="IMG-02" />
+        {/* IMG-02 — before/after diagram, rendered as inline SVG (see component). */}
+        <BeforeAfterDiagram className="aspect-[4/5] lg:aspect-square" />
       </div>
     </section>
   );
