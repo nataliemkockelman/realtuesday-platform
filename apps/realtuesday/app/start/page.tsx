@@ -20,6 +20,16 @@ export const metadata: Metadata = {
   title: 'start a project',
   description:
     'tell real tuesday about your website project. a few quick questions so we can scope it right and reply personally.',
+  openGraph: {
+    title: 'start a project · real Tuesday',
+    description:
+      'tell us about your project. a few questions, then one of us reads it and writes back.',
+  },
+  twitter: {
+    title: 'start a project · real Tuesday',
+    description:
+      'tell us about your project. a few questions, then one of us reads it and writes back.',
+  },
 };
 
 export default function StartPage() {
@@ -60,8 +70,8 @@ function StartHero() {
           </FoilText>
         </h1>
         <p className="max-w-[52ch] font-serif text-lg italic leading-[1.4] text-mist sm:text-xl">
-          A few quick questions so we can scope it right the first time. Answer what you can. The
-          starred ones are all we truly need to get back to you.
+          A few questions so we can scope it right the first time. Answer what you can. The starred
+          ones are all we need to write back.
         </p>
         <p className="mt-6 max-w-prose font-body text-sm leading-[1.55] text-mist sm:text-base">
           Prefer to just talk? Email us at{' '}
@@ -91,19 +101,19 @@ function StartBody() {
         <aside className="space-y-8">
           <Block
             title="what happens next"
-            body="One of us reads it personally, usually within a day or two, and comes back with a first read on scope and price. No auto-reply, no sales sequence."
+            body="One of us reads every one of these, usually inside two days, and writes back with rough scope and a price range. Nothing automated goes out."
           />
           <Block
             title="then a short call"
-            body="If it looks like a fit, we hop on a call to fill in the gaps. Most projects get a real quote within a week of first contact."
+            body="If it looks like a fit, we'll set up a call to cover what the form missed: how your team actually works, what's breaking, who has to sign off. Most projects have a firm quote within a week of first contact."
           />
           <Block
             title="your domain stays yours"
-            body="You own your domain and hosting, in your name. We set it up and manage it; we never hold your site hostage."
+            body="Your domain and hosting are registered in your name, not ours. We set them up and manage them for you. If you ever want to leave, you change the password and we're out."
           />
           <Block
             title="more than a website?"
-            body="If the manual work behind the business is the real problem, tell us in the last question. It's often the bigger win."
+            body="Sometimes the site isn't the real problem. It's the quoting or the scheduling or the invoicing that nobody has time for. If that sounds familiar, say so in the last question."
           />
         </aside>
       </div>
