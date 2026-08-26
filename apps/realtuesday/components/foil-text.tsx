@@ -1,32 +1,25 @@
 /**
- * SVG-based copper foil text. Renders the word as <text> inside an <svg>
- * with a linearGradient fill — sharper than CSS background-clip in
- * screenshots, print, and Safari edge cases.
+ * Copper foil text — a single text node with a CSS gradient clipped to the
+ * glyphs (background-clip: text). This matches the original mockup (a CSS
+ * gradient on `.hero-tuesday`) and, crucially, renders the word exactly ONCE.
  *
- * Mockup gradient stops (.hero-tuesday):
+ * Why this shape (history): an earlier version painted the word twice — a real
+ * HTML text node plus an SVG <text> overlay carrying the gradient — and relied
+ * on the two copies aligning pixel-for-pixel. HTML and SVG measure font metrics
+ * independently, so the overlay drifted between pages and renders, producing a
+ * visible "ghost" double of the word (seen on /start). A single clipped text
+ * node cannot misalign with itself, so the ghosting is gone by construction.
+ *
+ * Accessibility / SEO: the word is a normal text node — crawlable and read by
+ * screen readers as-is. A solid `color` fallback (BASE_COLOR) means that in the
+ * rare browser without -webkit-text-fill-color support the word still shows as
+ * brand copper instead of disappearing.
+ *
+ * Gradient stops (.hero-tuesday), 110deg sweep:
  *   #a8531f 0%, #c97b3e 20%, #e9a566 40%, #f5d18f 50%,
  *   #e9a566 60%, #c97b3e 80%, #a8531f 100%
- * Angle: 110deg → roughly translates to gradient vector (cos20°, sin20°)
- * over the bounding box. We use objectBoundingBox so the gradient scales
- * to whatever text size the consumer renders.
- *
- * Each instance gets a unique gradient id (via React useId) so multiple
- * FoilText components on a page don't collide.
- *
- * Accessibility / SEO note (why the DOM looks the way it does):
- * The word is rendered exactly ONCE in the server HTML — as a real text node
- * inside the base <span>. That single copy is what crawlers read and what
- * screen readers announce. The SVG <text> that paints the copper foil is a
- * visual duplicate of the same glyphs; it is marked aria-hidden AND its text
- * is injected on the client only (after mount), so it never appears in the
- * server-rendered markup. This avoids the "realTuesdayTuesday" double-text bug
- * without hiding a duplicate purely with CSS. The base <span> carries a solid
- * fallback color so the word is visible (and correctly sized) before/without
- * JS; once mounted, the foil overlays it pixel-for-pixel.
  */
-'use client';
-
-import { useEffect, useId, useState } from 'react';
+import type { CSSProperties } from 'react';
 
 type FoilVariant = 'copper' | 'copper-tight' | 'coral';
 
@@ -71,20 +64,9 @@ const STOPS: Record<FoilVariant, Array<{ offset: string; color: string }>> = {
 };
 
 /**
- * 110deg gradient → vector from (x1, y1) to (x2, y2) in normalized
- * objectBoundingBox coordinates. CSS 110deg measures clockwise from
- * "up", so the vector points down-and-right. Using cos/sin of 20° from
- * the horizontal works out to roughly (1, 0.36) — flatter than 45°,
- * which gives the foil that horizontal-sweep look.
- */
-const GRADIENT_VECTOR = { x1: '0%', y1: '20%', x2: '100%', y2: '80%' };
-
-/**
- * Solid fallback color per variant, used for the single real text node. It's a
- * representative mid-tone from each gradient, so before the foil overlays (no
- * JS, or the brief pre-mount moment) the word reads as intentional brand copper
- * rather than blank, and any sub-pixel edge peeking out from under the foil
- * blends into the gradient.
+ * Solid fallback color per variant, applied via `color`. Shown only when
+ * -webkit-text-fill-color: transparent isn't honored; otherwise the gradient
+ * fill wins. Keeps the word visible-and-on-brand in that edge case.
  */
 const BASE_COLOR: Record<FoilVariant, string> = {
   copper: '#C97B3E',
@@ -98,54 +80,25 @@ export function FoilText({
   className = '',
   ariaLabel,
 }: FoilTextProps) {
-  const gradId = useId();
-  // The foil <text> is injected only after mount so it never lands in the
-  // server-rendered HTML — the base <span> below is the single SSR text copy.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const gradient = `linear-gradient(110deg, ${STOPS[variant]
+    .map((s) => `${s.color} ${s.offset}`)
+    .join(', ')})`;
+
+  const style: CSSProperties = {
+    color: BASE_COLOR[variant],
+    backgroundImage: gradient,
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+  };
 
   return (
     <span
-      className={`relative inline-block leading-[0.85] ${className}`}
-      title={ariaLabel && ariaLabel !== children ? ariaLabel : undefined}
+      className={`inline-block ${className}`}
+      style={style}
+      aria-label={ariaLabel && ariaLabel !== children ? ariaLabel : undefined}
     >
-      {/* The one real text node: accessible, crawlable, and it reserves the
-          layout box the overlaid SVG sizes itself against. Not aria-hidden. */}
-      <span className="whitespace-pre" style={{ color: BASE_COLOR[variant] }}>
-        {children}
-      </span>
-      <svg
-        aria-hidden
-        className="absolute inset-0 h-full w-full overflow-visible"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id={gradId} {...GRADIENT_VECTOR}>
-            {STOPS[variant].map((s) => (
-              <stop key={s.offset} offset={s.offset} stopColor={s.color} />
-            ))}
-          </linearGradient>
-        </defs>
-        <text
-          x="0"
-          y="0"
-          dominantBaseline="text-before-edge"
-          fill={`url(#${gradId})`}
-          // Inherit the rendered font from the parent <span> so the
-          // consumer's Tailwind classes (font-serif italic, etc) flow
-          // through. We must restate fontSize because <text> doesn't
-          // inherit it cleanly across all browsers.
-          style={{
-            fontFamily: 'inherit',
-            fontStyle: 'inherit',
-            fontWeight: 'inherit',
-            fontSize: 'inherit',
-            letterSpacing: 'inherit',
-          }}
-        >
-          {mounted ? children : ''}
-        </text>
-      </svg>
+      {children}
     </span>
   );
 }
