@@ -19,25 +19,18 @@ export function PersonBio({ person }: { person: TeamMember }) {
     <div>
       <PhotoPanel
         className="aspect-[4/5]"
-        label={`${person.name} · ${person.imageSlot}`}
+        label={person.role}
         src={person.imageSrc}
         alt={person.imageAlt}
         sizes="(min-width: 1024px) 40vw, 100vw"
       />
 
       <h3 className="mt-6 font-display text-[28px] font-extrabold leading-[1] tracking-[-0.03em] lowercase text-navy sm:text-[36px]">
-        {person.name}
-      </h3>
-      <p className="mt-2 font-mono text-[10px] uppercase tracking-mono-label text-copper">
         {person.role}
-      </p>
+      </h3>
 
       <div className="mt-5 space-y-4 font-body text-base leading-[1.65] text-navy/70">
-        {person.bioIsPlaceholder ? (
-          <p className="rounded-lg border border-dashed border-copper/60 bg-copper/5 p-4 font-mono text-[13px] leading-[1.6] text-copper">
-            PLACEHOLDER — Josh writes his own bio. Do not ship. {person.bio[0]}
-          </p>
-        ) : (
+        {person.bioIsPlaceholder ? null : (
           person.bio.map((para) => <p key={para.slice(0, 24)}>{para}</p>)
         )}
       </div>

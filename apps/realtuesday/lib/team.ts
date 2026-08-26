@@ -37,11 +37,11 @@ export interface TeamMember {
 export const TEAM: TeamMember[] = [
   {
     id: 'natalie',
-    name: 'Natalie Kockelman',
+    name: 'operations & build',
     role: 'operations & build',
     imageSlot: 'IMG-06',
     // Turn on by setting imageSrc: '/photos/img-06-natalie.jpg' (see lib/image-slots.ts).
-    imageAlt: 'Natalie, portrait',
+    imageAlt: 'Portrait',
     bio: [
       'I spent thirteen years running the back office of a real estate brokerage — transactions, commissions, payroll, onboarding, compliance, the systems underneath all of it, and the reports nobody wanted to build twice.',
       "Somewhere in there I stopped doing the manual work and started building the things that did it instead. Now that's the whole job. I build in Next.js, Supabase, Stripe, and Python, and I've spent enough years inside a real operation to know that the elegant system nobody adopts is a failure.",
@@ -52,11 +52,11 @@ export const TEAM: TeamMember[] = [
   },
   {
     id: 'josh',
-    name: 'Josh Mulder',
+    name: 'sales & growth',
     role: 'sales & growth',
     imageSlot: 'IMG-07',
     // Turn on by setting imageSrc: '/photos/img-07-josh.jpg' (see lib/image-slots.ts).
-    imageAlt: 'Josh, portrait',
+    imageAlt: 'Portrait',
     bioIsPlaceholder: true,
     bio: [
       '[Josh writes this — 2 short paragraphs. Cover: years in sales/BD, what kind of teams he\u2019s built or led, and one specific thing he\u2019s good at that most people are bad at. Same voice: first person, plain, no "results-driven professional."]',
