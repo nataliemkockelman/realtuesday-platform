@@ -91,10 +91,10 @@ export function ProductMini({ product }: { product: Product }) {
       </div>
 
       {/* Body — Variant A: price in coral-light to add a warm hit without
-          stealing the cover. The channel badge ("→ GUMROAD") was dropped
-          per Natalie — every card now routes through its own landing page
-          rather than dumping the visitor onto Etsy/Gumroad cold. The CTA
-          label "Check it out →" keeps the bottom-right slot weighted. */}
+          stealing the cover. The channel badge ("→ GUMROAD") was dropped —
+          every card now routes through its own landing page rather than
+          dumping the visitor onto Etsy/Gumroad cold. The CTA label
+          "Check it out →" keeps the bottom-right slot weighted. */}
       <div className="px-[18px] py-4">
         <p className="font-serif text-[16px] font-medium italic leading-tight text-cream">
           {product.name}

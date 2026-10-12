@@ -1,7 +1,8 @@
 /**
  * Accent-color styling for brainstorm authorship. Each teammate has a color on
- * their admin_users row (Natalie = blue, Josh = orange), and their notes on the
- * shared wall are tinted to match so you can see at a glance who wrote what.
+ * their admin_users row (operations = blue, sales & growth = orange), and
+ * their notes on the shared wall are tinted to match so you can see at a
+ * glance who wrote what.
  */
 export type AuthorColorStyle = {
   card: string; // note background + border

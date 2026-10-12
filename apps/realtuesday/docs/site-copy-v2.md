@@ -1,4 +1,4 @@
-# real Tuesday — full site copy, two-operator version
+# real Tuesday — full site copy, one-operator version
 
 Covers home, about, pricing, and contact. Graphics slots are marked `[IMG-##]` and specced at the bottom.
 
@@ -17,7 +17,7 @@ Voice rules: lowercase headings, short declarative lines, periods not exclamatio
 real Tuesday
 
 **H2 (the actual headline):**
-two operators who build the thing and stay until it works.
+one operator who builds the thing and stays until it works.
 
 **Subhead:**
 Most companies don't need software. They need someone to find the four hours a day their team spends moving information by hand, and then go fix it.
@@ -26,7 +26,7 @@ Most companies don't need software. They need someone to find the four hours a d
 **Secondary CTA:** see pricing
 
 **Trust line (small, under the CTAs):**
-Fixed scope. Fixed price. You know the number before we start.
+Fixed scope. Fixed price. You know the number before I start.
 
 ---
 
@@ -43,24 +43,20 @@ None of that shows up on a P&L as a line item. It shows up as your best people d
 
 ---
 
-## SECTION — WHAT WE DO
+## SECTION — WHAT I DO
 
-**H2:** start small, or hand us the whole operation.
+**H2:** start small, or hand me the whole operation.
 
 **Card 1 — audit**
-Two weeks. We map where the manual work lives, what it costs in hours and dollars, and what's worth fixing first.
+Two weeks. I map where the manual work lives, what it costs in hours and dollars, and what's worth fixing first.
 *from $2,500*
 
 **Card 2 — build**
-Automations, dashboards, integrations, internal tools, client portals. Built on your existing stack wherever we can.
+Automations, dashboards, integrations, internal tools, client portals. Built on your existing stack wherever I can.
 *from $3,500*
 
-**Card 3 — sales systems**
-Framework, pipeline, tracking, and the automations underneath it. The process and the plumbing, together.
-*from $3,000*
-
-**Card 4 — fractional**
-We stay on. Ongoing ops or ongoing sales leadership, at a defined scope, month to month.
+**Card 3 — fractional**
+I stay on. Ongoing ops, at a defined scope, month to month.
 *from $2,000/mo*
 
 **CTA:** see full pricing →
@@ -69,24 +65,24 @@ We stay on. Ongoing ops or ongoing sales leadership, at a defined scope, month t
 
 ## SECTION — THE DIFFERENCE
 
-**H2:** you get us. that's the whole model.
+**H2:** you get me. that's the whole model.
 
 **Body:**
-No account manager. No junior handoff. No offshore team you find out about in month three. Two senior operators, and the person who scopes your project is the person who builds it.
+No account manager. No junior handoff. No offshore team you find out about in month three. One senior operator, and the person who scopes your project is the person who builds it.
 
-We're small on purpose. It means we take fewer clients and finish what we start.
+I'm small on purpose. It means I take fewer clients and finish what I start.
 
-`[IMG-03]` — the two of you
+`[IMG-03]` — the workspace
 
 ---
 
 ## SECTION — HOW IT GOES
 
 **01 — a call**
-Thirty minutes. You tell us where it hurts. We tell you honestly whether we're the right fit. Sometimes we're not, and we'll say so.
+Thirty minutes. You tell me where it hurts. I tell you honestly whether I'm the right fit. Sometimes I'm not, and I'll say so.
 
 **02 — the audit**
-Two weeks. We find the real problem, which is frequently not the one you called about.
+Two weeks. I find the real problem, which is frequently not the one you called about.
 
 **03 — a proposal**
 Three options, fixed prices, clear scope. You pick one or you don't.
@@ -95,7 +91,7 @@ Three options, fixed prices, clear scope. You pick one or you don't.
 Half up front, half on delivery. You see progress weekly, not at the end.
 
 **05 — adoption**
-We stay until your team is actually using it. A system nobody uses isn't finished.
+I stay until your team is actually using it. A system nobody uses isn't finished.
 
 ---
 
@@ -108,7 +104,7 @@ We stay until your team is actually using it. A system nobody uses isn't finishe
 **Case study block:**
 **[Industry, company size]**
 *The problem:* [what was manual, how many hours, who was doing it]
-*What we built:* [the system, in one sentence]
+*What I built:* [the system, in one sentence]
 *The result:* [hours recovered, dollars, error rate, time-to-close]
 
 > "[Client quote — one or two sentences, specific, not 'they were great to work with.']"
@@ -135,20 +131,20 @@ Two weeks and a fixed fee, and you'll know exactly what the manual work is costi
 
 ## HERO
 
-**H1:** two operators. no agency behind us.
+**H1:** one operator. no agency behind me.
 
 **Subhead:**
-We built this the way we wished consultants worked when we were the ones hiring them.
+I built this the way I wished consultants worked when I was the one hiring them.
 
-`[IMG-05]` — the two of you together
+`[IMG-05]` — at the table, working
 
 ---
 
-## NATALIE
+## OPERATIONS & BUILD
 
-`[IMG-06]` — Natalie, portrait
+`[IMG-06]` — operations, portrait
 
-**Name:** Natalie [Last Name]
+**Name:** [Last Name]
 **Role:** operations & build
 
 **Bio:**
@@ -162,37 +158,21 @@ If you're on a call with me, I'm the one who's going to build it.
 
 ---
 
-## JOSH
-
-`[IMG-07]` — Josh, portrait
-
-**Name:** Josh [Last Name]
-**Role:** sales & growth
-
-**Bio:**
-[Josh writes this — 2 short paragraphs. Cover: years in sales/BD, what kind of teams he's built or led, and one specific thing he's good at that most people are bad at. Same voice: first person, plain, no "results-driven professional."]
-
-If you're building a pipeline, I'm the one who's going to be in it with you.
-
-**Links:** LinkedIn · email
-
----
-
 ## SECTION — HOW WE WORK
 
 **H2:** what you can expect.
 
-**We tell you when we're not the fit.**
-There's a version of this where we take every project and stretch. We'd rather send you somewhere better and keep the relationship.
+**I tell you when I'm not the fit.**
+There's a version of this where I take every project and stretch. I'd rather send you somewhere better and keep the relationship.
 
-**We price before we start.**
-Fixed scope, fixed number. If the scope changes, we tell you what it costs before we do it, not after.
+**I price before I start.**
+Fixed scope, fixed number. If the scope changes, I tell you what it costs before I do it, not after.
 
-**We stay until adoption is real.**
-Handing over a login isn't a handoff. We're done when your team uses it without thinking about it.
+**I stay until adoption is real.**
+Handing over a login isn't a handoff. I'm done when your team uses it without thinking about it.
 
-**We're small on purpose.**
-Two people means fewer clients at once. It also means nobody is guessing what you asked for.
+**I'm small on purpose.**
+One person means fewer clients at once. It also means nobody is guessing what you asked for.
 
 ---
 
@@ -259,25 +239,7 @@ Every build includes documentation, a working handoff, and thirty days of suppor
 
 ---
 
-## SECTION 3 — SALES SYSTEMS
-
-**H2:** and if the problem is pipeline.
-
-**Body:**
-Josh runs this side. Most companies don't have a sales problem, they have a sales *process* problem — no framework, no consistent tracking, and no idea which stage things die in.
-
-**sales framework — $3,000–6,000**
-The process itself. Stages, criteria, handoffs, what "qualified" actually means at your company.
-
-**sales tracking & automation — $4,000–9,000**
-The measurement layer underneath it. Built by Natalie, designed by Josh.
-
-**fractional sales — $3,000–6,000/mo**
-Josh embedded with your team. Pipeline, coaching, and the deals themselves.
-
----
-
-## SECTION 4 — WEBSITES
+## SECTION 3 — WEBSITES
 
 **H2:** and if you just need a site.
 
@@ -291,7 +253,7 @@ If it needs logins, payments, or a database behind it, that's a platform build.
 
 ---
 
-## SECTION 5 — TRAINING
+## SECTION 4 — TRAINING
 
 **H2:** or we teach your team to do it.
 
@@ -306,7 +268,7 @@ We build reusable AI tools trained on your process, your templates, your standar
 
 ---
 
-## SECTION 6 — ONGOING
+## SECTION 5 — ONGOING
 
 **H2:** or keep us on.
 
@@ -323,7 +285,7 @@ Every retainer has defined hours and scope, in writing. Past it, $175/hour. Ten 
 
 ---
 
-## SECTION 7 — FAQ
+## SECTION 6 — FAQ
 
 **why does the audit cost money?**
 Because free work gets treated like free advice. It's a real deliverable that stands on its own — plenty of people take it and implement it themselves. If you build with us, the fee comes off the top.
@@ -338,7 +300,7 @@ Then we cut scope, not price. We'd rather build the one thing that matters than 
 Usually. We build around what you already pay for. Rip-and-replace is expensive and your team hates it.
 
 **who actually does the work?**
-Us. Natalie builds, Josh runs the sales side, and that's the entire company. No account manager, no junior handoff, no offshore team.
+Just me. I build it, and that's the entire company. No account manager, no junior handoff, no offshore team.
 
 **how fast can you start?**
 Depends what's in front of us. Ask.
@@ -357,24 +319,21 @@ Depends what's in front of us. Ask.
 
 # GRAPHICS SPEC
 
-Total: 8 slots. You genuinely only need 01, 03, 06, 07 to launch. The rest are polish.
+Total: 7 slots. You genuinely only need 01, 03, 06 to launch. The rest are polish.
 
 | Slot | Page | Placement | What it is | Priority |
 |---|---|---|---|---|
 | IMG-01 | Home | Hero, full-bleed or right half | Abstract or environmental. **Not** a stock handshake, not a laptop on a white desk, not glowing blue AI brain art. Texture, a real workspace, or a clean geometric mark in your brand colors. | must |
 | IMG-02 | Home | Beside "you already know where it hurts" | The single most valuable graphic on the site: a simple before/after diagram. Left = tangled arrows between six tool logos and a human icon. Right = clean linear flow. Custom SVG, brand colors, no clip art. | high |
-| IMG-03 | Home | Beside "you get us" | The two of you. Can be the same shot as IMG-05 cropped wide. | must |
+| IMG-03 | Home | Beside "you get me" | The workspace. Can be the same shot as IMG-05 cropped wide. | must |
 | IMG-04 | Home | Proof section | Screenshot of a real dashboard or tool you built, with client data blurred or swapped for dummy values. Real product beats any illustration. | high |
-| IMG-05 | About | Hero | The two of you together. Environmental, not a studio backdrop. Working, talking, at a table. | must |
-| IMG-06 | About | Natalie's bio, left of text | Portrait. Real light, real background, looking at camera. Phone in portrait mode is fine if the light is good. | must |
-| IMG-07 | About | Josh's bio, left of text | Same treatment as IMG-06 so they visually match. Same day, same photographer, same background if possible. | must |
+| IMG-05 | About | Hero | At the table, working. Environmental, not a studio backdrop. | must |
+| IMG-06 | About | Bio, left of text | Portrait. Real light, real background, looking at camera. Phone in portrait mode is fine if the light is good. | must |
 | IMG-08 | Pricing | Audit section | A page or two of an actual audit deliverable, angled or in a device frame. Blur client identifiers. | medium |
 
 ## Photography direction
 
-Shoot 05, 06, and 07 in one session. Two people photographed on different days in different lighting looks like a stock-photo assembly, which is the exact impression you're trying to avoid.
-
-Natural light, near a window or outdoors in shade. Mid-day direct sun is the worst option. Wear what you'd wear to a client meeting, keep both wardrobes in the same register so one of you doesn't read as the boss. Plain background — a wall, a window, an actual office. Shoot far more than you need; you want maybe four usable frames total.
+Shoot 05 and 06 in one session. Natural light, near a window or outdoors in shade. Mid-day direct sun is the worst option. Wear what you'd wear to a client meeting. Plain background — a wall, a window, an actual office. Shoot far more than you need; you want maybe four usable frames total.
 
 ## Things not to put on this site
 
@@ -386,8 +345,6 @@ The custom before/after diagram in IMG-02 and a real screenshot in IMG-04 will d
 
 # BUILD NOTES — not page copy
 
-- The one-operator line is now gone everywhere. Search the whole site for "one operator," "I," and "me" — the old copy is first-person singular throughout and mixed voice reads as sloppy.
-- IMG-06 and IMG-07 are the highest-ROI items on this list. Anonymous consultants don't get $18k projects.
+- This is a one-operator site. Search the whole site for "we," "us," and "our" in headline or hero-level copy — mixed voice reads as sloppy. Generic business "we" (e.g. in pricing-tier descriptions, FAQ) is acceptable; explicit headcount claims ("two operators," "the two of you") are not.
+- IMG-06 is the highest-ROI item on this list. An anonymous consultant doesn't get $18k projects.
 - Don't ship the proof section empty. Comment it out until you have one case study.
-- Josh writes his own bio. If you write it for him it'll sound like you, and the whole point of the section is that there are two distinct people.
-- Get the revenue split in writing before this page goes live. The site is a public claim that you're a partnership.

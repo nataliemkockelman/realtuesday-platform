@@ -75,8 +75,8 @@ export const PRODUCTS: Product[] = [
   },
   {
     // Monthly Money Map — household budget workbook. Etsy because the file
-    // is xlsx-driven and that's where Natalie's planner/spreadsheet
-    // customers already shop.
+    // is xlsx-driven and that's where planner/spreadsheet customers
+    // already shop.
     slug: 'monthly-money-map',
     name: 'The Monthly Money Map',
     subtitle: 'one-page household budget. fill it Sunday, ignore it the rest of the month.',
@@ -109,5 +109,23 @@ export const PRODUCTS: Product[] = [
     price: '$8',
     channel: 'Gumroad',
     buyUrl: 'https://gumroad.com/themotherload/road-trip-cheat',
+  },
+  {
+    // Holiday, Handled — gift list + budget tracker, card & shipping list,
+    // hosting plan, and key-dates calendar for the whole season. Not
+    // packaged yet, so it ships in the same "Coming Soon" mode as Handled:
+    // the landing page is live (voice, structure, and the nav/footer
+    // cross-promo funnel all work) but there's no checkout until the PDF
+    // exists. Flip price + buyUrl to a real Gumroad link once it's built.
+    slug: 'holiday-planner',
+    name: 'Holiday, Handled',
+    subtitle: 'gift list, budget, cards, and hosting \u2014 the whole season in one place.',
+    coverTitleLines: ['the holiday,'],
+    coverAccent: 'handled.',
+    coverTagline: 'the whole season',
+    coverNumber: '07',
+    price: 'Coming Soon',
+    channel: 'Gumroad',
+    buyUrl: '/products/holiday-planner',
   },
 ];

@@ -5,11 +5,11 @@ import { FoilText } from '@/components/foil-text';
 import { ContactForm } from '@/components/contact-form';
 
 /**
- * /contact — tell Natalie what to build next.
+ * /contact — tell us what to build next.
  *
  * The pitch: this isn't a generic contact form. It's a "what should I make
  * next?" intake. If the suggestion turns into a real product, the suggester
- * gets it free. Keeps the audience involved in the roadmap and gives Natalie
+ * gets it free. Keeps the audience involved in the roadmap and gives us
  * direct signal on what to build.
  *
  * For MVP the form opens the visitor's email client via a pre-filled mailto:

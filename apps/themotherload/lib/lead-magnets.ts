@@ -3,7 +3,7 @@
  * MVP is hard-coded; will move to Supabase later when there are >3 of them
  * and the dashboard is generating the actual PDFs.
  *
- * Copy is in-voice-but-placeholder until Natalie locks the real value-prop
+ * Copy is in-voice-but-placeholder until the real value-prop is locked
  * for each magnet — flagged with TODO so we don't ship faux promises.
  */
 

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import type { Route } from 'next';
 import { signOut } from '@/app/admin/auth-actions';
 import type { AdminIdentity } from '@/lib/admin-auth';
+import { SearchBar } from '@/components/admin/search-bar';
 
 /**
  * Admin sidebar navigation.
@@ -99,6 +100,10 @@ export function AdminNav({ identity }: { identity: AdminIdentity }) {
         <span className="font-mono text-[10px] font-semibold uppercase tracking-mono-label text-bright-copper">
           admin
         </span>
+      </div>
+
+      <div className="mb-6">
+        <SearchBar />
       </div>
 
       <div className="flex gap-6 overflow-x-auto md:flex-col md:gap-6 md:overflow-visible">

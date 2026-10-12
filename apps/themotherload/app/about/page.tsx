@@ -8,25 +8,26 @@ import { EmailCapture } from '@/components/email-capture';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'the Motherload is built by Natalie — a working mom in Sioux Falls who got tired of productivity systems that don\u2019t fit the way moms actually live.',
+    'the Motherload is built by a working mom who got tired of productivity systems that don\u2019t fit the way moms actually live.',
   openGraph: {
     title: 'About · the Motherload',
     description:
-      'Built by Natalie — a working mom in Sioux Falls. The story behind the Motherload and the rules every product has to pass.',
+      'Built by a working mom who got tired of systems that don\u2019t fit real life. The story behind the Motherload and the rules every product has to pass.',
   },
 };
 
 /**
- * /about — Natalie's story + why the Motherload exists.
+ * /about — the founder's story + why the Motherload exists, told role-based
+ * (no name, no location).
  *
  * Layout follows the home hero structure: Caveat eyebrow + DM Serif title
  * with one foil accent word, coral rule, then a stacked Fraunces body block.
  * Brand-voice rule: "the Motherload" — lowercase "the", capital "M" — in
  * body copy as well as nav.
  *
- * Voice: direct, specific (Sioux Falls, real specifics), warm without
- * saccharine, willing to swear (one "damn" ties back to the tagline). Not
- * "mama," not "mommy," not productivity-bro.
+ * Voice: direct, specific, warm without saccharine, willing to swear (one
+ * "damn" ties back to the tagline). Not "mama," not "mommy," not
+ * productivity-bro.
  *
  * Copy is a first draft — easy to swap out via this file. Real Resend +
  * Supabase wiring still pending so the email block console.logs for now.
@@ -42,11 +43,11 @@ export default function AboutPage() {
               className="mb-1 inline-block font-script text-eyebrow-script font-semibold text-coral-light"
               style={{ transform: 'rotate(-2deg)' }}
             >
-              hi, I&rsquo;m Natalie &mdash;
+              who&rsquo;s behind this &mdash;
             </p>
 
             <h1 className="font-ml-display text-[clamp(48px,12vw,96px)] italic leading-[0.95] text-cream">
-              <span className="block">the woman</span>
+              <span className="block">the operator</span>
               <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
                 behind it.
               </FoilText>
@@ -56,13 +57,13 @@ export default function AboutPage() {
 
             <div className="max-w-prose space-y-5 font-serif text-[18px] italic leading-relaxed text-blush sm:text-[19px]">
               <p>
-                I live in Sioux Falls. I have kids, a job, a calendar that looks like a
-                ransom note, and a working theory that most productivity advice was written
-                by someone who has never been screamed at over the wrong color cup.
+                I&rsquo;ve got kids, a job, a calendar that looks like a ransom note, and a
+                working theory that most productivity advice was written by someone who has
+                never been screamed at over the wrong color cup.
               </p>
               <p>
-                By day I&rsquo;m a COO. By every other waking minute I&rsquo;m the CCO of
-                this house &mdash; <em className="not-italic font-mono text-[14px] font-semibold uppercase tracking-mono-label text-coral-light">Chief Chaos Coordinator</em>,
+                I run operations for a living. By every other waking minute I&rsquo;m the
+                CCO of this house &mdash; <em className="not-italic font-mono text-[14px] font-semibold uppercase tracking-mono-label text-coral-light">Chief Chaos Coordinator</em>,
                 by the actual job description. Different titles. Same job: running
                 operations for people who didn&rsquo;t read the manual and still expect
                 dinner.

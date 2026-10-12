@@ -21,12 +21,23 @@ export function SiteFooter() {
         <ul className="mb-6 flex flex-wrap gap-x-6 gap-y-2">
           {FOOTER_NAV.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-bright-copper transition-opacity hover:opacity-70"
-              >
-                {link.label}
-              </Link>
+              {link.external ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-bright-copper transition-opacity hover:opacity-70"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="font-mono text-[10px] font-semibold uppercase tracking-mono-button text-bright-copper transition-opacity hover:opacity-70"
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

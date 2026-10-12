@@ -4,7 +4,7 @@ import { FoilText } from './foil-text';
 /**
  * Home — short About teaser. Caveat eyebrow + DM Serif headline + one
  * paragraph of in-voice intro, with a "read the whole thing →" link out
- * to /about. The COO / Chaos Coordinator line is the highest-density
+ * to /about. The operator / Chaos Coordinator line is the highest-density
  * piece of brand voice on the site, so it sits here as the opening hook.
  *
  * Background: CREAM full-width. Pairs with FreeStart as the page's second
@@ -13,7 +13,7 @@ import { FoilText } from './foil-text';
  * (#FFB89E) is nearly the same value as cream (#F6F1E8) and washes out
  * to invisibility against it.
  *
- * No image of Natalie yet. When that exists, it goes to the right of
+ * No portrait image yet. When that exists, it goes to the right of
  * this column on desktop; for now the column reads as a confident
  * editorial intro block.
  */
@@ -29,7 +29,7 @@ export function HomeAboutSnippet() {
         </p>
 
         <h2 className="font-ml-display text-[clamp(36px,9vw,72px)] italic leading-[0.95] text-navy">
-          <span className="block">a COO who is also the</span>
+          <span className="block">an operator who is also the</span>
           <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
             Chief Chaos Coordinator.
           </FoilText>
@@ -38,11 +38,11 @@ export function HomeAboutSnippet() {
         <span className="mb-5 mt-6 block h-[2px] w-10 bg-coral" aria-hidden="true" />
 
         <p className="max-w-prose font-serif text-[17px] italic leading-relaxed text-navy/75 sm:text-[18px]">
-          By day I&rsquo;m a COO. By every other waking minute I&rsquo;m the CCO of this house
-          &mdash; the actual job description is Chief Chaos Coordinator. Different titles.
-          Same job: running operations for people who didn&rsquo;t read the manual and still
-          expect dinner. The Motherload is the small set of tools I built for myself to make
-          both jobs survivable.
+          I run operations for a living. By every other waking minute I&rsquo;m the CCO of
+          this house &mdash; the actual job description is Chief Chaos Coordinator. Different
+          titles. Same job: running operations for people who didn&rsquo;t read the manual and
+          still expect dinner. The Motherload is the small set of tools I built for myself to
+          make both jobs survivable.
         </p>
 
         <Link

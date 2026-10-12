@@ -8,36 +8,36 @@ import { SlotPanel } from '@/components/slot-panel';
 import { TEAM } from '@/lib/team';
 
 /**
- * /about — the two operators behind real Tuesday.
+ * /about — the operator behind real Tuesday.
  *
  * Copy is verbatim from docs/site-copy-v2.md (ABOUT section). One dark hero
- * moment, then a cream body: the two bios rendered side by side from the TEAM
- * data (via <PersonBio />, not hardcoded), the "what you can expect" blocks,
- * and the copper-foil closing block.
+ * moment, then a cream body: the bio rendered from the TEAM data (via
+ * <PersonBio />, not hardcoded), the "what you can expect" blocks, and the
+ * copper-foil closing block.
  */
 
 export const metadata: Metadata = {
   title: 'about',
   description:
-    'real Tuesday is an operations studio run by two senior operators. We find the manual work that eats your week, build the systems that run it, and stay until your team adopts them.',
+    'real Tuesday is an operations studio run by one senior operator. I find the manual work that eats your week, build the systems that run it, and stay until your team adopts them.',
 };
 
 const HOW_WE_WORK = [
   {
-    title: 'We tell you when we\u2019re not the fit.',
-    text: 'There\u2019s a version of this where we take every project and stretch. We\u2019d rather send you somewhere better and keep the relationship.',
+    title: 'I tell you when I\u2019m not the fit.',
+    text: 'There\u2019s a version of this where I take every project and stretch. I\u2019d rather send you somewhere better and keep the relationship.',
   },
   {
-    title: 'We price before we start.',
-    text: 'Fixed scope, fixed number. If the scope changes, we tell you what it costs before we do it, not after.',
+    title: 'I price before I start.',
+    text: 'Fixed scope, fixed number. If the scope changes, I tell you what it costs before I do it, not after.',
   },
   {
-    title: 'We stay until adoption is real.',
-    text: 'Handing over a login isn\u2019t a handoff. We\u2019re done when your team uses it without thinking about it.',
+    title: 'I stay until adoption is real.',
+    text: 'Handing over a login isn\u2019t a handoff. I\u2019m done when your team uses it without thinking about it.',
   },
   {
-    title: 'We\u2019re small on purpose.',
-    text: 'Two people means fewer clients at once. It also means nobody is guessing what you asked for.',
+    title: 'I\u2019m small on purpose.',
+    text: 'One person means fewer clients at once. It also means nobody is guessing what you asked for.',
   },
 ] as const;
 
@@ -71,20 +71,20 @@ function AboutHero() {
         </p>
         <h1 className="mb-5">
           <span className="block font-display text-[40px] font-extrabold leading-[0.85] tracking-[-0.06em] lowercase text-cream sm:text-[64px] lg:text-[80px]">
-            two operators.
+            one operator.
           </span>
           <FoilText
             variant="copper"
             className="block font-serif italic font-normal text-[40px] leading-[0.95] tracking-[-0.03em] pb-2 sm:text-[64px] lg:text-[80px]"
           >
-            no agency behind us.
+            no agency behind me.
           </FoilText>
         </h1>
         <p className="max-w-[52ch] font-serif text-lg italic leading-[1.4] text-mist sm:text-xl">
-          We built this the way we wished consultants worked when we were the ones hiring them.
+          I built this the way I wished consultants worked when I was the one hiring them.
         </p>
 
-        {/* IMG-05 — the two of you together */}
+        {/* IMG-05 — at the table, working */}
         <div className="mt-8">
           <SlotPanel slot="IMG-05" priority />
         </div>
@@ -94,13 +94,13 @@ function AboutHero() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Bios — two operators, side by side, from the TEAM data.                     */
+/*  Bio — the one operator, from the TEAM data.                                 */
 /* -------------------------------------------------------------------------- */
 
 function Bios() {
   return (
     <section className="px-6 py-14 sm:px-8 lg:py-20">
-      <div className="mx-auto grid max-w-content gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto max-w-[560px]">
         {TEAM.map((person) => (
           <PersonBio key={person.id} person={person} />
         ))}

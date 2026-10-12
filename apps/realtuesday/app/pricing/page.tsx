@@ -18,7 +18,7 @@ import { PRICING_SECTIONS, PRICING_FAQ, type PricingSection } from '@/lib/pricin
 export const metadata: Metadata = {
   title: 'pricing',
   description:
-    'Fixed scope. Fixed price. You know the number before we start. Audits, builds, sales systems, websites, training, and ongoing retainers.',
+    'Fixed scope. Fixed price. You know the number before we start. Audits, builds, websites, training, and ongoing retainers.',
 };
 
 export default function PricingPage() {

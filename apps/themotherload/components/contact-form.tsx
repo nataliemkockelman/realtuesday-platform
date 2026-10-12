@@ -11,7 +11,7 @@ import { useState } from 'react';
  * ready, swap the onSubmit body for a fetch('/api/contact', ...) POST.
  *
  * Why mailto over a generic Formspree: the mailto preserves the relationship
- * (email lands from the visitor, in their drafts, on their account) so Natalie
+ * (email lands from the visitor, in their drafts, on their account) so we
  * can reply to them directly and they have a copy of what they sent.
  */
 const RECIPIENT = 'hello@themomload.com';
