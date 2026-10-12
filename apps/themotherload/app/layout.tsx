@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     'Real tools for moms running the whole damn show. Workbooks, cheat sheets, and templates — every one tested by an actual mom before it ships.',
   applicationName: 'the Motherload',
-  authors: [{ name: 'Natalie' }],
+  authors: [{ name: 'Real Tuesday' }],
   creator: 'Real Tuesday',
   publisher: 'Real Tuesday',
   openGraph: {

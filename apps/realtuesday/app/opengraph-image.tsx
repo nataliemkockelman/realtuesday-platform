@@ -152,7 +152,7 @@ export default async function OGImage() {
               lineHeight: 1.3,
             }}
           >
-two operators who build the thing.
+one operator who builds the thing.
           </div>
         </div>
 

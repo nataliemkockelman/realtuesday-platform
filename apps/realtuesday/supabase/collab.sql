@@ -5,7 +5,7 @@
 -- Adds the shared studio space used inside /admin/brainstorm:
 --   * brainstorm_notes — a shared notepad / sticky wall. Each note is stamped
 --                        with its author and their accent color, so you can see
---                        at a glance who wrote what (Natalie blue, Josh orange).
+--                        at a glance who wrote what (operations blue, sales & growth orange).
 --   * roadmap_items    — the roadmap that lives below the brainstorm wall,
 --                        grouped into now / next / later / done.
 --

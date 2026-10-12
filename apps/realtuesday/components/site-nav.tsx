@@ -80,18 +80,31 @@ export function SiteNav() {
         <ul className="hidden items-center gap-7 sm:flex">
           {PRIMARY_NAV.map((link) => {
             const active =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
+              !link.external &&
+              (pathname === link.href || pathname.startsWith(`${link.href}/`));
+            const className = `font-mono text-[11px] font-semibold uppercase tracking-mono-button transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-4 focus-visible:ring-offset-navy ${
+              active ? 'text-copper' : 'text-cream'
+            }`;
             return (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={active ? 'page' : undefined}
-                  className={`font-mono text-[11px] font-semibold uppercase tracking-mono-button transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-4 focus-visible:ring-offset-navy ${
-                    active ? 'text-copper' : 'text-cream'
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={className}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={className}
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             );
           })}
@@ -130,18 +143,31 @@ export function SiteNav() {
         <ul className="flex flex-col gap-4">
           {PRIMARY_NAV.map((link) => {
             const active =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
+              !link.external &&
+              (pathname === link.href || pathname.startsWith(`${link.href}/`));
+            const className = `block font-serif text-2xl italic ${
+              active ? 'text-copper' : 'text-cream'
+            }`;
             return (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={active ? 'page' : undefined}
-                  className={`block font-serif text-2xl italic ${
-                    active ? 'text-copper' : 'text-cream'
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={className}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={className}
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             );
           })}

@@ -10,8 +10,8 @@ import { isSupabaseConfigured } from '@/lib/supabase';
 
 /**
  * /admin/brainstorm — the shared studio space. Up top, a brainstorm wall where
- * Natalie and Josh each drop notes, tinted by author so you can see who wrote
- * what at a glance. Below it, the roadmap: what is happening now, next, later,
+ * each teammate drops notes, tinted by author so you can see who wrote what
+ * at a glance. Below it, the roadmap: what is happening now, next, later,
  * and what is already done.
  */
 export const dynamic = 'force-dynamic';

@@ -7,8 +7,8 @@ import { FoilText } from '@/components/foil-text';
  * /products/monthly-money-map — paid one-page household budget workbook.
  *
  * Mirrors /products/handled and /products/dinner-handled. Sold on Etsy
- * because the asset is xlsx-driven and Natalie's spreadsheet shoppers
- * already live there.
+ * because the asset is xlsx-driven and spreadsheet shoppers already live
+ * there.
  */
 
 const BUY_URL = 'https://etsy.com/shop/themotherload/monthly-money-map';

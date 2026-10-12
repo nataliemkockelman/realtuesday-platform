@@ -17,16 +17,21 @@ import { Wordmark } from './wordmark';
  * setup guide is the primary free offer. The Sunday Reset is a secondary
  * bonus available on its own page, surfaced from the newsletter capture.
  *
+ * "Real Tuesday" is the studio behind this brand (cross-promo, external —
+ * see apps/realtuesday for the matching link back). Marked `external` so
+ * it renders as a plain <a target="_blank"> instead of next/link.
+ *
  * Closes the drawer on route change so navigating from the open menu
  * doesn't leave it stuck open.
  */
 
 const NAV_LINKS = [
-  { href: '/products', label: 'Products' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/free/setup-guide', label: 'Free Guide' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/products', label: 'Products', external: false },
+  { href: '/blog', label: 'Blog', external: false },
+  { href: '/about', label: 'About', external: false },
+  { href: '/free/setup-guide', label: 'Free Guide', external: false },
+  { href: '/contact', label: 'Contact', external: false },
+  { href: 'https://arealtuesday.com', label: 'Real Tuesday', external: true },
 ] as const;
 
 export function Nav() {
@@ -80,14 +85,19 @@ export function Nav() {
       <div className="hidden items-center gap-7 sm:flex">
         {NAV_LINKS.map((link) => {
           const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
-          return (
+          const className = `font-mono text-[11px] font-semibold uppercase tracking-mono-label transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy ${
+            active ? 'text-coral-light' : 'text-cream'
+          }`;
+          return link.external ? (
+            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+              {link.label}
+            </a>
+          ) : (
             <Link
               key={link.href}
               href={link.href}
               aria-current={active ? 'page' : undefined}
-              className={`font-mono text-[11px] font-semibold uppercase tracking-mono-label transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy ${
-                active ? 'text-coral-light' : 'text-cream'
-              }`}
+              className={className}
             >
               {link.label}
             </Link>
@@ -126,12 +136,23 @@ export function Nav() {
         <ul className="flex flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className="block font-ml-display text-2xl italic text-cream"
-              >
-                {link.label}
-              </Link>
+              {link.external ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-ml-display text-2xl italic text-cream"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="block font-ml-display text-2xl italic text-cream"
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

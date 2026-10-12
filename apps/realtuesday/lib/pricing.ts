@@ -83,31 +83,6 @@ export const PRICING_SECTIONS: PricingSection[] = [
     note: 'Every build includes documentation, a working handoff, and thirty days of support after launch. We don\u2019t disappear at go-live.',
   },
   {
-    id: 'sales-systems',
-    heading: 'and if the problem is pipeline.',
-    body: [
-      'Josh runs this side. Most companies don\u2019t have a sales problem, they have a sales process problem — no framework, no consistent tracking, and no idea which stage things die in.',
-    ],
-    tiers: [
-      {
-        name: 'sales framework',
-        price: '$3,000–6,000',
-        description:
-          'The process itself. Stages, criteria, handoffs, what \u201cqualified\u201d actually means at your company.',
-      },
-      {
-        name: 'sales tracking & automation',
-        price: '$4,000–9,000',
-        description: 'The measurement layer underneath it. Built by Natalie, designed by Josh.',
-      },
-      {
-        name: 'fractional sales',
-        price: '$3,000–6,000/mo',
-        description: 'Josh embedded with your team. Pipeline, coaching, and the deals themselves.',
-      },
-    ],
-  },
-  {
     id: 'websites',
     heading: 'and if you just need a site.',
     tiers: [
@@ -202,7 +177,7 @@ export const PRICING_FAQ: PricingFaq[] = [
   {
     question: 'who actually does the work?',
     answer:
-      'Us. Natalie builds, Josh runs the sales side, and that\u2019s the entire company. No account manager, no junior handoff, no offshore team.',
+      'Just me. I build it, and that\u2019s the entire company. No account manager, no junior handoff, no offshore team.',
   },
   {
     question: 'how fast can you start?',

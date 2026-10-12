@@ -36,7 +36,7 @@ export default function HomePage() {
             2. FreeStart — Claude, Meet Your Family (free starter).
             3. FeaturedDrop — Handled (paid flagship, "the next step").
             4. HomeRules — four-line voice posture before any more asks.
-            5. HomeAboutSnippet — COO / Chaos Coordinator intro, link to /about.
+            5. HomeAboutSnippet — operator / Chaos Coordinator intro, link to /about.
             6. HomeProductsGrid — top 3 products + see-all link.
             7. HomeNewsletter — plain weekly note signup.
             8. Footer.

@@ -1,5 +1,5 @@
 /**
- * Image slots — single source of truth for the 8 photography/graphics slots
+ * Image slots — single source of truth for the 7 photography/graphics slots
  * specced in docs/site-copy-v2.md (GRAPHICS SPEC).
  *
  * Each slot renders as a fixed-ratio next/image placeholder (via PhotoPanel)
@@ -7,8 +7,8 @@
  * the `file` path in /public and flip `ready` to true. Nothing else changes —
  * ratio, sizes, and alt text are already wired.
  *
- * Portraits IMG-06 / IMG-07 are rendered by <PersonBio /> from lib/team.ts
- * (bios are data-driven); their metadata is mirrored here for the full slot map.
+ * The portrait IMG-06 is rendered by <PersonBio /> from lib/team.ts
+ * (the bio is data-driven); its metadata is mirrored here for the full slot map.
  */
 
 export type SlotPriority = 'must' | 'high' | 'medium';
@@ -63,16 +63,16 @@ export const IMAGE_SLOTS = {
   },
   'IMG-03': {
     id: 'IMG-03',
-    file: '/photos/img-03-the-two-of-you.jpg',
+    file: '/photos/img-03-workspace.jpg',
     alt: 'A laptop open on a copper-lit desk',
     ratioClass: 'aspect-[4/5] lg:aspect-square',
     sizes: '(min-width: 1024px) 45vw, 100vw',
     dimensions: '1600×1600 (1:1)',
     page: 'home',
-    placement: 'beside “you get us”',
+    placement: 'beside “you get me”',
     priority: 'must',
     ready: true,
-    shortLabel: 'the two of you',
+    shortLabel: 'the workspace',
   },
   'IMG-04': {
     id: 'IMG-04',
@@ -89,8 +89,8 @@ export const IMAGE_SLOTS = {
   },
   'IMG-05': {
     id: 'IMG-05',
-    file: '/photos/img-05-together.jpg',
-    alt: 'The two operators working together at a table',
+    file: '/photos/img-05-at-the-table.jpg',
+    alt: 'At the table, working',
     ratioClass: 'aspect-[16/10] sm:aspect-[5/2]',
     sizes: '(min-width: 1344px) 1344px, 100vw',
     dimensions: '2000×800 (5:2)',
@@ -98,11 +98,11 @@ export const IMAGE_SLOTS = {
     placement: 'hero',
     priority: 'must',
     ready: false,
-    shortLabel: 'the two of you together',
+    shortLabel: 'at the table',
   },
   'IMG-06': {
     id: 'IMG-06',
-    file: '/photos/img-06-natalie.jpg',
+    file: '/photos/img-06-operations.jpg',
     alt: 'Portrait',
     ratioClass: 'aspect-[4/5]',
     sizes: '(min-width: 1024px) 40vw, 100vw',
@@ -112,19 +112,6 @@ export const IMAGE_SLOTS = {
     priority: 'must',
     ready: false,
     shortLabel: 'operations portrait',
-  },
-  'IMG-07': {
-    id: 'IMG-07',
-    file: '/photos/img-07-josh.jpg',
-    alt: 'Portrait',
-    ratioClass: 'aspect-[4/5]',
-    sizes: '(min-width: 1024px) 40vw, 100vw',
-    dimensions: '1200×1500 (4:5)',
-    page: 'about',
-    placement: 'sales bio',
-    priority: 'must',
-    ready: false,
-    shortLabel: 'sales portrait',
   },
   'IMG-08': {
     id: 'IMG-08',

@@ -6,11 +6,11 @@ import { SlotPanel } from '@/components/slot-panel';
 import { BeforeAfterDiagram } from '@/components/before-after-diagram';
 
 /**
- * Home — real Tuesday, two-operator operations studio.
+ * Home — real Tuesday, one-operator operations studio.
  *
  * Copy is verbatim from docs/site-copy-v2.md (HOME section). Structure keeps
  * the established rhythm: one dark hero moment, then a warm cream body that
- * varies section to section — an editorial problem split, a dark "what we do"
+ * varies section to section — an editorial problem split, a dark "what I do"
  * band, a difference split, hairline numbered steps, and a copper closing block.
  *
  * The Proof section is built but gated OFF (SHOW_PROOF) per the copy doc's own
@@ -45,7 +45,7 @@ export default function HomePage() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Hero — the one dark moment. Brand lockup + the two-operator headline.       */
+/*  Hero — the one dark moment. Brand lockup + the one-operator headline.       */
 /* -------------------------------------------------------------------------- */
 
 function Hero() {
@@ -70,7 +70,7 @@ function Hero() {
           </h1>
 
           <h2 className="mb-6 max-w-[24ch] font-display text-[28px] font-extrabold leading-[1.05] tracking-[-0.03em] lowercase text-cream sm:text-[40px]">
-            two operators who build the thing and stay until it works.
+            one operator who builds the thing and stays until it works.
           </h2>
 
           <p className="max-w-[52ch] font-serif text-xl italic leading-[1.4] text-mist sm:text-2xl">
@@ -94,7 +94,7 @@ function Hero() {
           </div>
 
           <p className="mt-6 font-mono text-[10px] uppercase tracking-mono-label text-mist">
-            Fixed scope. Fixed price. You know the number before we start.
+            Fixed scope. Fixed price. You know the number before I start.
           </p>
         </div>
 
@@ -140,28 +140,23 @@ function Problem() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  What we do — dark navy band, four service cards.                            */
+/*  What I do — dark navy band, three service cards.                            */
 /* -------------------------------------------------------------------------- */
 
 const WHAT_WE_DO = [
   {
     name: 'audit',
-    text: 'Two weeks. We map where the manual work lives, what it costs in hours and dollars, and what\u2019s worth fixing first.',
+    text: 'Two weeks. I map where the manual work lives, what it costs in hours and dollars, and what\u2019s worth fixing first.',
     price: 'from $2,500',
   },
   {
     name: 'build',
-    text: 'Automations, dashboards, integrations, internal tools, client portals. Built on your existing stack wherever we can.',
+    text: 'Automations, dashboards, integrations, internal tools, client portals. Built on your existing stack wherever I can.',
     price: 'from $3,500',
   },
   {
-    name: 'sales systems',
-    text: 'Framework, pipeline, tracking, and the automations underneath it. The process and the plumbing, together.',
-    price: 'from $3,000',
-  },
-  {
     name: 'fractional',
-    text: 'We stay on. Ongoing ops or ongoing sales leadership, at a defined scope, month to month.',
+    text: 'I stay on. Ongoing ops, at a defined scope, month to month.',
     price: 'from $2,000/mo',
   },
 ] as const;
@@ -171,10 +166,10 @@ function WhatWeDo() {
     <section id="services" className="bg-navy px-6 py-16 text-cream sm:px-8 lg:py-20">
       <div className="mx-auto max-w-content">
         <p className="mb-4 font-mono text-[10px] uppercase tracking-mono-eyebrow text-bright-copper">
-          what we do
+          what I do
         </p>
         <h2 className="mb-10 max-w-[16ch] font-display text-[34px] font-extrabold leading-[0.98] tracking-[-0.04em] lowercase text-cream sm:text-[54px]">
-          start small, or hand us{' '}
+          start small, or hand me{' '}
           <FoilText
             variant="copper"
             className="font-serif font-normal italic text-[34px] leading-[0.98] tracking-[-0.03em] sm:text-[54px]"
@@ -213,15 +208,15 @@ function WhatWeDo() {
 /* -------------------------------------------------------------------------- */
 
 const DIFFERENCE_BODY = [
-  'No account manager. No junior handoff. No offshore team you find out about in month three. Two senior operators, and the person who scopes your project is the person who builds it.',
-  'We\u2019re small on purpose. It means we take fewer clients and finish what we start.',
+  'No account manager. No junior handoff. No offshore team you find out about in month three. One senior operator, and the person who scopes your project is the person who builds it.',
+  'I\u2019m small on purpose. It means I take fewer clients and finish what I start.',
 ];
 
 function Difference() {
   return (
     <section className="border-t border-navy/10 px-6 py-12 sm:px-8 sm:py-14 lg:py-16">
       <div className="mx-auto grid max-w-content items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-        {/* IMG-03 — the two of you */}
+        {/* IMG-03 — the workspace */}
         <SlotPanel slot="IMG-03" className="order-last lg:order-first" />
 
         <div>
@@ -229,7 +224,7 @@ function Difference() {
             the difference
           </p>
           <h2 className="font-display text-[38px] font-extrabold leading-[1.02] tracking-[-0.04em] lowercase text-navy sm:text-[56px]">
-            you get us. that&apos;s the whole model.
+            you get me. that&apos;s the whole model.
           </h2>
           <div className="mt-8 max-w-[48ch] space-y-5 font-body text-lg leading-[1.6] text-navy/70">
             {DIFFERENCE_BODY.map((para) => (
@@ -250,12 +245,12 @@ const STEPS = [
   {
     num: '01',
     title: 'a call',
-    text: 'Thirty minutes. You tell us where it hurts. We tell you honestly whether we\u2019re the right fit. Sometimes we\u2019re not, and we\u2019ll say so.',
+    text: 'Thirty minutes. You tell me where it hurts. I tell you honestly whether I\u2019m the right fit. Sometimes I\u2019m not, and I\u2019ll say so.',
   },
   {
     num: '02',
     title: 'the audit',
-    text: 'Two weeks. We find the real problem, which is frequently not the one you called about.',
+    text: 'Two weeks. I find the real problem, which is frequently not the one you called about.',
   },
   {
     num: '03',
@@ -270,7 +265,7 @@ const STEPS = [
   {
     num: '05',
     title: 'adoption',
-    text: 'We stay until your team is actually using it. A system nobody uses isn\u2019t finished.',
+    text: 'I stay until your team is actually using it. A system nobody uses isn\u2019t finished.',
   },
 ] as const;
 
@@ -331,7 +326,7 @@ function Proof() {
               how many hours, who was doing it]
             </p>
             <p>
-              <span className="font-serif italic text-copper">What we built:</span> [the system, in
+              <span className="font-serif italic text-copper">What I built:</span> [the system, in
               one sentence]
             </p>
             <p>

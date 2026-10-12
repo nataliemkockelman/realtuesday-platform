@@ -6,7 +6,7 @@ import { Resend } from 'resend';
  * gracefully fall back.
  *
  * The "from" address must be on a domain you've verified in Resend. Until
- * Natalie verifies themomload.com, we use Resend's onboarding sender so the
+ * themomload.com is verified, we use Resend's onboarding sender so the
  * email at least lands; once the domain is verified, swap FROM_EMAIL.
  */
 
@@ -31,7 +31,7 @@ export const FROM_EMAIL =
 
 /**
  * Where transactional reply-to lands. Optional — leave unset and Resend
- * uses the FROM address. Set to a real inbox once Natalie has one.
+ * uses the FROM address. Set to a real inbox once there's a dedicated one.
  */
 export const REPLY_TO = process.env.RESEND_REPLY_TO ?? undefined;
 
@@ -60,7 +60,7 @@ export async function sendWelcomeEmail(opts: WelcomeEmailOpts) {
     replyTo: REPLY_TO,
     subject,
     html: renderHtml({ intro, body }),
-    text: `${intro}\n\n${body}\n\n— Natalie\nthe Motherload\nthemomload.com`,
+    text: `${intro}\n\n${body}\n\n— the Motherload\nthemomload.com`,
   });
 
   if (result.error) return { ok: false as const, reason: result.error.message };
@@ -85,7 +85,7 @@ function composeWelcomeEmail(opts: WelcomeEmailOpts) {
     body:
       "One note from me a week. No spam, no lectures, no 'mama' anything. " +
       'If a week ever feels like too much, the unsubscribe link is at the bottom of every email.\n\n' +
-      'Talk soon — Natalie',
+      'Talk soon.',
   };
 }
 
@@ -108,7 +108,7 @@ function renderHtml({ intro, body }: { intro: string; body: string }) {
     <div style="font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#C75D4A;font-weight:600;margin-bottom:18px;">— the Motherload —</div>
     <p style="margin:0 0 16px 0;font-size:18px;font-style:italic;color:#1A2238;">${escape(intro)}</p>
     ${paragraphs}
-    <p style="margin:32px 0 0 0;font-size:14px;color:#1A2238;">— Natalie</p>
+    <p style="margin:32px 0 0 0;font-size:14px;color:#1A2238;">— the Motherload</p>
     <p style="margin:4px 0 0 0;font-size:12px;color:#1A2238;opacity:0.6;">themomload.com · a Real Tuesday brand</p>
   </div>
 </body>

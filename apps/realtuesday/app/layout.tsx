@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s · real Tuesday',
   },
   description:
-    'An operations studio run by two operators. We find the work your business hates, build the systems that run it, and stay until your team actually adopts them.',
+    'An operations studio run by one operator. I find the work your business hates, build the systems that run it, and stay until your team actually adopts them.',
   applicationName: 'real Tuesday',
   creator: 'Real Tuesday',
   publisher: 'Real Tuesday',
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     siteName: 'real Tuesday',
     title: 'real Tuesday · operations studio',
     description:
-      'Two operators who build systems for the work your business hates doing. We stay on until your team actually uses them.',
+      'One operator who builds systems for the work your business hates doing. I stay on until your team actually uses them.',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'real Tuesday · operations studio',
     description:
-      'Two operators who build systems for the work your business hates doing. We stay on until your team actually uses them.',
+      'One operator who builds systems for the work your business hates doing. I stay on until your team actually uses them.',
   },
   robots: {
     index: true,

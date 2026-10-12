@@ -3,7 +3,10 @@ import Link from 'next/link';
 /**
  * Site footer — brand line + link row + © line. Sits inside the navy column
  * with a soft blush hairline above. The Contact link is a placeholder mailto
- * (`hello@themomload.com`) until Natalie wires a real inbox.
+ * (`hello@themomload.com`) until a dedicated inbox is wired up.
+ *
+ * "a Real Tuesday brand" links out to arealtuesday.com — cross-promo for the
+ * studio behind this brand (matching link back lives in apps/realtuesday).
  *
  * Mirrored in /public/context-builder.html so the static page matches the
  * Next-rendered pages; update both if links here change.
@@ -23,7 +26,14 @@ export function Footer() {
         <p className="font-serif text-[12px] italic leading-snug text-coral-light">
           <em>the Motherload</em>
           {' · '}
-          a Real Tuesday brand
+          <a
+            href="https://arealtuesday.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-coral-light/40 underline-offset-2 transition-opacity hover:opacity-70"
+          >
+            a Real Tuesday brand
+          </a>
         </p>
 
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
@@ -49,7 +59,7 @@ export function Footer() {
         </ul>
 
         <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-blush/70">
-          © {new Date().getFullYear()} · Sioux Falls, SD
+          © {new Date().getFullYear()} · the Motherload
         </p>
       </div>
     </footer>

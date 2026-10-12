@@ -6,13 +6,13 @@ import { PhotoPanel } from '@/components/photo-panel';
  * an italic copper closing line, and LinkedIn + email links. Driven entirely
  * by data so the /about page can map over TEAM instead of hardcoding blocks.
  *
- * Layout is a vertical stack (portrait above text) so two of these sit cleanly
- * side by side in the about page's two-up grid. Portrait placement is technique,
- * not spec — the copy doc's "left of text" note yields to the two-up layout.
+ * Layout is a vertical stack (portrait above text), rendered once on the
+ * about page for the single operator. Portrait placement is technique, not
+ * spec — the copy doc's "left of text" note yields to the stacked layout.
  *
- * Placeholder handling: bios/links that are still placeholders (Josh's bio,
- * unknown LinkedIn URLs) render with a visible copper flag so nothing
- * unfinished ships by accident.
+ * Placeholder handling: bios/links that are still placeholders (unknown
+ * LinkedIn URLs) render with a visible copper flag so nothing unfinished
+ * ships by accident.
  */
 export function PersonBio({ person }: { person: TeamMember }) {
   return (

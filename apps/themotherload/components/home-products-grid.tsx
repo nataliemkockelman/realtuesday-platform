@@ -6,7 +6,7 @@ import { PRODUCTS } from '@/lib/products';
  * Home — top-3 product preview, leading to /products.
  *
  * Pulls the first three entries from PRODUCTS (Handled, AI Calendar Cheat,
- * Dinner Handled — or whatever Natalie has ordered first), renders them
+ * Dinner Handled — or whatever's ordered first), renders them
  * with the same ProductMini cards used on the shop, and ends with a
  * "see all →" link. Browsers who don't want the flagship still see a
  * couple of alternates without scrolling through the full shop.

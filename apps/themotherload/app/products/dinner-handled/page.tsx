@@ -11,7 +11,7 @@ import { FoilText } from '@/components/foil-text';
  * the forthcoming Sunday Reset bundle (not yet built); for now it's sold
  * standalone.
  *
- * Pricing: $12 placeholder until Natalie confirms.
+ * Pricing: $12 placeholder until confirmed.
  */
 
 const BUY_URL = 'https://arealtuesday.gumroad.com/l/hcbpm?wanted=true';

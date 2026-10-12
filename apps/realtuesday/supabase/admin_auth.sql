@@ -10,7 +10,7 @@
 -- Adds:
 --   * admin_users   — the allowlist of who may enter /admin, with a display
 --                     name and an accent color (used to attribute brainstorm
---                     notes: Natalie = blue, Josh = orange, etc.)
+--                     notes: operations = blue, sales & growth = orange, etc.)
 --   * admin_invites — one-time invite tokens the app (service_role) mints.
 --
 -- The /admin data layer keeps using the service_role key, which bypasses RLS.
