@@ -26,6 +26,7 @@ const SHOW_PROOF = false;
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-navy">
+      <HolidayAdBanner />
       <SiteNav />
       <Hero />
 
@@ -41,6 +42,26 @@ export default function HomePage() {
 
       <SiteFooter />
     </main>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Holiday ad banner — SOS fix: the Instagram boosted post's "visit site"      */
+/*  link points here (the B2B operations-studio homepage) instead of the        */
+/*  Holiday Gift Planner product it's actually advertising. This banner is a    */
+/*  stopgap that catches that misdirected traffic and sends it where it should  */
+/*  have gone, with the real ad promo code. Remove once the Instagram ad's      */
+/*  destination link/profile website is fixed at the source.                    */
+/* -------------------------------------------------------------------------- */
+
+function HolidayAdBanner() {
+  return (
+    <a
+      href="https://holiday.arealtuesday.com"
+      className="block bg-copper px-6 py-3 text-center font-mono text-[12px] font-bold uppercase tracking-mono-button text-navy no-underline sm:text-[13px]"
+    >
+      looking for the holiday gift planner? tap here → use code 10FOR10
+    </a>
   );
 }
 
