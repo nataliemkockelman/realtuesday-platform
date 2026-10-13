@@ -4,6 +4,7 @@ import { SiteNav } from '@/components/site-nav';
 import { SiteFooter } from '@/components/site-footer';
 import { SlotPanel } from '@/components/slot-panel';
 import { BeforeAfterDiagram } from '@/components/before-after-diagram';
+import { HolidayPromoPopup } from '@/components/holiday-promo-popup';
 
 /**
  * Home — real Tuesday, one-operator operations studio.
@@ -26,6 +27,7 @@ const SHOW_PROOF = false;
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-navy">
+      <HolidayPromoPopup />
       <HolidayAdBanner />
       <SiteNav />
       <Hero />
@@ -50,7 +52,10 @@ export default function HomePage() {
 /*  link points here (the B2B operations-studio homepage) instead of the        */
 /*  Holiday Gift Planner product it's actually advertising. This banner is a    */
 /*  stopgap that catches that misdirected traffic and sends it where it should  */
-/*  have gone, with the real ad promo code. Remove once the Instagram ad's      */
+/*  have gone, with the real ad promo code. Sticky + red/gold foil (matching    */
+/*  the Holiday Gift Planner's own brand, not this site's navy/copper) so it    */
+/*  stays visible and unmistakable the whole visit. Pairs with the one-time     */
+/*  <HolidayPromoPopup/> modal. Remove both once the Instagram ad's              */
 /*  destination link/profile website is fixed at the source.                    */
 /* -------------------------------------------------------------------------- */
 
@@ -58,9 +63,14 @@ function HolidayAdBanner() {
   return (
     <a
       href="https://holiday.arealtuesday.com"
-      className="block bg-copper px-6 py-3 text-center font-mono text-[12px] font-bold uppercase tracking-mono-button text-navy no-underline sm:text-[13px]"
+      className="holiday-foil-red sticky top-0 z-50 block px-6 py-5 text-center no-underline shadow-lg sm:py-6"
     >
-      looking for the holiday gift planner? tap here → use code 10FOR10
+      <span className="font-display text-base font-extrabold lowercase tracking-[-0.01em] text-cream sm:text-xl">
+        🎁 looking for the holiday gift planner?
+      </span>
+      <span className="mt-1 block font-mono text-[11px] font-bold uppercase tracking-mono-button text-soft-gold sm:mt-0 sm:inline sm:pl-3 sm:text-[13px]">
+        tap here → use code 10FOR10
+      </span>
     </a>
   );
 }
