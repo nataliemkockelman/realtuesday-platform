@@ -23,6 +23,12 @@ import { Wordmark } from './wordmark';
  *
  * Closes the drawer on route change so navigating from the open menu
  * doesn't leave it stuck open.
+ *
+ * Holiday App announcement bar sits above the nav row on every page (it's
+ * rendered here, not per-page, so it's sitewide with one edit). Links out
+ * to holiday.arealtuesday.com — the seasonal planner app, a separate
+ * standalone product from Real Tuesday, not part of this repo. External,
+ * same target="_blank" treatment as the Real Tuesday nav link.
  */
 
 const NAV_LINKS = [
@@ -33,6 +39,22 @@ const NAV_LINKS = [
   { href: '/contact', label: 'Contact', external: false },
   { href: 'https://arealtuesday.com', label: 'Real Tuesday', external: true },
 ] as const;
+
+const HOLIDAY_APP_URL = 'https://holiday.arealtuesday.com';
+
+function HolidayAppBanner() {
+  return (
+    <a
+      href={HOLIDAY_APP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-center gap-2.5 bg-coral px-6 py-4 text-center font-mono text-[13px] font-semibold uppercase tracking-mono-button text-navy transition-opacity hover:opacity-90 sm:px-8 sm:text-sm"
+    >
+      <span>The Holiday App is live — plan the whole season in one place</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  );
+}
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -62,10 +84,12 @@ export function Nav() {
   }, [open]);
 
   return (
-    <nav
-      aria-label="Primary"
-      className="relative z-50 flex items-center justify-between px-6 pb-4 pt-12 sm:px-8 sm:pt-16"
-    >
+    <>
+      <HolidayAppBanner />
+      <nav
+        aria-label="Primary"
+        className="relative z-50 flex items-center justify-between px-6 pb-4 pt-8 sm:px-8 sm:pt-10"
+      >
       <Link
         href="/"
         className="flex items-center gap-2 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
@@ -157,6 +181,7 @@ export function Nav() {
           ))}
         </ul>
       </div>
-    </nav>
+      </nav>
+    </>
   );
 }
