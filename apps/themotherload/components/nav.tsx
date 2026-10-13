@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Wordmark } from './wordmark';
+import { HolidayAppPopup } from './holiday-app-popup';
 
 /**
  * Top navigation — wordmark on the left.
@@ -29,6 +30,11 @@ import { Wordmark } from './wordmark';
  * to holiday.arealtuesday.com — the seasonal planner app, a separate
  * standalone product from Real Tuesday, not part of this repo. External,
  * same target="_blank" treatment as the Real Tuesday nav link.
+ *
+ * HolidayAppPopup (also rendered here, same reasoning) is the harder-to-miss
+ * companion to the banner — a one-shot modal on first page load per browser
+ * session. See components/holiday-app-popup.tsx for the session-gating
+ * logic that keeps it from reopening on every nav click.
  */
 
 const NAV_LINKS = [
@@ -85,6 +91,7 @@ export function Nav() {
 
   return (
     <>
+      <HolidayAppPopup />
       <HolidayAppBanner />
       <nav
         aria-label="Primary"

@@ -4,53 +4,59 @@ import { Footer } from '@/components/footer';
 import { FoilText } from '@/components/foil-text';
 
 /**
- * /products/holiday-planner — "Holiday, Handled" (gift list, budget, cards,
- * and hosting for the whole season).
+ * /products/holiday-planner — the Motherload's own landing page for the
+ * Holiday App (the live product at holiday.arealtuesday.com).
  *
- * Not packaged yet — same "Coming Soon" mode as /products/handled. The page
- * exists so the brand voice, structure, and the nav/footer cross-promo
- * funnel are all live. Replace BUY_URL and PRICE once the PDF is built and
- * a Gumroad checkout exists.
+ * The Holiday App is a separate, standalone product (its own codebase,
+ * its own Vercel project) — this page doesn't embed it, it's a
+ * themotherload-branded on-ramp that explains the pitch in our voice and
+ * sends people to the real app to sign up. Copy below mirrors the actual
+ * live product (wishlists, budgets, secret gifts, private kid links,
+ * $29/yr) — keep it in sync if the app's pricing or feature set changes.
+ *
+ * Previously this page was a "Coming Soon" stub for an unrelated,
+ * never-built PDF product also called "Holiday, Handled." That product
+ * doesn't exist — replaced with this page so the on-site link and the
+ * sitewide nav banner both point at the same real thing.
  */
 
-// Replace with the live Gumroad URL when checkout is set up.
-const BUY_URL = 'https://gumroad.com/themotherload/holiday-planner';
-const PRICE = 'Coming Soon';
+const APP_URL = 'https://holiday.arealtuesday.com';
+const PRICE = '$29/yr';
 
-const TITLE_LEAD = 'the holiday,';
-const TITLE_FOIL = 'handled.';
+const TITLE_LEAD = 'plan christmas';
+const TITLE_FOIL = 'without anyone seeing it coming.';
 
 const INSIDE = [
   {
-    eyebrow: 'SECTION 01',
-    title: 'The gift list + budget tracker.',
-    note: 'Who, what, what you budgeted, what you actually spent. The sheet that keeps December off January\u2019s credit card bill.',
+    eyebrow: 'WISHLISTS',
+    title: 'One board, not six group texts.',
+    note: 'Everyone\u2019s list, links and all, in one private place instead of scattered across messages you\u2019ll never find again.',
   },
   {
-    eyebrow: 'SECTION 02',
-    title: 'The card & shipping list.',
-    note: 'Every address, every cutoff date, who already got one. No double-sending your husband\u2019s aunt again.',
+    eyebrow: 'BUDGETS',
+    title: 'What you spent vs. what you meant to.',
+    note: 'Gift, who it\u2019s for, price \u2014 tracked as you buy, so December doesn\u2019t surprise you in January.',
   },
   {
-    eyebrow: 'SECTION 03',
-    title: 'The hosting plan.',
-    note: 'Who\u2019s coming, what they\u2019re bringing, when they\u2019re showing up. The potluck math, solved before the group text starts.',
+    eyebrow: 'SECRET GIFTS',
+    title: 'Hidden from the person it\u2019s for.',
+    note: 'Add something to someone\u2019s list without them seeing it. The whole point of a secret.',
   },
   {
-    eyebrow: 'SECTION 04',
-    title: 'The key-dates calendar.',
-    note: 'Shipping cutoffs, event dates, and a day built in after it\u2019s over to do absolutely nothing.',
+    eyebrow: 'PRIVATE KID LINKS',
+    title: 'Kids get their own private link.',
+    note: 'They can add to their own wishlist without seeing anyone else\u2019s \u2014 or what\u2019s already been bought.',
   },
 ];
 
 export const metadata: Metadata = {
-  title: 'Holiday, Handled',
+  title: 'Holiday App \u00b7 the Motherload',
   description:
-    'A gift list, budget tracker, card list, and hosting plan for the whole holiday season \u2014 one place, not six sticky notes and a group text.',
+    'Wishlists, budgets, and secret gifts for the whole family on one private board. The live Holiday App, from the people behind the Motherload.',
   openGraph: {
-    title: 'Holiday, Handled \u00b7 the Motherload',
+    title: 'Holiday App \u00b7 the Motherload',
     description:
-      'Every gift, every card, every hosting detail, tracked in one place before November ends.',
+      'Plan Christmas without anyone seeing it coming \u2014 wishlists, budgets, and secret gifts on one private board.',
   },
 };
 
@@ -62,9 +68,9 @@ export default function HolidayPlannerPage() {
         {/* ─── HERO ────────────────────────────────────────── */}
         <section className="px-6 pb-10 pt-7 sm:px-8 sm:pt-10">
           <div className="mx-auto max-w-content">
-            <p className="eyebrow-mono mb-3">paid &middot; the whole season, mapped</p>
+            <p className="eyebrow-mono mb-3">live now &middot; {PRICE}</p>
 
-            <h1 className="font-ml-display text-[clamp(30px,9vw,72px)] italic leading-[0.95] text-cream">
+            <h1 className="font-ml-display text-[clamp(28px,8vw,64px)] italic leading-[0.95] text-cream">
               <span className="block">{TITLE_LEAD}</span>
               <FoilText italic className="block font-ml-display font-normal leading-[0.95]">
                 {TITLE_FOIL}
@@ -74,23 +80,22 @@ export default function HolidayPlannerPage() {
             <span className="rule-coral mb-5 mt-6" aria-hidden="true" />
 
             <p className="max-w-prose font-serif text-lg italic leading-relaxed text-blush sm:text-xl">
-              Every gift, every card, every hosting detail &mdash; tracked in one place before
-              November ends.
+              Wishlists, budgets, and secret gifts for the whole family on one private board.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
-                href={BUY_URL}
+                href={APP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
               >
-                Get notified when it ships
+                Get started
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-mono-label text-peach/70">
-              PDF after checkout.
+              Opens holiday.arealtuesday.com in a new tab.
             </p>
           </div>
         </section>
@@ -102,11 +107,11 @@ export default function HolidayPlannerPage() {
               &mdash; what&rsquo;s inside &mdash;
             </p>
             <h2 className="mb-7 mt-3 max-w-prose font-ml-display text-[clamp(28px,6vw,40px)] italic leading-[1.05] text-navy">
-              One PDF. Four sections. The whole season.
+              One board. The whole family. No one sees what&rsquo;s not theirs.
             </h2>
             <p className="mb-8 max-w-prose font-serif text-[16px] italic leading-relaxed text-navy/80">
-              No app to download, no account to make. Just the lists, the tracker, and the
-              calendar &mdash; printable, fillable, repeatable every year.
+              A private web app, not a spreadsheet &mdash; everyone gets their own view, and
+              nobody sees the gifts meant for them.
             </p>
 
             <ul className="space-y-5">
@@ -132,23 +137,23 @@ export default function HolidayPlannerPage() {
           <div className="mx-auto max-w-content">
             <p className="eyebrow-mono mb-3">&mdash; the whole season &mdash;</p>
             <h2 className="mt-3 max-w-prose font-ml-display text-[clamp(32px,7vw,52px)] italic leading-[1.02] text-cream">
-              One list for everything.{' '}
+              One board for everything.{' '}
               <FoilText solid italic className="inline-block font-ml-display font-normal">
-                Not six sticky notes.
+                Not six group texts.
               </FoilText>
             </h2>
             <p className="mt-4 max-w-prose font-serif text-[17px] italic leading-relaxed text-blush">
-              Build it once. Reuse it every year the season comes back around.
+              Set it up once. Reuse it every year the season comes back around.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
-                href={BUY_URL}
+                href={APP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-coral px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-mono-label text-cream transition-colors hover:bg-coral-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
               >
-                Get notified when it ships
+                Get started &mdash; {PRICE}
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </div>

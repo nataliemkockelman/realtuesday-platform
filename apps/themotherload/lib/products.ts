@@ -111,20 +111,20 @@ export const PRODUCTS: Product[] = [
     buyUrl: 'https://gumroad.com/themotherload/road-trip-cheat',
   },
   {
-    // Holiday, Handled — gift list + budget tracker, card & shipping list,
-    // hosting plan, and key-dates calendar for the whole season. Not
-    // packaged yet, so it ships in the same "Coming Soon" mode as Handled:
-    // the landing page is live (voice, structure, and the nav/footer
-    // cross-promo funnel all work) but there's no checkout until the PDF
-    // exists. Flip price + buyUrl to a real Gumroad link once it's built.
+    // The Holiday App — wishlists, budgets, and secret gifts on one private
+    // board. This is a real, live, standalone product (its own codebase, at
+    // holiday.arealtuesday.com), not a Motherload PDF. buyUrl points at our
+    // own on-site landing page (/products/holiday-planner), which explains
+    // the pitch in our voice and sends people to the real app to sign up —
+    // same pattern as the sitewide nav banner.
     slug: 'holiday-planner',
-    name: 'Holiday, Handled',
-    subtitle: 'gift list, budget, cards, and hosting \u2014 the whole season in one place.',
-    coverTitleLines: ['the holiday,'],
-    coverAccent: 'handled.',
+    name: 'Holiday App',
+    subtitle: 'wishlists, budgets, and secret gifts \u2014 one private board for the whole family.',
+    coverTitleLines: ['the holiday', 'app'],
+    coverAccent: 'live now',
     coverTagline: 'the whole season',
     coverNumber: '07',
-    price: 'Coming Soon',
+    price: '$29/yr',
     channel: 'Gumroad',
     buyUrl: '/products/holiday-planner',
   },
