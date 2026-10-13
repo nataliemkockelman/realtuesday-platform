@@ -48,7 +48,7 @@ function HolidayAppBanner() {
       href={HOLIDAY_APP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-center gap-2 bg-coral px-6 py-2.5 text-center font-mono text-[11px] font-semibold uppercase tracking-mono-button text-navy transition-opacity hover:opacity-90 sm:px-8"
+      className="flex items-center justify-center gap-2.5 bg-coral px-6 py-4 text-center font-mono text-[13px] font-semibold uppercase tracking-mono-button text-navy transition-opacity hover:opacity-90 sm:px-8 sm:text-sm"
     >
       <span>The Holiday App is live — plan the whole season in one place</span>
       <span aria-hidden="true">→</span>
